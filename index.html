@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ZIATOGEL Premium Poster Generator</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link
+  rel="preload"
+  as="image"
+  href="https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png"
+>
+
+<style>
+
+:root{
+  --blue:#0878ff;
+  --blue2:#00a8ff;
+  --royal:#082d72;
+  --navy:#030b1b;
+  --deep:#01050d;
+  --gold:#ffd43b;
+  --gold2:#fff2a8;
+  --white:#fff;
+  --muted:#71839d;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  min-height:100%;
+}
+
+body{
+  color:#fff;
+  font-family:Montserrat,Arial,sans-serif;
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(0,119,255,.16),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(0,83,190,.14),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #01050c 0%,
+      #020914 50%,
+      #03132c 100%
+    );
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:300px minmax(0,1fr);
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar{
+  padding:20px 18px;
+  overflow-y:auto;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,18,39,.98),
+      rgba(1,7,16,.98)
+    );
+  border-right:1px solid rgba(255,255,255,.065);
+  box-shadow:
+    12px 0 40px rgba(0,0,0,.22);
+  scrollbar-width:thin;
+  scrollbar-color:rgba(0,145,255,.25) transparent;
+}
+
+.logo{
+  position:relative;
+  text-align:center;
+  margin:3px 0 23px;
+  padding-bottom:15px;
+}
+
+.logo::after{
+  content:"";
+  position:absolute;
+  left:18%;
+  right:18%;
+  bottom:0;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,145,255,.55),
+      rgba(255,212,59,.65),
+      rgba(0,145,255,.55),
+      transparent
+    );
+}
+
+.logo h1{
+  margin:0;
+  font-family:Cinzel,serif;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:3px;
+  background:
+    linear-gradient(
+      180deg,
+      #fff 15%,
+      #dcecff 48%,
+      #65b7ff 100%
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:
+    0 4px 20px rgba(0,126,255,.3);
+}
+
+.logo span{
+  display:block;
+  margin-top:5px;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:4px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+  position:relative;
+  padding:15px;
+  margin-bottom:12px;
+  border-radius:15px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9,40,82,.45),
+      rgba(4,15,30,.72)
+    );
+
+  border:1px solid rgba(103,176,255,.09);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 8px 25px rgba(0,0,0,.12);
+  backdrop-filter:blur(12px);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:15px;
+  right:15px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.12),
+      transparent
+    );
+}
+
+.cardTitle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  margin-bottom:13px;
+
+  color:var(--gold);
+
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2.2px;
+}
+
+.cardTitle::before{
+  content:"";
+
+  width:4px;
+  height:14px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--blue2),
+      var(--gold)
+    );
+
+  box-shadow:
+    0 0 10px rgba(0,168,255,.35);
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.field{
+  margin-bottom:12px;
+}
+
+.field:last-child{
+  margin-bottom:0;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+
+  color:#91a6c2;
+
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+input[type="text"]{
+  width:100%;
+  height:42px;
+
+  padding:0 13px;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9,28,51,.9),
+      rgba(4,15,29,.95)
+    );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  outline:none;
+
+  color:#fff;
+
+  font-family:Montserrat,sans-serif;
+  font-size:10px;
+  font-weight:600;
+
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,.3);
+
+  transition:.2s;
+}
+
+input[type="text"]::placeholder{
+  color:#53647b;
+}
+
+input[type="text"]:focus{
+  background:#071a32;
+
+  border-color:rgba(0,145,255,.7);
+
+  box-shadow:
+    0 0 0 3px rgba(0,145,255,.08),
+    0 0 20px rgba(0,145,255,.08);
+}
+
+
+/* =========================================================
+   FILE
+========================================================= */
+
+.fileBox{
+  padding:17px 13px;
+
+  text-align:center;
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,212,59,.035),
+      rgba(0,126,255,.035)
+    );
+
+  border:1px dashed rgba(255,212,59,.28);
+
+  transition:.2s;
+}
+
+.fileBox:hover{
+  border-color:rgba(255,212,59,.55);
+}
+
+.fileIcon{
+  margin-bottom:5px;
+
+  color:var(--gold);
+
+  font-size:25px;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(255,212,59,.25)
+    );
+}
+
+.fileText{
+  font-size:10px;
+  font-weight:800;
+}
+
+.fileSub{
+  margin:4px 0 10px;
+
+  color:#718096;
+
+  font-size:9px;
+  line-height:1.5;
+}
+
+input[type="file"]{
+  width:100%;
+  color:#fff;
+  font-size:8px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button{
+  position:relative;
+
+  width:100%;
+  height:44px;
+
+  border:0;
+  border-radius:11px;
+
+  cursor:pointer;
+
+  overflow:hidden;
+
+  font-family:Montserrat,sans-serif;
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.8px;
+
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-1px);
+}
+
+button::after{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-120%;
+
+  width:70%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255,255,255,.22),
+      transparent
+    );
+
+  transform:skewX(-20deg);
+
+  transition:.55s;
+}
+
+button:hover::after{
+  left:130%;
+}
+
+.generate{
+  color:#031024;
+
+  background:
+    linear-gradient(
+      110deg,
+      #0878ff 0%,
+      #28a7ff 43%,
+      #ffd43b 100%
+    );
+
+  border:1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 8px 24px rgba(0,119,255,.2),
+    inset 0 1px rgba(255,255,255,.35);
+}
+
+.reset{
+  margin-top:8px;
+
+  color:#ffb7b7;
+
+  background:rgba(255,50,50,.035);
+
+  border:1px solid rgba(255,70,70,.18);
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.info{
+  padding:11px;
+
+  color:#718096;
+
+  font-size:11px;
+  line-height:1.65;
+
+  border-radius:10px;
+
+  background:rgba(255,212,59,.025);
+
+  border:1px solid rgba(255,212,59,.08);
+}
+
+.info b{
+  color:#aebbd0;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.stage{
+  min-width:0;
+
+  padding:20px 24px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(0,92,200,.045),
+      transparent 48%
+    );
+}
+
+.toolbar{
+  width:min(1220px,100%);
+
+  margin-bottom:11px;
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.badge{
+  padding:7px 11px;
+
+  border-radius:20px;
+
+  color:#70ffa8;
+
+  background:rgba(48,255,130,.045);
+
+  border:1px solid rgba(48,255,130,.16);
+
+  font-size:10px;
+  font-weight:800;
+}
+
+.res{
+  color:#fff;
+  font-size:10px;
+}
+
+.canvas{
+  width:min(1220px,100%);
+
+  padding:8px;
+
+  border-radius:19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #09182b,
+      #030b17
+    );
+
+  border:1px solid rgba(255,255,255,.075);
+
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.6),
+    0 0 0 1px rgba(0,126,255,.025);
+}
+
+
+/* =========================================================
+   POSTER
+========================================================= */
+
+.poster{
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:1074 / 802;
+
+  overflow:hidden;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1,8,25,.18),
+      rgba(1,8,25,.08)
+    ),
+    url("https://i.pinimg.com/1200x/34/fa/19/34fa198481453d1f4acf12d6abde8843.jpg");
+
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+
+  isolation:isolate;
+}
+
+.poster::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  z-index:1;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 15%,
+      rgba(255,255,255,.07) 34%,
+      transparent 43%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.02),
+      rgba(0,0,0,.18)
+    );
+
+  pointer-events:none;
+}
+
+.poster::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  z-index:2;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 28%,
+      rgba(0,0,0,.28) 100%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   FRAME
+========================================================= */
+
+.frame,
+.frame2,
+.frame3{
+  position:absolute;
+
+  pointer-events:none;
+
+  z-index:8;
+}
+
+.frame{
+  inset:13px;
+  border:1px solid rgba(255,255,255,.22);
+}
+
+.frame2{
+  inset:20px;
+  border:1px solid rgba(255,212,59,.58);
+}
+
+.frame3{
+  inset:27px;
+  border:1px solid rgba(0,153,255,.55);
+}
+
+
+/* =========================================================
+   CORNERS
+========================================================= */
+
+.corner{
+  position:absolute;
+
+  width:72px;
+  height:72px;
+
+  z-index:9;
+
+  pointer-events:none;
+}
+
+.cTL{
+  left:13px;
+  top:13px;
+
+  border-left:4px solid var(--gold);
+  border-top:4px solid var(--gold);
+}
+
+.cTR{
+  right:13px;
+  top:13px;
+
+  border-right:4px solid var(--gold);
+  border-top:4px solid var(--gold);
+}
+
+.cBL{
+  left:13px;
+  bottom:13px;
+
+  border-left:4px solid var(--gold);
+  border-bottom:4px solid var(--gold);
+}
+
+.cBR{
+  right:13px;
+  bottom:13px;
+
+  border-right:4px solid var(--gold);
+  border-bottom:4px solid var(--gold);
+}
+
+
+/* =========================================================
+   PROOF
+========================================================= */
+
+.proof{
+  position:absolute;
+
+  left:5.2%;
+  top:8%;
+
+  width:40.5%;
+  height:84%;
+
+  z-index:10;
+  overflow:hidden;
+
+  border-radius:22px;
+
+  background:#fff;
+
+  border:4px solid #0878ff;
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.55),
+    0 0 0 2px rgba(0,126,255,.25),
+    0 0 20px rgba(0,126,255,.30);
+
+  transform:translateZ(0);
+  isolation:isolate;
+}
+
+.proof::before{
+  content:"";
+
+  position:absolute;
+  inset:8px;
+
+  z-index:20;
+
+  border:5px solid #0878ff;
+
+  border-radius:15px;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.9),
+    0 0 12px rgba(0,126,255,.45),
+    inset 0 0 12px rgba(0,126,255,.15);
+
+  pointer-events:none;
+}
+
+.proof,
+.proofImg{
+  max-width:100%;
+  max-height:100%;
+}
+
+.proof::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:21;
+
+  border-radius:22px;
+
+  border:1px solid rgba(255,255,255,.65);
+
+  box-shadow:
+    inset 0 0 0 2px rgba(0,126,255,.25),
+    inset 0 -20px 35px rgba(0,0,0,.08);
+
+  pointer-events:none;
+}
+
+.proofImg{
+  display:none;
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:center center;
+
+  background:#fff;
+
+  margin:0;
+  padding:0;
+  border:0;
+
+  z-index:1;
+}
+
+.proofEmpty{
+  width:100%;
+  height:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  color:#8b929c;
+
+  text-align:center;
+}
+
+.proofIcon{
+  width:74px;
+  height:74px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:21px;
+
+  background:#eef3f8;
+
+  color:#9ca8b6;
+
+  font-size:33px;
+
+  margin-bottom:15px;
+}
+
+.proofEmpty strong{
+  font-size:15px;
+  letter-spacing:.5px;
+}
+
+.proofEmpty span{
+  margin-top:5px;
+  font-size:10px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content{
+  position:absolute;
+
+  z-index:10;
+
+  right:4.5%;
+  top:10.5%;
+
+  width:46%;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   HEADLINE
+========================================================= */
+
+.headline{
+  margin:0;
+
+  font-family:Anton,sans-serif;
+
+  font-weight:900;
+
+  font-size:clamp(42px,5vw,68px);
+
+  line-height:.9;
+
+  letter-spacing:2px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #eef7ff 28%,
+      #ffe978 67%,
+      #ffc400 100%
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  filter:
+    drop-shadow(0 5px 7px rgba(0,0,0,.55));
+
+  transform:scaleX(.95);
+}
+
+.subline{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:12px;
+
+  margin:11px 0 16px;
+
+  color:#fff;
+
+  font-family:"Bebas Neue",sans-serif;
+
+  font-size:19px;
+
+  letter-spacing:5px;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.4);
+}
+
+.subline::before,
+.subline::after{
+  content:"";
+
+  width:42px;
+  height:2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold)
+    );
+}
+
+.subline::after{
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   INFO BOXES
+========================================================= */
+
+.uidBox,
+.gameBox,
+.amountBox{
+  background:
+    linear-gradient(
+      145deg,
+      rgba(4,20,48,.94),
+      rgba(2,10,25,.94)
+    );
+
+  border:1px solid rgba(255,212,59,.62);
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.3),
+    inset 0 1px rgba(255,255,255,.055),
+    inset 0 0 24px rgba(0,126,255,.08);
+}
+
+.uidBox{
+  position:relative;
+
+  padding:10px 20px 14px;
+
+  margin-bottom:9px;
+
+  border-radius:15px;
+}
+
+.uidLabel{
+  color:var(--gold);
+
+  font-size:12px;
+  font-weight:900;
+
+  letter-spacing:3px;
+}
+
+.uid{
+  margin-top:4px;
+
+  font-family:Montserrat,sans-serif;
+
+  font-size:clamp(24px,3.2vw,40px);
+
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  color:#fff;
+
+  text-shadow:
+    0 3px 12px rgba(0,0,0,.65),
+    0 0 18px rgba(0,126,255,.15);
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   GAME
+========================================================= */
+
+.gameBox{
+  position:relative;
+
+  padding:9px 18px 13px;
+
+  margin-bottom:9px;
+
+  border-radius:15px;
+}
+
+.gameLabel{
+  margin-bottom:4px;
+
+  color:var(--gold);
+
+  font-size:13px;
+  font-weight:900;
+
+  letter-spacing:2px;
+}
+
+.gameName{
+  font-family:Montserrat,sans-serif;
+
+  font-size:28px;
+
+  font-weight:800;
+
+  letter-spacing:.3px;
+
+  color:#fff;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+
+  text-shadow:
+    0 3px 12px rgba(0,0,0,.65);
+}
+
+
+/* =========================================================
+   AMOUNT
+========================================================= */
+
+.amountBox{
+  padding:11px 18px 15px;
+
+  border-radius:15px;
+}
+
+.amountLabel{
+  display:inline-block;
+
+  padding:4px 22px;
+
+  border-radius:20px;
+
+  color:var(--gold);
+
+  border:1px solid rgba(255,212,59,.6);
+
+  background:rgba(255,212,59,.025);
+
+  font-size:12px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+}
+
+.amount{
+  margin-top:7px;
+
+  font-family:Cinzel,serif;
+
+  font-size:clamp(27px,3.5vw,45px);
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+
+  color:#fff8ce;
+
+  text-shadow:
+    0 3px 14px rgba(255,212,59,.2),
+    0 5px 10px rgba(0,0,0,.6);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand{
+  margin-top:42px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:12px;
+
+  transform:translateY(70px);
+}
+
+.brandCircle{
+  position:relative;
+
+  width:100px;
+  height:100px;
+
+  flex-shrink:0;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      #123d78 0%,
+      #071a38 55%,
+      #020914 100%
+    );
+
+  border:1.5px solid var(--gold);
+
+  box-shadow:
+    0 0 0 2px rgba(0,126,255,.28),
+    0 8px 25px rgba(0,0,0,.45),
+    0 0 24px rgba(0,126,255,.3),
+    inset 0 0 16px rgba(0,126,255,.22);
+
+  overflow:hidden;
+}
+
+.brandCircle img{
+  width:88%;
+  height:88%;
+
+  object-fit:contain;
+
+  display:block;
+
+  position:relative;
+  z-index:2;
+
+  opacity:1 !important;
+
+  visibility:visible !important;
+
+  filter:
+    drop-shadow(0 2px 4px rgba(0,0,0,.65))
+    drop-shadow(0 0 8px rgba(255,212,59,.25));
+}
+
+.brandCircle::before{
+  content:"";
+
+  position:absolute;
+
+  inset:5px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(255,255,255,.2);
+
+  pointer-events:none;
+
+  z-index:3;
+}
+
+.brandCircle::after{
+  content:"";
+
+  position:absolute;
+
+  width:18px;
+  height:8px;
+
+  top:8px;
+  left:15px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.28);
+
+  filter:blur(5px);
+
+  transform:rotate(-25deg);
+
+  pointer-events:none;
+
+  z-index:4;
+}
+
+.brandName{
+  text-align:left;
+}
+
+.brandName strong{
+  display:block;
+
+  font-family:Cinzel,serif;
+
+  font-size:40px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff 0%,
+      #fff5b5 48%,
+      #ffd43b 100%
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:#ffef00;
+
+  text-shadow:
+    0 3px 10px rgba(0,0,0,.55);
+}
+
+.brandName span{
+  display:block;
+
+  margin-top:3px;
+
+  color:#fff;
+
+  font-size:14px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+}
+
+.stars{
+  margin-top:4px;
+
+  color:var(--gold);
+
+  font-size:30px;
+
+  letter-spacing:3px;
+
+  text-shadow:
+    0 0 8px rgba(255,212,59,.5);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:25px;
+
+  z-index:9999;
+
+  transform:
+    translate(-50%,20px);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  padding:12px 18px;
+
+  border-radius:12px;
+
+  background:
+    rgba(4,17,36,.95);
+
+  border:1px solid rgba(0,145,255,.3);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+  color:#fff;
+
+  font-size:11px;
+
+  font-weight:700;
+
+  transition:.25s;
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+    translate(-50%,0);
+}
+
+.toast.success{
+  border-color:rgba(50,255,140,.35);
+}
+
+.toast.error{
+  border-color:rgba(255,70,70,.4);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+  .app{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    border-right:0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .stage{
+    padding:12px;
+  }
+}
+
+@media(max-width:600px){
+
+  .content{
+    right:4%;
+    width:47%;
+  }
+
+  .proof{
+    left:4%;
+    width:41%;
+
+    border-radius:14px;
+  }
+
+  .brand{
+    transform:
+      translateY(10px)
+      scale(.82);
+  }
+
+  .headline{
+    font-size:36px;
+  }
+
+  .gameName{
+    font-size:20px;
+  }
+
+  .amount{
+    font-size:25px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+  <div class="logo">
+
+    <h1>ZIATOGEL</h1>
+
+    <span>
+      GENERATOR POSTER
+    </span>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="cardTitle">
+      INPUT DATA
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        USER ID
+      </label>
+
+      <input
+        id="userId"
+        type="text"
+        placeholder="Contoh: ZIA12345"
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        NAMA GAME
+      </label>
+
+      <input
+        id="gameName"
+        type="text"
+        placeholder="Contoh: Sweet Bonanza"
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        TOTAL WINNINGS
+      </label>
+
+      <input
+        id="amount"
+        type="text"
+        placeholder="Contoh: 25.000.000"
+        inputmode="numeric"
+        autocomplete="off"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="cardTitle">
+      BUKTI PEMENANGAN
+    </div>
+
+    <div class="fileBox">
+
+      <div class="fileIcon">
+        ▣
+      </div>
+
+      <div class="fileText">
+        Upload Screenshot
+      </div>
+
+      <div class="fileSub">
+        PNG / JPG / WEBP<br>
+        Disarankan gambar resolusi tinggi
+      </div>
+
+      <input
+        id="proofFile"
+        type="file"
+        accept="image/png,image/jpeg,image/webp"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <button
+      id="generateBtn"
+      class="generate"
+    >
+      ✦ GENERATE POSTER
+    </button>
+
+
+    <button
+      id="resetBtn"
+      class="reset"
+    >
+      RESET DATA
+    </button>
+
+  </div>
+
+
+  <div class="info">
+
+    <b>INFO</b><br>
+
+    Isi data member dan upload bukti
+    pemenangan. Poster akan langsung
+    tampil di area preview dan bisa
+    langsung di-screenshot.
+
+  </div>
+
+</aside>
+
+
+<!-- =====================================================
+     STAGE
+====================================================== -->
+
+<main class="stage">
+
+  <div class="toolbar">
+
+    <div class="badge">
+      ● READY
+    </div>
+
+    <div class="res">
+      PREMIUM POSTER PREVIEW
+    </div>
+
+  </div>
+
+
+  <div class="canvas">
+
+    <div
+      id="poster"
+      class="poster"
+    >
+
+      <div class="frame"></div>
+      <div class="frame2"></div>
+      <div class="frame3"></div>
+
+
+      <div class="corner cTL"></div>
+      <div class="corner cTR"></div>
+      <div class="corner cBL"></div>
+      <div class="corner cBR"></div>
+
+
+      <!-- =================================================
+           PROOF
+      ================================================== -->
+
+      <div class="proof">
+
+        <img
+          id="proofImg"
+          class="proofImg"
+          alt="Proof"
+        >
+
+        <div
+          id="proofEmpty"
+          class="proofEmpty"
+        >
+
+          <div class="proofIcon">
+            ▣
+          </div>
+
+          <strong>
+            PROOF WINNER
+          </strong>
+
+          <span>
+            Upload screenshot untuk preview
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           CONTENT
+      ================================================== -->
+
+      <div class="content">
+
+        <h1 class="headline">
+          SELAMAT
+        </h1>
+
+
+        <div class="subline">
+          KEPADA MEMBER SETIA KAMI
+        </div>
+
+
+        <div class="uidBox">
+
+          <div class="uidLabel">
+            USER ID
+          </div>
+
+          <div
+            id="previewUserId"
+            class="uid"
+          >
+            USER ID
+          </div>
+
+        </div>
+
+
+        <div class="gameBox">
+
+          <div class="gameLabel">
+            JP PADA PERMAINAN
+          </div>
+
+          <div
+            id="previewGame"
+            class="gameName"
+          >
+            GAME NAME
+          </div>
+
+        </div>
+
+
+        <div class="amountBox">
+
+          <div class="amountLabel">
+            TOTAL KEMENANGAN
+          </div>
+
+          <div
+            id="previewAmount"
+            class="amount"
+          >
+            Rp 0
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BRAND
+        ================================================== -->
+
+        <div class="brand">
+
+          <div class="brandCircle">
+
+            <!-- LOGO PERMANEN -->
+
+            <img
+              id="brandLogo"
+              src="https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png"
+              alt="ZIATOGEL Logo"
+              width="512"
+              height="512"
+            >
+
+          </div>
+
+
+          <div class="brandName">
+
+            <strong>
+              ZIATOGEL
+            </strong>
+
+            <span>
+              Game Online Terpercaya
+            </span>
+
+            <div class="stars">
+              ★ ★ ★ ★ ★
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+</div>
+
+
+<div
+  id="toast"
+  class="toast"
+></div>
+
+
+<script>
+
+(() => {
+
+"use strict";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const $ = id =>
+  document.getElementById(id);
+
+
+const userIdInput =
+  $("userId");
+
+const gameInput =
+  $("gameName");
+
+const amountInput =
+  $("amount");
+
+const proofFile =
+  $("proofFile");
+
+const proofImg =
+  $("proofImg");
+
+const proofEmpty =
+  $("proofEmpty");
+
+const brandLogo =
+  $("brandLogo");
+
+const previewUserId =
+  $("previewUserId");
+
+const previewGame =
+  $("previewGame");
+
+const previewAmount =
+  $("previewAmount");
+
+const generateBtn =
+  $("generateBtn");
+
+const resetBtn =
+  $("resetBtn");
+
+const poster =
+  $("poster");
+
+const toast =
+  $("toast");
+
+
+/* =========================================================
+   FIXED LOGO
+========================================================= */
+
+const FIXED_LOGO =
+  "https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png";
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const STORAGE_KEY =
+  "ziatogel_premium_poster_v4";
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer = null;
+
+function showToast(
+  message,
+  type = "success"
+){
+
+  clearTimeout(toastTimer);
+
+  toast.textContent =
+    message;
+
+  toast.className =
+    "toast show " + type;
+
+  toastTimer =
+    setTimeout(() => {
+
+      toast.className =
+        "toast";
+
+    },2400);
+
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+function cleanNumber(value){
+
+  return String(value || "")
+    .replace(/[^\d]/g,"");
+
+}
+
+
+function formatRupiah(value){
+
+  const number =
+    cleanNumber(value);
+
+  if(!number){
+    return "Rp 0";
+  }
+
+  return "Rp " +
+    Number(number)
+      .toLocaleString("id-ID");
+
+}
+
+
+/* =========================================================
+   UPDATE PREVIEW
+========================================================= */
+
+function updatePreview(){
+
+  const uid =
+    userIdInput.value.trim();
+
+  const game =
+    gameInput.value.trim();
+
+  const amount =
+    amountInput.value.trim();
+
+
+  previewUserId.textContent =
+    uid || "USER ID";
+
+  previewGame.textContent =
+    game || "GAME NAME";
+
+  previewAmount.textContent =
+    formatRupiah(amount);
+
+
+  saveData();
+
+}
+
+
+/* =========================================================
+   FILE TO DATA URL
+========================================================= */
+
+function fileToDataURL(file){
+
+  return new Promise(
+    (resolve,reject) => {
+
+      if(!file){
+        resolve("");
+        return;
+      }
+
+      const reader =
+        new FileReader();
+
+      reader.onload =
+        () => resolve(
+          reader.result
+        );
+
+      reader.onerror =
+        reject;
+
+      reader.readAsDataURL(file);
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   LOAD IMAGE
+========================================================= */
+
+function loadImage(src){
+
+  return new Promise(
+    (resolve,reject) => {
+
+      if(!src){
+        resolve(null);
+        return;
+      }
+
+      const img =
+        new Image();
+
+      img.onload =
+        () => resolve(img);
+
+      img.onerror =
+        () => reject(
+          new Error(
+            "Gambar gagal dimuat"
+          )
+        );
+
+      img.src =
+        src;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   FIXED LOGO
+========================================================= */
+
+function ensureFixedLogo(){
+
+  brandLogo.src =
+    FIXED_LOGO;
+
+  brandLogo.style.display =
+    "block";
+
+  brandLogo.style.visibility =
+    "visible";
+
+  brandLogo.style.opacity =
+    "1";
+
+}
+
+
+/* =========================================================
+   CHECK LOGO
+========================================================= */
+
+function checkLogo(){
+
+  ensureFixedLogo();
+
+  if(
+    brandLogo.complete &&
+    brandLogo.naturalWidth > 0
+  ){
+
+    return;
+
+  }
+
+  brandLogo.onload =
+    () => {
+
+      brandLogo.style.display =
+        "block";
+
+      brandLogo.style.visibility =
+        "visible";
+
+      brandLogo.style.opacity =
+        "1";
+
+    };
+
+
+  brandLogo.onerror =
+    () => {
+
+      console.error(
+        "Logo gagal dimuat:",
+        FIXED_LOGO
+      );
+
+    };
+
+}
+
+
+/* =========================================================
+   PROOF UPLOAD
+========================================================= */
+
+proofFile.addEventListener(
+  "change",
+  async event => {
+
+    const file =
+      event.target.files?.[0];
+
+    if(!file){
+      return;
+    }
+
+
+    try{
+
+      const dataURL =
+        await fileToDataURL(file);
+
+      await loadImage(
+        dataURL
+      );
+
+
+      proofImg.src =
+        dataURL;
+
+      proofImg.style.display =
+        "block";
+
+      proofEmpty.style.display =
+        "none";
+
+
+      saveData();
+
+
+      showToast(
+        "Bukti berhasil dimuat"
+      );
+
+
+    }catch(error){
+
+      console.error(error);
+
+      showToast(
+        "Gagal membaca gambar",
+        "error"
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INPUT EVENTS
+========================================================= */
+
+[
+  userIdInput,
+  gameInput,
+  amountInput
+
+].forEach(input => {
+
+  input.addEventListener(
+    "input",
+    updatePreview
+  );
+
+});
+
+
+/* =========================================================
+   AMOUNT
+========================================================= */
+
+amountInput.addEventListener(
+  "blur",
+  () => {
+
+    const value =
+      cleanNumber(
+        amountInput.value
+      );
+
+
+    if(value){
+
+      amountInput.value =
+        Number(value)
+          .toLocaleString(
+            "id-ID"
+          );
+
+    }
+
+
+    updatePreview();
+
+  }
+);
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+function saveData(){
+
+  try{
+
+    const data = {
+
+      userId:
+        userIdInput.value,
+
+      game:
+        gameInput.value,
+
+      amount:
+        amountInput.value,
+
+      proof:
+        proofImg.src || ""
+
+    };
+
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+
+
+  }catch(error){
+
+    console.warn(
+      "Storage save failed:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   LOAD DATA
+========================================================= */
+
+async function loadData(){
+
+  try{
+
+    const raw =
+      localStorage.getItem(
+        STORAGE_KEY
+      );
+
+
+    if(raw){
+
+      const data =
+        JSON.parse(raw);
+
+
+      userIdInput.value =
+        data.userId || "";
+
+      gameInput.value =
+        data.game || "";
+
+      amountInput.value =
+        data.amount || "";
+
+
+      if(data.proof){
+
+        try{
+
+          await loadImage(
+            data.proof
+          );
+
+
+          proofImg.src =
+            data.proof;
+
+          proofImg.style.display =
+            "block";
+
+          proofEmpty.style.display =
+            "none";
+
+
+        }catch(error){
+
+          console.warn(
+            "Stored proof invalid"
+          );
+
+        }
+
+      }
+
+    }
+
+
+    ensureFixedLogo();
+
+    updatePreview();
+
+
+  }catch(error){
+
+    console.warn(
+      "Storage load failed:",
+      error
+    );
+
+    ensureFixedLogo();
+
+  }
+
+}
+
+
+/* =========================================================
+   GENERATE
+========================================================= */
+
+generateBtn.addEventListener(
+  "click",
+  () => {
+
+    updatePreview();
+
+    ensureFixedLogo();
+
+
+    poster.animate(
+      [
+        {
+          transform:"scale(.995)"
+        },
+        {
+          transform:"scale(1)"
+        }
+
+      ],
+      {
+        duration:260,
+        easing:"ease-out"
+      }
+    );
+
+
+    showToast(
+      "Poster berhasil diperbarui"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+resetBtn.addEventListener(
+  "click",
+  () => {
+
+    const confirmed =
+      confirm(
+        "Reset semua data poster?"
+      );
+
+
+    if(!confirmed){
+      return;
+    }
+
+
+    userIdInput.value =
+      "";
+
+    gameInput.value =
+      "";
+
+    amountInput.value =
+      "";
+
+    proofFile.value =
+      "";
+
+
+    proofImg.removeAttribute(
+      "src"
+    );
+
+    proofImg.style.display =
+      "none";
+
+
+    proofEmpty.style.display =
+      "flex";
+
+
+    previewUserId.textContent =
+      "USER ID";
+
+    previewGame.textContent =
+      "GAME NAME";
+
+    previewAmount.textContent =
+      "Rp 0";
+
+
+    localStorage.removeItem(
+      STORAGE_KEY
+    );
+
+
+    ensureFixedLogo();
+
+
+    showToast(
+      "Data berhasil direset"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+ensureFixedLogo();
+
+checkLogo();
+
+loadData();
+
+
+})();
+
+</script>
+
+</body>
+</html>
