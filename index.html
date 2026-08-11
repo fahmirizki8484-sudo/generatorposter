@@ -44,6 +44,7 @@ body{
 body{
   color:#fff;
   font-family:Montserrat,Arial,sans-serif;
+
   background:
     radial-gradient(
       circle at 75% 0%,
@@ -82,15 +83,19 @@ body{
 .sidebar{
   padding:20px 18px;
   overflow-y:auto;
+
   background:
     linear-gradient(
       180deg,
       rgba(5,18,39,.98),
       rgba(1,7,16,.98)
     );
+
   border-right:1px solid rgba(255,255,255,.065);
+
   box-shadow:
     12px 0 40px rgba(0,0,0,.22);
+
   scrollbar-width:thin;
   scrollbar-color:rgba(0,145,255,.25) transparent;
 }
@@ -123,10 +128,12 @@ body{
 
 .logo h1{
   margin:0;
+
   font-family:Cinzel,serif;
   font-size:30px;
   font-weight:900;
   letter-spacing:3px;
+
   background:
     linear-gradient(
       180deg,
@@ -137,7 +144,9 @@ body{
 
   -webkit-background-clip:text;
   background-clip:text;
+
   color:transparent;
+
   text-shadow:
     0 4px 20px rgba(0,126,255,.3);
 }
@@ -145,7 +154,9 @@ body{
 .logo span{
   display:block;
   margin-top:5px;
+
   color:var(--gold);
+
   font-size:10px;
   font-weight:900;
   letter-spacing:4px;
@@ -158,9 +169,12 @@ body{
 
 .card{
   position:relative;
+
   padding:15px;
   margin-bottom:12px;
+
   border-radius:15px;
+
   background:
     linear-gradient(
       145deg,
@@ -169,18 +183,23 @@ body{
     );
 
   border:1px solid rgba(103,176,255,.09);
+
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.045),
     0 8px 25px rgba(0,0,0,.12);
+
   backdrop-filter:blur(12px);
 }
 
 .card::before{
   content:"";
+
   position:absolute;
+
   top:0;
   left:15px;
   right:15px;
+
   height:1px;
 
   background:
@@ -572,6 +591,9 @@ button:hover::after{
   isolation:isolate;
 }
 
+
+/* PREMIUM LIGHT OVERLAY */
+
 .poster::before{
   content:"";
 
@@ -581,12 +603,26 @@ button:hover::after{
   z-index:1;
 
   background:
+
+    radial-gradient(
+      circle at 12% 50%,
+      rgba(0,140,255,.22),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 86% 45%,
+      rgba(255,204,45,.11),
+      transparent 25%
+    ),
+
     linear-gradient(
       115deg,
       transparent 15%,
       rgba(255,255,255,.07) 34%,
       transparent 43%
     ),
+
     linear-gradient(
       180deg,
       rgba(0,0,0,.02),
@@ -595,6 +631,9 @@ button:hover::after{
 
   pointer-events:none;
 }
+
+
+/* VIGNETTE */
 
 .poster::after{
   content:"";
@@ -605,10 +644,12 @@ button:hover::after{
   z-index:2;
 
   background:
+
     radial-gradient(
       circle at 50% 50%,
-      transparent 28%,
-      rgba(0,0,0,.28) 100%
+      transparent 25%,
+      rgba(0,0,0,.18) 65%,
+      rgba(0,0,0,.42) 100%
     );
 
   pointer-events:none;
@@ -631,17 +672,29 @@ button:hover::after{
 
 .frame{
   inset:13px;
-  border:1px solid rgba(255,255,255,.22);
+
+  border:1px solid rgba(255,255,255,.25);
+
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,.025);
 }
 
 .frame2{
   inset:20px;
+
   border:1px solid rgba(255,212,59,.58);
+
+  box-shadow:
+    0 0 12px rgba(255,212,59,.08);
 }
 
 .frame3{
   inset:27px;
+
   border:1px solid rgba(0,153,255,.55);
+
+  box-shadow:
+    0 0 15px rgba(0,153,255,.10);
 }
 
 
@@ -658,6 +711,12 @@ button:hover::after{
   z-index:9;
 
   pointer-events:none;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(255,212,59,.3)
+    );
 }
 
 .cTL{
@@ -707,6 +766,7 @@ button:hover::after{
   height:84%;
 
   z-index:10;
+
   overflow:hidden;
 
   border-radius:22px;
@@ -716,11 +776,17 @@ button:hover::after{
   border:4px solid #0878ff;
 
   box-shadow:
+
     0 20px 45px rgba(0,0,0,.55),
+
     0 0 0 2px rgba(0,126,255,.25),
-    0 0 20px rgba(0,126,255,.30);
+
+    0 0 25px rgba(0,126,255,.35),
+
+    inset 0 0 20px rgba(0,126,255,.08);
 
   transform:translateZ(0);
+
   isolation:isolate;
 }
 
@@ -728,6 +794,7 @@ button:hover::after{
   content:"";
 
   position:absolute;
+
   inset:8px;
 
   z-index:20;
@@ -737,17 +804,14 @@ button:hover::after{
   border-radius:15px;
 
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.9),
+
+    0 0 0 1px rgba(255,255,255,.95),
+
     0 0 12px rgba(0,126,255,.45),
+
     inset 0 0 12px rgba(0,126,255,.15);
 
   pointer-events:none;
-}
-
-.proof,
-.proofImg{
-  max-width:100%;
-  max-height:100%;
 }
 
 .proof::after{
@@ -761,13 +825,21 @@ button:hover::after{
 
   border-radius:22px;
 
-  border:1px solid rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.8);
 
   box-shadow:
+
     inset 0 0 0 2px rgba(0,126,255,.25),
+
     inset 0 -20px 35px rgba(0,0,0,.08);
 
   pointer-events:none;
+}
+
+.proof,
+.proofImg{
+  max-width:100%;
+  max-height:100%;
 }
 
 .proofImg{
@@ -876,8 +948,8 @@ button:hover::after{
     linear-gradient(
       180deg,
       #ffffff 0%,
-      #eef7ff 28%,
-      #ffe978 67%,
+      #eef7ff 25%,
+      #ffe978 62%,
       #ffc400 100%
     );
 
@@ -887,7 +959,8 @@ button:hover::after{
   color:transparent;
 
   filter:
-    drop-shadow(0 5px 7px rgba(0,0,0,.55));
+    drop-shadow(0 5px 7px rgba(0,0,0,.55))
+    drop-shadow(0 0 12px rgba(255,210,55,.12));
 
   transform:scaleX(.95);
 }
@@ -927,6 +1000,9 @@ button:hover::after{
       transparent,
       var(--gold)
     );
+
+  box-shadow:
+    0 0 8px rgba(255,212,59,.3);
 }
 
 .subline::after{
@@ -946,42 +1022,134 @@ button:hover::after{
 .uidBox,
 .gameBox,
 .amountBox{
+  position:relative;
+  overflow:hidden;
   background:
     linear-gradient(
       145deg,
-      rgba(4,20,48,.94),
-      rgba(2,10,25,.94)
+      rgba(7,31,69,.96) 0%,
+      rgba(3,15,36,.97) 55%,
+      rgba(2,9,24,.98) 100%
+    );
+  border:2px solid rgba(0,153,255,.48);
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.38),
+    0 0 0 1px rgba(255,255,255,.025),
+    inset 0 1px 0 rgba(255,255,255,.09),
+    inset 0 0 30px rgba(0,126,255,.08);
+
+  isolation:isolate;
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+/* SHINE BAGIAN ATAS */
+
+.uidBox::before,
+.gameBox::before,
+.amountBox::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:8%;
+  right:8%;
+  height:2px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #00a8ff 25%,
+      #ffffff 50%,
+      #ffd43b 75%,
+      transparent
     );
 
-  border:1px solid rgba(255,212,59,.62);
-
+  opacity:.9;
   box-shadow:
-    0 12px 28px rgba(0,0,0,.3),
-    inset 0 1px rgba(255,255,255,.055),
-    inset 0 0 24px rgba(0,126,255,.08);
+    0 0 10px rgba(0,168,255,.45);
+  pointer-events:none;
 }
+
+
+/* GLOW HALUS DI DALAM BOX */
+
+.uidBox::after,
+.gameBox::after,
+.amountBox::after{
+  content:"";
+  position:absolute;
+  width:160px;
+  height:160px;
+  top:-90px;
+  right:-70px;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,168,255,.15),
+      transparent 68%
+    );
+  pointer-events:none;
+  z-index:-1;
+}
+
+
+/* =========================================================
+   USER ID
+========================================================= */
 
 .uidBox{
-  position:relative;
-
-  padding:10px 20px 14px;
-
+  padding:12px 20px 15px;
   margin-bottom:9px;
-
-  border-radius:15px;
+  border-radius:16px;
 }
+
+.uidBox:hover{
+  border-color:rgba(0,168,255,.72);
+  box-shadow:
+    0 18px 38px rgba(0,0,0,.42),
+    0 0 22px rgba(0,126,255,.12),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+
+/* LABEL USER ID */
 
 .uidLabel{
-  color:var(--gold);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px 14px;
+  border-radius:20px;
+  color:#ffe47a;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,212,59,.12),
+      rgba(255,212,59,.035)
+    );
 
-  font-size:12px;
+  border:1px solid rgba(255,212,59,.45);
+
+  box-shadow:
+    0 0 12px rgba(255,212,59,.08),
+    inset 0 1px rgba(255,255,255,.08);
+
+  font-size:10px;
   font-weight:900;
-
-  letter-spacing:3px;
+  letter-spacing:2.5px;
 }
 
+
+/* VALUE USER ID */
+
 .uid{
-  margin-top:4px;
+  position:relative;
+
+  margin-top:7px;
 
   font-family:Montserrat,sans-serif;
 
@@ -994,44 +1162,82 @@ button:hover::after{
   color:#fff;
 
   text-shadow:
-    0 3px 12px rgba(0,0,0,.65),
-    0 0 18px rgba(0,126,255,.15);
+    0 3px 12px rgba(0,0,0,.7),
+    0 0 18px rgba(0,153,255,.22);
 
   white-space:nowrap;
 }
 
 
 /* =========================================================
-   GAME
+   GAME BOX
 ========================================================= */
 
 .gameBox{
-  position:relative;
-
-  padding:9px 18px 13px;
+  padding:11px 18px 14px;
 
   margin-bottom:9px;
 
-  border-radius:15px;
+  border-radius:16px;
 }
 
+.gameBox:hover{
+  border-color:rgba(0,168,255,.72);
+
+  box-shadow:
+    0 18px 38px rgba(0,0,0,.42),
+    0 0 22px rgba(0,126,255,.12),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+
+/* LABEL GAME */
+
 .gameLabel{
-  margin-bottom:4px;
+  display:inline-flex;
 
-  color:var(--gold);
+  align-items:center;
+  justify-content:center;
 
-  font-size:13px;
+  margin-bottom:6px;
+
+  padding:4px 15px;
+
+  border-radius:20px;
+
+  color:#ffe47a;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,212,59,.12),
+      rgba(255,212,59,.035)
+    );
+
+  border:1px solid rgba(255,212,59,.45);
+
+  box-shadow:
+    0 0 12px rgba(255,212,59,.08),
+    inset 0 1px rgba(255,255,255,.08);
+
+  font-size:10px;
+
   font-weight:900;
 
   letter-spacing:2px;
 }
 
+
+/* NAMA GAME */
+
 .gameName{
+  position:relative;
+
   font-family:Montserrat,sans-serif;
 
   font-size:28px;
 
-  font-weight:800;
+  font-weight:900;
 
   letter-spacing:.3px;
 
@@ -1044,42 +1250,81 @@ button:hover::after{
   text-overflow:ellipsis;
 
   text-shadow:
-    0 3px 12px rgba(0,0,0,.65);
+    0 3px 12px rgba(0,0,0,.7),
+    0 0 14px rgba(255,255,255,.08);
 }
 
 
 /* =========================================================
-   AMOUNT
+   AMOUNT BOX
 ========================================================= */
 
 .amountBox{
-  padding:11px 18px 15px;
+  padding:12px 18px 16px;
 
-  border-radius:15px;
+  border-radius:16px;
+
+  border-color:rgba(255,212,59,.52);
+
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.4),
+    0 0 0 1px rgba(255,212,59,.035),
+    0 0 24px rgba(255,212,59,.06),
+    inset 0 1px 0 rgba(255,255,255,.09),
+    inset 0 0 30px rgba(0,126,255,.08);
 }
 
-.amountLabel{
-  display:inline-block;
+.amountBox:hover{
+  border-color:rgba(255,212,59,.82);
 
-  padding:4px 22px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.45),
+    0 0 26px rgba(255,212,59,.12),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+
+/* LABEL TOTAL */
+
+.amountLabel{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:5px 20px;
 
   border-radius:20px;
 
-  color:var(--gold);
+  color:#fff1a8;
 
-  border:1px solid rgba(255,212,59,.6);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,212,59,.18),
+      rgba(255,212,59,.045)
+    );
 
-  background:rgba(255,212,59,.025);
+  border:1px solid rgba(255,212,59,.65);
 
-  font-size:12px;
+  box-shadow:
+    0 0 15px rgba(255,212,59,.1),
+    inset 0 1px rgba(255,255,255,.12);
+
+  font-size:10px;
 
   font-weight:900;
 
-  letter-spacing:3px;
+  letter-spacing:2.5px;
 }
 
+
+/* NOMINAL */
+
 .amount{
-  margin-top:7px;
+  position:relative;
+
+  margin-top:8px;
 
   font-family:Cinzel,serif;
 
@@ -1089,11 +1334,52 @@ button:hover::after{
 
   letter-spacing:.5px;
 
-  color:#fff8ce;
+  color:#fff;
 
-  text-shadow:
-    0 3px 14px rgba(255,212,59,.2),
-    0 5px 10px rgba(0,0,0,.6);
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fff9d6 45%,
+      #ffd43b 100%
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  text-shadow:none;
+
+  filter:
+    drop-shadow(0 4px 7px rgba(0,0,0,.65))
+    drop-shadow(0 0 12px rgba(255,212,59,.18));
+}
+
+
+/* GARIS KECIL DI BAWAH NOMINAL */
+
+.amountBox .amount::after{
+  content:"";
+
+  position:absolute;
+
+  left:25%;
+  right:25%;
+  bottom:-7px;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,212,59,.75),
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px rgba(255,212,59,.35);
 }
 
 
@@ -1112,6 +1398,9 @@ button:hover::after{
   gap:12px;
 
   transform:translateY(70px);
+
+  filter:
+    drop-shadow(0 8px 18px rgba(0,0,0,.35));
 }
 
 .brandCircle{
@@ -1123,12 +1412,12 @@ button:hover::after{
   flex-shrink:0;
 
   display:grid;
-
   place-items:center;
 
   border-radius:50%;
 
   background:
+
     radial-gradient(
       circle at 35% 25%,
       #123d78 0%,
@@ -1139,10 +1428,16 @@ button:hover::after{
   border:1.5px solid var(--gold);
 
   box-shadow:
+
     0 0 0 2px rgba(0,126,255,.28),
+
     0 8px 25px rgba(0,0,0,.45),
+
     0 0 24px rgba(0,126,255,.3),
-    inset 0 0 16px rgba(0,126,255,.22);
+
+    inset 0 0 16px rgba(0,126,255,.22),
+
+    inset 0 0 0 1px rgba(255,255,255,.12);
 
   overflow:hidden;
 }
@@ -1156,6 +1451,7 @@ button:hover::after{
   display:block;
 
   position:relative;
+
   z-index:2;
 
   opacity:1 !important;
@@ -1163,8 +1459,14 @@ button:hover::after{
   visibility:visible !important;
 
   filter:
-    drop-shadow(0 2px 4px rgba(0,0,0,.65))
-    drop-shadow(0 0 8px rgba(255,212,59,.25));
+
+    drop-shadow(
+      0 2px 4px rgba(0,0,0,.65)
+    )
+
+    drop-shadow(
+      0 0 8px rgba(255,212,59,.25)
+    );
 }
 
 .brandCircle::before{
@@ -1236,7 +1538,8 @@ button:hover::after{
   color:#ffef00;
 
   text-shadow:
-    0 3px 10px rgba(0,0,0,.55);
+    0 3px 10px rgba(0,0,0,.55),
+    0 0 14px rgba(255,212,59,.12);
 }
 
 .brandName span{
@@ -1383,6 +1686,7 @@ button:hover::after{
 <body>
 
 <div class="app">
+
 
 <!-- =====================================================
      SIDEBAR
@@ -1667,8 +1971,6 @@ button:hover::after{
         <div class="brand">
 
           <div class="brandCircle">
-
-            <!-- LOGO PERMANEN -->
 
             <img
               id="brandLogo"
