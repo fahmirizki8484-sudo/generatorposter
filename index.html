@@ -3,2672 +3,1505 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Winner Poster Generator PRO v2</title>
 
-<title>ZIATOGEL Premium Poster Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-
-<link
-  rel="preload"
-  as="image"
-  href="https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png"
->
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+*{
+    box-sizing:border-box;
+}
 
 :root{
-  --blue:#0878ff;
-  --blue2:#00a8ff;
-  --royal:#082d72;
-  --navy:#030b1b;
-  --deep:#01050d;
-  --gold:#ffd43b;
-  --gold2:#fff2a8;
-  --white:#fff;
-  --muted:#71839d;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html,
-body{
-  margin:0;
-  min-height:100%;
+    --blue:#0b3c7a;
+    --blue2:#0d6efd;
+    --blue3:#031942;
+    --yellow:#ffd400;
+    --cyan:#00b7ff;
+    --white:#fff;
 }
 
 body{
-  color:#fff;
-  font-family:Montserrat,Arial,sans-serif;
-
-  background:
-    radial-gradient(
-      circle at 75% 0%,
-      rgba(0,119,255,.16),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(0,83,190,.14),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #01050c 0%,
-      #020914 50%,
-      #03132c 100%
-    );
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(0,123,255,.18),transparent 28%),
+        radial-gradient(circle at 90% 50%,rgba(0,183,255,.12),transparent 30%),
+        #020816;
+    color:var(--white);
+    font-family:Montserrat,Arial,sans-serif;
 }
 
-
-/* =========================================================
-   APP
-========================================================= */
-
-.app{
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:300px minmax(0,1fr);
+.container{
+    width:min(1450px,100%);
+    margin:auto;
+    padding:25px;
 }
 
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sidebar{
-  padding:20px 18px;
-  overflow-y:auto;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,18,39,.98),
-      rgba(1,7,16,.98)
-    );
-
-  border-right:1px solid rgba(255,255,255,.065);
-
-  box-shadow:
-    12px 0 40px rgba(0,0,0,.22);
-
-  scrollbar-width:thin;
-  scrollbar-color:rgba(0,145,255,.25) transparent;
+.header{
+    text-align:center;
+    margin-bottom:25px;
 }
 
-.logo{
-  position:relative;
-  text-align:center;
-  margin:3px 0 23px;
-  padding-bottom:15px;
+.header h1{
+    margin:0;
+    font-family:"Archivo Black",sans-serif;
+    font-size:28px;
+    letter-spacing:1px;
 }
 
-.logo::after{
-  content:"";
-  position:absolute;
-  left:18%;
-  right:18%;
-  bottom:0;
-  height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(0,145,255,.55),
-      rgba(255,212,59,.65),
-      rgba(0,145,255,.55),
-      transparent
-    );
+.header p{
+    margin:7px 0 0;
+    color:#76d5ff;
+    font-size:11px;
+    letter-spacing:.5px;
 }
 
-.logo h1{
-  margin:0;
-
-  font-family:Cinzel,serif;
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:3px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff 15%,
-      #dcecff 48%,
-      #65b7ff 100%
-    );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-
-  color:transparent;
-
-  text-shadow:
-    0 4px 20px rgba(0,126,255,.3);
+.main{
+    display:grid;
+    grid-template-columns:360px minmax(0,1fr);
+    gap:28px;
+    align-items:start;
 }
 
-.logo span{
-  display:block;
-  margin-top:5px;
-
-  color:var(--gold);
-
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:4px;
+.panel{
+    padding:20px;
+    border-radius:20px;
+    border:1px solid rgba(0,174,255,.4);
+    background:
+        linear-gradient(145deg,rgba(8,36,86,.98),rgba(2,15,39,.98));
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        inset 0 0 35px rgba(0,120,255,.06);
 }
 
-
-/* =========================================================
-   CARD
-========================================================= */
-
-.card{
-  position:relative;
-
-  padding:15px;
-  margin-bottom:12px;
-
-  border-radius:15px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(9,40,82,.45),
-      rgba(4,15,30,.72)
-    );
-
-  border:1px solid rgba(103,176,255,.09);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.045),
-    0 8px 25px rgba(0,0,0,.12);
-
-  backdrop-filter:blur(12px);
+.panel-title{
+    margin-bottom:18px;
+    font-size:14px;
+    font-weight:900;
 }
 
-.card::before{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:15px;
-  right:15px;
-
-  height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.12),
-      transparent
-    );
+.group{
+    margin-bottom:11px;
 }
 
-.cardTitle{
-  display:flex;
-  align-items:center;
-  gap:8px;
-
-  margin-bottom:13px;
-
-  color:var(--gold);
-
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:2.2px;
+.group label{
+    display:block;
+    margin-bottom:5px;
+    color:#83b9dc;
+    font-size:9px;
+    font-weight:900;
+    text-transform:uppercase;
 }
 
-.cardTitle::before{
-  content:"";
-
-  width:4px;
-  height:14px;
-
-  border-radius:10px;
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--blue2),
-      var(--gold)
-    );
-
-  box-shadow:
-    0 0 10px rgba(0,168,255,.35);
+input{
+    width:100%;
+    height:35px;
+    padding:0 11px;
+    border:1px solid #185694;
+    border-radius:8px;
+    outline:none;
+    background:#04142f;
+    color:#fff;
+    font-family:Montserrat,sans-serif;
+    font-size:10px;
 }
 
-
-/* =========================================================
-   FIELD
-========================================================= */
-
-.field{
-  margin-bottom:12px;
+input:focus{
+    border-color:var(--cyan);
+    box-shadow:0 0 12px rgba(0,174,255,.2);
 }
 
-.field:last-child{
-  margin-bottom:0;
+input[type=file]{
+    padding:5px;
 }
 
-label{
-  display:block;
-  margin-bottom:6px;
-
-  color:#91a6c2;
-
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:1px;
+input[type=file]::file-selector-button{
+    margin-right:7px;
+    padding:6px 9px;
+    border:0;
+    border-radius:6px;
+    background:var(--blue2);
+    color:#fff;
+    cursor:pointer;
+    font-size:9px;
+    font-weight:800;
 }
 
-input[type="text"]{
-  width:100%;
-  height:42px;
-
-  padding:0 13px;
-
-  border-radius:10px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(9,28,51,.9),
-      rgba(4,15,29,.95)
-    );
-
-  border:1px solid rgba(255,255,255,.08);
-
-  outline:none;
-
-  color:#fff;
-
-  font-family:Montserrat,sans-serif;
-  font-size:10px;
-  font-weight:600;
-
-  box-shadow:
-    inset 0 1px 2px rgba(0,0,0,.3);
-
-  transition:.2s;
+.btn{
+    width:100%;
+    height:39px;
+    margin-top:5px;
+    border:0;
+    border-radius:9px;
+    cursor:pointer;
+    font-family:Montserrat,sans-serif;
+    font-size:11px;
+    font-weight:900;
+    transition:.2s;
 }
 
-input[type="text"]::placeholder{
-  color:#53647b;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-input[type="text"]:focus{
-  background:#071a32;
-
-  border-color:rgba(0,145,255,.7);
-
-  box-shadow:
-    0 0 0 3px rgba(0,145,255,.08),
-    0 0 20px rgba(0,145,255,.08);
-}
-
-
-/* =========================================================
-   FILE
-========================================================= */
-
-.fileBox{
-  padding:17px 13px;
-
-  text-align:center;
-
-  border-radius:13px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,212,59,.035),
-      rgba(0,126,255,.035)
-    );
-
-  border:1px dashed rgba(255,212,59,.28);
-
-  transition:.2s;
-}
-
-.fileBox:hover{
-  border-color:rgba(255,212,59,.55);
-}
-
-.fileIcon{
-  margin-bottom:5px;
-
-  color:var(--gold);
-
-  font-size:25px;
-
-  filter:
-    drop-shadow(
-      0 0 8px
-      rgba(255,212,59,.25)
-    );
-}
-
-.fileText{
-  font-size:10px;
-  font-weight:800;
-}
-
-.fileSub{
-  margin:4px 0 10px;
-
-  color:#718096;
-
-  font-size:9px;
-  line-height:1.5;
-}
-
-input[type="file"]{
-  width:100%;
-  color:#fff;
-  font-size:8px;
-}
-
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-button{
-  position:relative;
-
-  width:100%;
-  height:44px;
-
-  border:0;
-  border-radius:11px;
-
-  cursor:pointer;
-
-  overflow:hidden;
-
-  font-family:Montserrat,sans-serif;
-
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:.8px;
-
-  transition:.2s;
-}
-
-button:hover{
-  transform:translateY(-1px);
-}
-
-button::after{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-120%;
-
-  width:70%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      100deg,
-      transparent,
-      rgba(255,255,255,.22),
-      transparent
-    );
-
-  transform:skewX(-20deg);
-
-  transition:.55s;
-}
-
-button:hover::after{
-  left:130%;
-}
-
-.generate{
-  color:#031024;
-
-  background:
-    linear-gradient(
-      110deg,
-      #0878ff 0%,
-      #28a7ff 43%,
-      #ffd43b 100%
-    );
-
-  border:1px solid rgba(255,255,255,.12);
-
-  box-shadow:
-    0 8px 24px rgba(0,119,255,.2),
-    inset 0 1px rgba(255,255,255,.35);
+.download{
+    background:linear-gradient(135deg,#ffe34d,#ffb800);
+    color:#07162f;
+    box-shadow:0 8px 20px rgba(255,212,0,.2);
 }
 
 .reset{
-  margin-top:8px;
-
-  color:#ffb7b7;
-
-  background:rgba(255,50,50,.035);
-
-  border:1px solid rgba(255,70,70,.18);
+    margin-top:8px;
+    background:#082450;
+    border:1px solid #185694;
+    color:#8ed8ff;
 }
-
-
-/* =========================================================
-   INFO
-========================================================= */
 
 .info{
-  padding:11px;
-
-  color:#718096;
-
-  font-size:11px;
-  line-height:1.65;
-
-  border-radius:10px;
-
-  background:rgba(255,212,59,.025);
-
-  border:1px solid rgba(255,212,59,.08);
+    margin-top:13px;
+    padding:10px;
+    border:1px solid rgba(0,174,255,.16);
+    border-radius:9px;
+    background:rgba(0,130,255,.05);
+    color:#75a9c8;
+    font-size:9px;
+    line-height:1.5;
 }
 
-.info b{
-  color:#aebbd0;
+/* POSTER */
+
+.preview{
+    display:flex;
+    justify-content:center;
+    overflow:auto;
 }
 
+#poster{
+    position:relative;
+    width:1000px;
+    height:900px;
+    min-width:900px;
+    overflow:hidden;
 
-/* =========================================================
-   STAGE
-========================================================= */
+    background:
+        radial-gradient(circle at 78% 15%,rgba(0,183,255,.34),transparent 25%),
+        radial-gradient(circle at 12% 80%,rgba(0,76,255,.25),transparent 32%),
+        linear-gradient(145deg,#031442 0%,#073582 48%,#02112f 100%);
 
-.stage{
-  min-width:0;
+    box-shadow:0 25px 80px rgba(0,0,0,.55);
+}
 
-  padding:20px 24px;
+/* BACKGROUND */
 
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+.bg-lines{
+    position:absolute;
+    inset:-250px;
+    pointer-events:none;
+    background:
+        repeating-linear-gradient(
+            125deg,
+            transparent 0 90px,
+            rgba(0,174,255,.08) 92px 95px,
+            transparent 97px 185px
+        );
+    transform:rotate(-2deg);
+}
 
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(0,92,200,.045),
-      transparent 48%
+.bg-grid{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+    background-image:
+        linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);
+    background-size:45px 45px;
+    mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent);
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-190px;
+    top:-180px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(0,183,255,.35),transparent 68%);
+    filter:blur(10px);
+}
+
+.accent{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:7px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #087cff 18%,
+        #00b7ff 40%,
+        #ffd400 60%,
+        #087cff 82%,
+        transparent
     );
+    box-shadow:0 0 18px rgba(0,183,255,.8);
 }
 
-.toolbar{
-  width:min(1220px,100%);
+.top-title{
+    position:absolute;
+    left:50px;
+    top:28px;
+    width:800px;
+    height:55px;
+    z-index:15;
 
-  margin-bottom:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  display:flex;
-  align-items:center;
-  gap:8px;
+    padding:0 15px;
+
+    font-family:"Archivo Black",sans-serif;
+    font-size:40px;
+    font-style:italic;
+    font-weight:900;
+    letter-spacing:2px;
+    white-space:nowrap;
+
+    color:#ffd400;
+
+    /* premium header */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,25,67,.15),
+            rgba(9,82,166,.55),
+            rgba(3,25,67,.15)
+        );
+
+    border-top:1px solid rgba(255,255,255,.35);
+    border-bottom:1px solid rgba(255,212,0,.8);
+
+    box-shadow:
+        0 0 0 1px rgba(0,174,255,.25),
+        0 0 18px rgba(0,174,255,.28),
+        inset 0 1px 0 rgba(255,255,255,.12),
+        inset 0 -8px 18px rgba(0,0,0,.15);
+
+    text-shadow:
+        2px 3px 0 #714500,
+        0 0 8px rgba(255,212,0,.75),
+        0 0 18px rgba(255,212,0,.45),
+        0 0 30px rgba(0,183,255,.25);
 }
 
-.badge{
-  padding:7px 11px;
-
-  border-radius:20px;
-
-  color:#70ffa8;
-
-  background:rgba(48,255,130,.045);
-
-  border:1px solid rgba(48,255,130,.16);
-
-  font-size:10px;
-  font-weight:800;
+.top-title-main{
+    font-family:"Archivo Black",sans-serif;
+    font-size:27px;
+    font-style:italic;
+    letter-spacing:1.5px;
+    color:#fff;
+    text-shadow:
+        2px 3px 0 #06245c,
+        0 0 10px rgba(255,255,255,.25),
+        0 0 20px rgba(0,174,255,.35);
 }
 
-.res{
-  color:#fff;
-  font-size:10px;
+.top-title-brand{
+    margin-top:5px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:30px;
+    font-style:italic;
+    letter-spacing:3px;
+    color:#ffd400;
+    text-shadow:
+        2px 3px 0 #714500,
+        0 0 10px rgba(255,212,0,.45),
+        0 0 22px rgba(255,212,0,.25);
 }
 
-.canvas{
-  width:min(1220px,100%);
+/* LOGO
+   Logo lama di atas disembunyikan.
+   Logo sekarang ditampilkan di samping brand.
+*/
 
-  padding:8px;
-
-  border-radius:19px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #09182b,
-      #030b17
-    );
-
-  border:1px solid rgba(255,255,255,.075);
-
-  box-shadow:
-    0 35px 90px rgba(0,0,0,.6),
-    0 0 0 1px rgba(0,126,255,.025);
+.logo{
+    display:none;
 }
 
-
-/* =========================================================
-   POSTER
-========================================================= */
-
-.poster{
-  position:relative;
-
-  width:100%;
-
-  aspect-ratio:1074 / 802;
-
-  overflow:hidden;
-
-  border-radius:10px;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(1,8,25,.18),
-      rgba(1,8,25,.08)
-    ),
-    url("https://i.pinimg.com/1200x/34/fa/19/34fa198481453d1f4acf12d6abde8843.jpg");
-
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-
-  isolation:isolate;
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:left center;
+    filter:
+        drop-shadow(0 5px 5px rgba(0,0,0,.65))
+        drop-shadow(0 0 10px rgba(0,174,255,.3));
 }
 
-
-/* PREMIUM LIGHT OVERLAY */
-
-.poster::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  z-index:1;
-
-  background:
-
-    radial-gradient(
-      circle at 12% 50%,
-      rgba(0,140,255,.22),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 86% 45%,
-      rgba(255,204,45,.11),
-      transparent 25%
-    ),
-
-    linear-gradient(
-      115deg,
-      transparent 15%,
-      rgba(255,255,255,.07) 34%,
-      transparent 43%
-    ),
-
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.02),
-      rgba(0,0,0,.18)
-    );
-
-  pointer-events:none;
-}
-
-
-/* VIGNETTE */
-
-.poster::after{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  z-index:2;
-
-  background:
-
-    radial-gradient(
-      circle at 50% 50%,
-      transparent 25%,
-      rgba(0,0,0,.18) 65%,
-      rgba(0,0,0,.42) 100%
-    );
-
-  pointer-events:none;
-}
-
-
-/* =========================================================
-   FRAME
-========================================================= */
-
-.frame,
-.frame2,
-.frame3{
-  position:absolute;
-
-  pointer-events:none;
-
-  z-index:8;
-}
-
-.frame{
-  inset:13px;
-
-  border:1px solid rgba(255,255,255,.25);
-
-  box-shadow:
-    inset 0 0 20px rgba(255,255,255,.025);
-}
-
-.frame2{
-  inset:20px;
-
-  border:1px solid rgba(255,212,59,.58);
-
-  box-shadow:
-    0 0 12px rgba(255,212,59,.08);
-}
-
-.frame3{
-  inset:27px;
-
-  border:1px solid rgba(0,153,255,.55);
-
-  box-shadow:
-    0 0 15px rgba(0,153,255,.10);
-}
-
-
-/* =========================================================
-   CORNERS
-========================================================= */
-
-.corner{
-  position:absolute;
-
-  width:72px;
-  height:72px;
-
-  z-index:9;
-
-  pointer-events:none;
-
-  filter:
-    drop-shadow(
-      0 0 8px
-      rgba(255,212,59,.3)
-    );
-}
-
-.cTL{
-  left:13px;
-  top:13px;
-
-  border-left:4px solid var(--gold);
-  border-top:4px solid var(--gold);
-}
-
-.cTR{
-  right:13px;
-  top:13px;
-
-  border-right:4px solid var(--gold);
-  border-top:4px solid var(--gold);
-}
-
-.cBL{
-  left:13px;
-  bottom:13px;
-
-  border-left:4px solid var(--gold);
-  border-bottom:4px solid var(--gold);
-}
-
-.cBR{
-  right:13px;
-  bottom:13px;
-
-  border-right:4px solid var(--gold);
-  border-bottom:4px solid var(--gold);
-}
-
-
-/* =========================================================
-   PROOF
-========================================================= */
-
-.proof{
-  position:absolute;
-
-  left:5.2%;
-  top:8%;
-
-  width:40.5%;
-  height:84%;
-
-  z-index:10;
-
-  overflow:hidden;
-
-  border-radius:22px;
-
-  background:#fff;
-
-  border:4px solid #0878ff;
-
-  box-shadow:
-
-    0 20px 45px rgba(0,0,0,.55),
-
-    0 0 0 2px rgba(0,126,255,.25),
-
-    0 0 25px rgba(0,126,255,.35),
-
-    inset 0 0 20px rgba(0,126,255,.08);
-
-  transform:translateZ(0);
-
-  isolation:isolate;
-}
-
-.proof::before{
-  content:"";
-
-  position:absolute;
-
-  inset:8px;
-
-  z-index:20;
-
-  border:5px solid #0878ff;
-
-  border-radius:15px;
-
-  box-shadow:
-
-    0 0 0 1px rgba(255,255,255,.95),
-
-    0 0 12px rgba(0,126,255,.45),
-
-    inset 0 0 12px rgba(0,126,255,.15);
-
-  pointer-events:none;
-}
-
-.proof::after{
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  z-index:21;
-
-  border-radius:22px;
-
-  border:1px solid rgba(255,255,255,.8);
-
-  box-shadow:
-
-    inset 0 0 0 2px rgba(0,126,255,.25),
-
-    inset 0 -20px 35px rgba(0,0,0,.08);
-
-  pointer-events:none;
-}
-
-.proof,
-.proofImg{
-  max-width:100%;
-  max-height:100%;
-}
-
-.proofImg{
-  display:none;
-
-  position:absolute;
-
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center center;
-
-  background:#fff;
-
-  margin:0;
-  padding:0;
-  border:0;
-
-  z-index:1;
-}
-
-.proofEmpty{
-  width:100%;
-  height:100%;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-  justify-content:center;
-
-  color:#8b929c;
-
-  text-align:center;
-}
-
-.proofIcon{
-  width:74px;
-  height:74px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:21px;
-
-  background:#eef3f8;
-
-  color:#9ca8b6;
-
-  font-size:33px;
-
-  margin-bottom:15px;
-}
-
-.proofEmpty strong{
-  font-size:15px;
-  letter-spacing:.5px;
-}
-
-.proofEmpty span{
-  margin-top:5px;
-  font-size:10px;
-}
-
-
-/* =========================================================
-   CONTENT
-========================================================= */
+/* CONTENT */
 
 .content{
-  position:absolute;
-
-  z-index:10;
-
-  right:4.5%;
-  top:10.5%;
-
-  width:46%;
-
-  text-align:center;
+    position:absolute;
+    left:30px;
+    top:155px;
+    width:510px;
+    z-index:10;
 }
 
+.card{
+    position:relative;
+    border:1px solid rgba(0,190,255,.85);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9,77,158,.94),
+            rgba(2,31,76,.96)
+        );
+    box-shadow:
+        0 0 0 1px rgba(255,212,0,.85),
+        0 0 25px rgba(0,174,255,.25),
+        inset 0 0 25px rgba(255,255,255,.035);
+    backdrop-filter:blur(8px);
+}
 
-/* =========================================================
-   HEADLINE
-========================================================= */
+/* HEADLINE */
 
 .headline{
-  margin:0;
-
-  font-family:Anton,sans-serif;
-
-  font-weight:900;
-
-  font-size:clamp(42px,5vw,68px);
-
-  line-height:.9;
-
-  letter-spacing:2px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #eef7ff 25%,
-      #ffe978 62%,
-      #ffc400 100%
-    );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-
-  color:transparent;
-
-  filter:
-    drop-shadow(0 5px 7px rgba(0,0,0,.55))
-    drop-shadow(0 0 12px rgba(255,210,55,.12));
-
-  transform:scaleX(.95);
+    min-height:112px;
+    padding:16px 18px;
+    border-radius:20px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-.subline{
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  gap:12px;
-
-  margin:11px 0 16px;
-
-  color:#fff;
-
-  font-family:"Bebas Neue",sans-serif;
-
-  font-size:19px;
-
-  letter-spacing:5px;
-
-  text-shadow:
-    0 2px 8px rgba(0,0,0,.4);
+.headline-main{
+    font-family:"Archivo Black",sans-serif;
+    font-size:38px;
+    line-height:1;
+    font-style:italic;
+    white-space:nowrap;
+    text-shadow:
+        3px 4px 0 #06245c,
+        0 0 12px rgba(255,255,255,.2);
 }
 
-.subline::before,
-.subline::after{
-  content:"";
-
-  width:42px;
-  height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold)
-    );
-
-  box-shadow:
-    0 0 8px rgba(255,212,59,.3);
+.headline-sub{
+    margin-top:7px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:27px;
+    line-height:1;
+    color:var(--yellow);
+    font-style:italic;
+    white-space:nowrap;
+    text-shadow:
+        3px 4px 0 #714500,
+        0 0 12px rgba(255,212,0,.3);
 }
 
-.subline::after{
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      transparent
-    );
+/* USER */
+
+.user{
+    height:67px;
+    margin-top:15px;
+    padding:0 18px 0 50px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
 }
 
-
-/* =========================================================
-   INFO BOXES
-========================================================= */
-
-.uidBox,
-.gameBox,
-.amountBox{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(7,31,69,.96) 0%,
-      rgba(3,15,36,.97) 55%,
-      rgba(2,9,24,.98) 100%
-    );
-  border:2px solid rgba(0,153,255,.48);
-  box-shadow:
-    0 14px 32px rgba(0,0,0,.38),
-    0 0 0 1px rgba(255,255,255,.025),
-    inset 0 1px 0 rgba(255,255,255,.09),
-    inset 0 0 30px rgba(0,126,255,.08);
-
-  isolation:isolate;
-  transition:
-    transform .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
+.user-icon{
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    margin-right:13px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg,#ffe866,#ffc000);
+    color:#08245c;
+    font-size:px;
+    font-weight:900;
+    box-shadow:0 0 13px rgba(255,212,0,.3);
 }
 
-
-/* SHINE BAGIAN ATAS */
-
-.uidBox::before,
-.gameBox::before,
-.amountBox::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:8%;
-  right:8%;
-  height:2px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #00a8ff 25%,
-      #ffffff 50%,
-      #ffd43b 75%,
-      transparent
-    );
-
-  opacity:.9;
-  box-shadow:
-    0 0 10px rgba(0,168,255,.45);
-  pointer-events:none;
+.user-label{
+    margin-left:8px;
+    font-size:25px;
+    font-weight:900;
+    font-style:italic;
+    white-space:nowrap;
 }
 
-
-/* GLOW HALUS DI DALAM BOX */
-
-.uidBox::after,
-.gameBox::after,
-.amountBox::after{
-  content:"";
-  position:absolute;
-  width:160px;
-  height:160px;
-  top:-90px;
-  right:-70px;
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle,
-      rgba(0,168,255,.15),
-      transparent 68%
-    );
-  pointer-events:none;
-  z-index:-1;
+.user-value{
+    margin-left:8px;
+    color:var(--yellow);
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
+/* WIN */
 
-/* =========================================================
-   USER ID
-========================================================= */
-
-.uidBox{
-  padding:12px 20px 15px;
-  margin-bottom:9px;
-  border-radius:16px;
+.win{
+    height:145px;
+    margin-top:15px;
+    border-radius:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 }
 
-.uidBox:hover{
-  border-color:rgba(0,168,255,.72);
-  box-shadow:
-    0 18px 38px rgba(0,0,0,.42),
-    0 0 22px rgba(0,126,255,.12),
-    inset 0 1px 0 rgba(255,255,255,.1);
+.win-label{
+    font-size:21px;
+    font-weight:900;
+    font-style:italic;
 }
 
-
-/* LABEL USER ID */
-
-.uidLabel{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:4px 14px;
-  border-radius:20px;
-  color:#ffe47a;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,212,59,.12),
-      rgba(255,212,59,.035)
-    );
-
-  border:1px solid rgba(255,212,59,.45);
-
-  box-shadow:
-    0 0 12px rgba(255,212,59,.08),
-    inset 0 1px rgba(255,255,255,.08);
-
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:2.5px;
+.win-value{
+    margin-top:7px;
+    font-family:"Archivo Black",sans-serif;
+    font-size:48px;
+    line-height:1;
+    color:var(--yellow);
+    white-space:nowrap;
+    text-shadow:
+        3px 5px 0 #714500,
+        0 0 15px rgba(255,212,0,.25);
 }
 
+/* EVENT */
 
-/* VALUE USER ID */
-
-.uid{
-  position:relative;
-
-  margin-top:7px;
-
-  font-family:Montserrat,sans-serif;
-
-  font-size:clamp(24px,3.2vw,40px);
-
-  font-weight:900;
-
-  letter-spacing:2px;
-
-  color:#fff;
-
-  text-shadow:
-    0 3px 12px rgba(0,0,0,.7),
-    0 0 18px rgba(0,153,255,.22);
-
-  white-space:nowrap;
+.event{
+    height:78px;
+    margin-top:14px;
+    border-radius:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:8px 15px;
+    text-align:center;
 }
 
-
-/* =========================================================
-   GAME BOX
-========================================================= */
-
-.gameBox{
-  padding:11px 18px 14px;
-
-  margin-bottom:9px;
-
-  border-radius:16px;
+.event-label{
+    margin-right:0;
+    color:#a4dcff;
+    font-size:25px;
+    font-weight:900;
+    line-height:1.2;
 }
 
-.gameBox:hover{
-  border-color:rgba(0,168,255,.72);
-
-  box-shadow:
-    0 18px 38px rgba(0,0,0,.42),
-    0 0 22px rgba(0,126,255,.12),
-    inset 0 1px 0 rgba(255,255,255,.1);
+.event-value{
+    margin-top:5px;
+    max-width:100%;
+    color:var(--yellow);
+    font-size:20px;
+    font-weight:900;
+    line-height:1.2;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
+/* IMAGE */
 
-/* LABEL GAME */
+.proof{
+    position:absolute;
+    right:55px;
+    top:130px;
+    width:330px;
+    height:600px;
+    padding:7px;
+    border-radius:27px;
+    z-index:20;
 
-.gameLabel{
-  display:inline-flex;
+    background:
+        linear-gradient(
+            145deg,
+            #ffd400 0%,
+            #fff29a 16%,
+            #087cff 42%,
+            #00429d 100%
+        );
 
-  align-items:center;
-  justify-content:center;
-
-  margin-bottom:6px;
-
-  padding:4px 15px;
-
-  border-radius:20px;
-
-  color:#ffe47a;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,212,59,.12),
-      rgba(255,212,59,.035)
-    );
-
-  border:1px solid rgba(255,212,59,.45);
-
-  box-shadow:
-    0 0 12px rgba(255,212,59,.08),
-    inset 0 1px rgba(255,255,255,.08);
-
-  font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:2px;
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,.12),
+        0 0 35px rgba(0,174,255,.5),
+        0 25px 45px rgba(0,0,0,.5);
 }
 
+.proof-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-radius:20px;
+    background:#fff;
 
-/* NAMA GAME */
-
-.gameName{
-  position:relative;
-
-  font-family:Montserrat,sans-serif;
-
-  font-size:28px;
-
-  font-weight:900;
-
-  letter-spacing:.3px;
-
-  color:#fff;
-
-  white-space:nowrap;
-
-  overflow:hidden;
-
-  text-overflow:ellipsis;
-
-  text-shadow:
-    0 3px 12px rgba(0,0,0,.7),
-    0 0 14px rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-
-/* =========================================================
-   AMOUNT BOX
-========================================================= */
-
-.amountBox{
-  padding:12px 18px 16px;
-
-  border-radius:16px;
-
-  border-color:rgba(255,212,59,.52);
-
-  box-shadow:
-    0 15px 34px rgba(0,0,0,.4),
-    0 0 0 1px rgba(255,212,59,.035),
-    0 0 24px rgba(255,212,59,.06),
-    inset 0 1px 0 rgba(255,255,255,.09),
-    inset 0 0 30px rgba(0,126,255,.08);
+.proof-inner::after{
+    display:none;
 }
 
-.amountBox:hover{
-  border-color:rgba(255,212,59,.82);
+#proofImage{
+    display:block;
 
-  box-shadow:
-    0 18px 40px rgba(0,0,0,.45),
-    0 0 26px rgba(255,212,59,.12),
-    inset 0 1px 0 rgba(255,255,255,.1);
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center center;
+
+    background:#fff;
+
+    max-width:100%;
+    max-height:100%;
+
+    margin:0 auto;
 }
 
-
-/* LABEL TOTAL */
-
-.amountLabel{
-  display:inline-flex;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:5px 20px;
-
-  border-radius:20px;
-
-  color:#fff1a8;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,212,59,.18),
-      rgba(255,212,59,.045)
-    );
-
-  border:1px solid rgba(255,212,59,.65);
-
-  box-shadow:
-    0 0 15px rgba(255,212,59,.1),
-    inset 0 1px rgba(255,255,255,.12);
-
-  font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:2.5px;
-}
-
-
-/* NOMINAL */
-
-.amount{
-  position:relative;
-
-  margin-top:8px;
-
-  font-family:Cinzel,serif;
-
-  font-size:clamp(27px,3.5vw,45px);
-
-  font-weight:900;
-
-  letter-spacing:.5px;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #fff9d6 45%,
-      #ffd43b 100%
-    );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-
-  color:transparent;
-
-  text-shadow:none;
-
-  filter:
-    drop-shadow(0 4px 7px rgba(0,0,0,.65))
-    drop-shadow(0 0 12px rgba(255,212,59,.18));
-}
-
-
-/* GARIS KECIL DI BAWAH NOMINAL */
-
-.amountBox .amount::after{
-  content:"";
-
-  position:absolute;
-
-  left:25%;
-  right:25%;
-  bottom:-7px;
-
-  height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,212,59,.75),
-      transparent
-    );
-
-  box-shadow:
-    0 0 8px rgba(255,212,59,.35);
-}
-
-
-/* =========================================================
-   BRAND
-========================================================= */
+/* BRAND */
 
 .brand{
-  margin-top:42px;
+    position:absolute;
+    left:30px;
+    top:650px;
+    width:510px;
+    height:70px;
+    z-index:10;
 
-  display:flex;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
 
-  align-items:center;
-  justify-content:center;
-
-  gap:12px;
-
-  transform:translateY(70px);
-
-  filter:
-    drop-shadow(0 8px 18px rgba(0,0,0,.35));
+    text-align:left;
 }
 
-.brandCircle{
-  position:relative;
+.brand-logo{
+    width:72px;
+    height:72px;
+    flex:0 0 72px;
+    border-radius:50%;
 
-  width:100px;
-  height:100px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  flex-shrink:0;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:
-
-    radial-gradient(
-      circle at 35% 25%,
-      #123d78 0%,
-      #071a38 55%,
-      #020914 100%
+    background:linear-gradient(
+        145deg,
+        #ffe866,
+        #ffc000
     );
 
-  border:1.5px solid var(--gold);
+    border:2px solid rgba(255,255,255,.8);
 
-  box-shadow:
+    box-shadow:
+        0 0 15px rgba(255,212,0,.45),
+        0 0 30px rgba(0,174,255,.25);
 
-    0 0 0 2px rgba(0,126,255,.28),
-
-    0 8px 25px rgba(0,0,0,.45),
-
-    0 0 24px rgba(0,126,255,.3),
-
-    inset 0 0 16px rgba(0,126,255,.22),
-
-    inset 0 0 0 1px rgba(255,255,255,.12);
-
-  overflow:hidden;
+    overflow:hidden;
 }
 
-.brandCircle img{
-  width:88%;
-  height:88%;
-
-  object-fit:contain;
-
-  display:block;
-
-  position:relative;
-
-  z-index:2;
-
-  opacity:1 !important;
-
-  visibility:visible !important;
-
-  filter:
-
-    drop-shadow(
-      0 2px 4px rgba(0,0,0,.65)
-    )
-
-    drop-shadow(
-      0 0 8px rgba(255,212,59,.25)
-    );
+.brand-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-.brandCircle::before{
-  content:"";
-
-  position:absolute;
-
-  inset:5px;
-
-  border-radius:50%;
-
-  border:1px solid rgba(255,255,255,.2);
-
-  pointer-events:none;
-
-  z-index:3;
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
 }
 
-.brandCircle::after{
-  content:"";
+.brand-text strong{
+    font-family:"Archivo Black",sans-serif;
+    font-size:30px;
+    line-height:1;
+    letter-spacing:4px;
+    color:#fff;
 
-  position:absolute;
-
-  width:18px;
-  height:8px;
-
-  top:8px;
-  left:15px;
-
-  border-radius:50%;
-
-  background:rgba(255,255,255,.28);
-
-  filter:blur(5px);
-
-  transform:rotate(-25deg);
-
-  pointer-events:none;
-
-  z-index:4;
+    text-shadow:
+        0 0 10px rgba(0,174,255,.8),
+        0 0 22px rgba(0,174,255,.45);
 }
 
-.brandName{
-  text-align:left;
+.brand-text span{
+    display:block;
+    margin-top:6px;
+    color:#79d5ff;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:1.5px;
 }
 
-.brandName strong{
-  display:block;
+.brand-stars{
+    margin-top:5px;
+    color:#ffd400;
+    font-size:20px;
+    line-height:1;
+    letter-spacing:3px;
+    text-shadow:
+        0 0 7px rgba(255,212,0,.8),
+        0 0 14px rgba(255,212,0,.4);
+}
+/* FEATURES */
 
-  font-family:Cinzel,serif;
-
-  font-size:40px;
-
-  font-weight:900;
-
-  letter-spacing:3px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff 0%,
-      #fff5b5 48%,
-      #ffd43b 100%
-    );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-
-  color:#ffef00;
-
-  text-shadow:
-    0 3px 10px rgba(0,0,0,.55),
-    0 0 14px rgba(255,212,59,.12);
+.features{
+    position:absolute;
+    left:25px;
+    right:25px;
+    bottom:24px;
+    height:88px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    z-index:10;
 }
 
-.brandName span{
-  display:block;
+.feature{
+    position:relative;
+    overflow:hidden;
 
-  margin-top:3px;
+    border-radius:17px;
+    padding:8px 11px;
 
-  color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
 
-  font-size:14px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11,91,181,.96),
+            rgba(3,38,91,.98)
+        );
 
-  font-weight:800;
+    border:1px solid rgba(83,210,255,.85);
 
-  letter-spacing:2px;
+    box-shadow:
+        0 0 0 1px rgba(255,212,0,.55),
+        0 8px 20px rgba(0,0,0,.35),
+        0 0 18px rgba(0,174,255,.22),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -12px 20px rgba(0,0,0,.15);
+
+    backdrop-filter:blur(10px);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
-.stars{
-  margin-top:4px;
-
-  color:var(--gold);
-
-  font-size:30px;
-
-  letter-spacing:3px;
-
-  text-shadow:
-    0 0 8px rgba(255,212,59,.5);
+.feature::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:1px;
+    background:linear-gradient(90deg,transparent,#fff,transparent);
+    opacity:.45;
 }
 
+.feature-icon{
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
 
-/* =========================================================
-   TOAST
-========================================================= */
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-.toast{
-  position:fixed;
+    border-radius:12px;
 
-  left:50%;
-  bottom:25px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,220,70,.95),
+            rgba(255,176,0,.9)
+        );
 
-  z-index:9999;
+    border:1px solid rgba(255,255,255,.7);
 
-  transform:
-    translate(-50%,20px);
+    color:#06245c;
 
-  opacity:0;
+    font-size:21px;
+    font-weight:900;
 
-  pointer-events:none;
+    box-shadow:
+        0 0 10px rgba(255,212,0,.35),
+        inset 0 1px 2px rgba(255,255,255,.55);
 
-  padding:12px 18px;
-
-  border-radius:12px;
-
-  background:
-    rgba(4,17,36,.95);
-
-  border:1px solid rgba(0,145,255,.3);
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.35);
-
-  color:#fff;
-
-  font-size:11px;
-
-  font-weight:700;
-
-  transition:.25s;
+    text-shadow:none;
 }
 
-.toast.show{
-  opacity:1;
-
-  transform:
-    translate(-50%,0);
+.feature-text{
+    text-align:left;
 }
 
-.toast.success{
-  border-color:rgba(50,255,140,.35);
+.feature-title{
+    color:#ffd400;
+
+    font-size:17px;
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+    text-shadow:
+        0 0 7px rgba(255,212,0,.35);
 }
 
-.toast.error{
-  border-color:rgba(255,70,70,.4);
+.feature-sub{
+    margin-top:4px;
+
+    color:#eaf8ff;
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:.3px;
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 0 5px rgba(255,255,255,.15);
 }
 
+.feature::before{
+    content:"";
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+    position:absolute;
+    left:12px;
+    right:12px;
+    top:0;
 
-@media(max-width:900px){
+    height:2px;
 
-  .app{
-    grid-template-columns:1fr;
-  }
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ffffff,
+            #ffd400,
+            #ffffff,
+            transparent
+        );
 
-  .sidebar{
-    border-right:0;
+    opacity:.65;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
+    filter:blur(.2px);
+}
 
-  .stage{
-    padding:12px;
-  }
+/* DECOR */
+
+.star{
+    position:absolute;
+    z-index:4;
+    color:var(--yellow);
+    font-size:13px;
+    text-shadow:0 0 10px var(--yellow);
+}
+
+.s1{left:18px;top:115px}
+.s2{right:325px;top:470px}
+.s3{right:30px;bottom:135px}
+.s4{left:610px;top:105px}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .panel{
+        max-width:500px;
+        margin:auto;
+    }
+
+    .preview{
+        justify-content:flex-start;
+    }
 }
 
 @media(max-width:600px){
+    .container{
+        padding:12px;
+    }
 
-  .content{
-    right:4%;
-    width:47%;
-  }
-
-  .proof{
-    left:4%;
-    width:41%;
-
-    border-radius:14px;
-  }
-
-  .brand{
-    transform:
-      translateY(10px)
-      scale(.82);
-  }
-
-  .headline{
-    font-size:36px;
-  }
-
-  .gameName{
-    font-size:20px;
-  }
-
-  .amount{
-    font-size:25px;
-  }
+    .header h1{
+        font-size:21px;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
-
-<!-- =====================================================
-     SIDEBAR
-====================================================== -->
-
-<aside class="sidebar">
-
-  <div class="logo">
-
-    <h1>ZIATOGEL</h1>
-
-    <span>
-      GENERATOR POSTER
-    </span>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="cardTitle">
-      INPUT DATA
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        USER ID
-      </label>
-
-      <input
-        id="userId"
-        type="text"
-        placeholder="Contoh: ZIA12345"
-        autocomplete="off"
-      >
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        NAMA GAME
-      </label>
-
-      <input
-        id="gameName"
-        type="text"
-        placeholder="Contoh: Sweet Bonanza"
-        autocomplete="off"
-      >
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        TOTAL WINNINGS
-      </label>
-
-      <input
-        id="amount"
-        type="text"
-        placeholder="Contoh: 25.000.000"
-        inputmode="numeric"
-        autocomplete="off"
-      >
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="cardTitle">
-      BUKTI PEMENANGAN
-    </div>
-
-    <div class="fileBox">
-
-      <div class="fileIcon">
-        ▣
-      </div>
-
-      <div class="fileText">
-        Upload Screenshot
-      </div>
-
-      <div class="fileSub">
-        PNG / JPG / WEBP<br>
-        Disarankan gambar resolusi tinggi
-      </div>
-
-      <input
-        id="proofFile"
-        type="file"
-        accept="image/png,image/jpeg,image/webp"
-      >
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <button
-      id="generateBtn"
-      class="generate"
-    >
-      ✦ GENERATE POSTER
-    </button>
-
-
-    <button
-      id="resetBtn"
-      class="reset"
-    >
-      RESET DATA
-    </button>
-
-  </div>
-
-
-  <div class="info">
-
-    <b>INFO</b><br>
-
-    Isi data member dan upload bukti
-    pemenangan. Poster akan langsung
-    tampil di area preview dan bisa
-    langsung di-screenshot.
-
-  </div>
-
-</aside>
-
-
-<!-- =====================================================
-     STAGE
-====================================================== -->
-
-<main class="stage">
-
-  <div class="toolbar">
-
-    <div class="badge">
-      ● READY
-    </div>
-
-    <div class="res">
-      PREMIUM POSTER PREVIEW
-    </div>
-
-  </div>
-
-
-  <div class="canvas">
-
-    <div
-      id="poster"
-      class="poster"
-    >
-
-      <div class="frame"></div>
-      <div class="frame2"></div>
-      <div class="frame3"></div>
-
-
-      <div class="corner cTL"></div>
-      <div class="corner cTR"></div>
-      <div class="corner cBL"></div>
-      <div class="corner cBR"></div>
-
-
-      <!-- =================================================
-           PROOF
-      ================================================== -->
-
-      <div class="proof">
-
-        <img
-          id="proofImg"
-          class="proofImg"
-          alt="Proof"
-        >
-
-        <div
-          id="proofEmpty"
-          class="proofEmpty"
-        >
-
-          <div class="proofIcon">
-            ▣
-          </div>
-
-          <strong>
-            PROOF WINNER
-          </strong>
-
-          <span>
-            Upload screenshot untuk preview
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- =================================================
-           CONTENT
-      ================================================== -->
-
-      <div class="content">
-
-        <h1 class="headline">
-          SELAMAT
-        </h1>
-
-
-        <div class="subline">
-          KEPADA MEMBER SETIA KAMI
-        </div>
-
-
-        <div class="uidBox">
-
-          <div class="uidLabel">
-            USER ID
-          </div>
-
-          <div
-            id="previewUserId"
-            class="uid"
-          >
-            USER ID
-          </div>
-
-        </div>
-
-
-        <div class="gameBox">
-
-          <div class="gameLabel">
-            JP PADA PERMAINAN
-          </div>
-
-          <div
-            id="previewGame"
-            class="gameName"
-          >
-            GAME NAME
-          </div>
-
-        </div>
-
-
-        <div class="amountBox">
-
-          <div class="amountLabel">
-            TOTAL KEMENANGAN
-          </div>
-
-          <div
-            id="previewAmount"
-            class="amount"
-          >
-            Rp 0
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             BRAND
-        ================================================== -->
-
-        <div class="brand">
-
-          <div class="brandCircle">
-
-            <img
-              id="brandLogo"
-              src="https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png"
-              alt="ZIATOGEL Logo"
-              width="512"
-              height="512"
-            >
-
-          </div>
-
-
-          <div class="brandName">
-
-            <strong>
-              ZIATOGEL
-            </strong>
-
-            <span>
-              Game Online Terpercaya
-            </span>
-
-            <div class="stars">
-              ★ ★ ★ ★ ★
+<div class="container">
+
+    <header class="header">
+        <h1>WINNER POSTER GENERATOR PRO</h1>
+        <p>Premium Achievement Poster • Royal Blue Edition</p>
+    </header>
+
+    <main class="main">
+
+        <!-- CONTROL PANEL -->
+        <section class="panel">
+
+            <div class="panel-title">⚙ DATA POSTER</div>
+
+            <div class="group">
+                <label>Logo</label>
+                <input
+                    id="logoUrl"
+                    type="text"
+                    placeholder="URL logo atau kosongkan"
+                    value=""
+                    oninput="updatePoster()"
+                >
             </div>
 
-          </div>
+            <div class="group">
+                <label>User ID</label>
+                <input
+                    id="userId"
+                    type="text"
+                    value="M******05"
+                    oninput="updatePoster()"
+                >
+            </div>
 
-        </div>
+            <div class="group">
+                <label>Total Hadiah</label>
+                <input
+                    id="totalWin"
+                    type="text"
+                    value="33,000,000"
+                    oninput="formatNominal(this);updatePoster()"
+                >
+            </div>
 
-      </div>
+            <div class="group">
+                <label>Nama Event / Game</label>
+                <input
+                    id="gameName"
+                    type="text"
+                    value="ACHIEVEMENT EVENT"
+                    oninput="updatePoster()"
+                >
+            </div>
 
+            <div class="group">
+                <label>Judul Atas</label>
+                <input
+                    id="headline"
+                    type="text"
+                    value="SELAMAT KEPADA"
+                    oninput="updatePoster()"
+                >
+            </div>
+
+            <div class="group">
+                <label>Sub Judul</label>
+                <input
+                    id="subHeadline"
+                    type="text"
+                    value="MEMBER SETIA KAMI"
+                    oninput="updatePoster()"
+                >
+            </div>
+
+            <div class="group">
+                <label>Upload Gambar</label>
+                <input
+                    id="proofUpload"
+                    type="file"
+                    accept="image/*"
+                    onchange="loadImage(event)"
+                >
+            </div>
+
+            <div class="group">
+                <label>Service</label>
+                <input
+                    id="service"
+                    type="text"
+                    value="24 JAM ONLINE"
+                    oninput="updatePoster()"
+                >
+            </div>
+
+            <div class="group">
+                <label>Keamanan</label>
+                <input
+                    id="security"
+                    type="text"
+                    value="TERJAMIN AMAN"
+                    oninput="updatePoster()"
+                >
+            </div>
+
+            <div class="group">
+                <label>Quality</label>
+                <input
+                    id="engine"
+                    type="text"
+                    value="PREMIUM QUALITY"
+                    oninput="updatePoster()"
+                >
+            </div>
+
+            <div class="group">
+                <label>Usia</label>
+                <input
+                    id="age"
+                    type="text"
+                    value="PASTI DIBAYAR"
+                    oninput="updatePoster()"
+                >
+            </div>
+
+            <button class="btn download" onclick="downloadPoster()">
+                ↓ DOWNLOAD PNG
+            </button>
+
+            <button class="btn reset" onclick="resetForm()">
+                ↻ RESET
+            </button>
+
+            <div class="info">
+                <b>PRO v2</b><br>
+                Layout premium dengan hierarchy lebih jelas,
+                frame gambar metallic, glass-style cards,
+                dan struktur JavaScript yang lebih ringan.
+            </div>
+
+        </section>
+
+
+        <!-- PREVIEW -->
+        <section class="preview">
+
+            <div id="poster">
+
+                <div class="bg-lines"></div>
+                <div class="bg-grid"></div>
+                <div class="glow"></div>
+                <div class="accent"></div>
+
+                <div class="top-title">
+    BUKTI JACKPOT ZIATOGEL
+</div>
+
+                <div class="star s1">✦</div>
+                <div class="star s2">✦</div>
+                <div class="star s3">✦</div>
+                <div class="star s4">✦</div>
+
+
+                <!-- LOGO LAMA
+                     Disembunyikan lewat CSS.
+                     Logo sekarang tampil di brand.
+                -->
+                <div class="logo">
+                    <img id="logoPreview" alt="Logo">
+                </div>
+
+
+                <!-- MAIN CONTENT -->
+                <div class="content">
+
+                    <div class="card headline">
+                        <div
+                            class="headline-main"
+                            id="headlinePreview"
+                        >
+                            SELAMAT KEPADA
+                        </div>
+
+                        <div
+                            class="headline-sub"
+                            id="subHeadlinePreview"
+                        >
+                            MEMBER SETIA KAMI
+                        </div>
+                    </div>
+
+
+                    <div class="card user">
+
+                        <div class="user-icon">●</div>
+
+                        <div class="user-label">
+                            USER ID :
+                        </div>
+
+                        <div
+                            class="user-label user-value"
+                            id="userPreview"
+                        >
+                            M******05
+                        </div>
+
+                    </div>
+
+
+                    <div class="card win">
+
+                        <div class="win-label">
+                            TOTAL HADIAH
+                        </div>
+
+                        <div
+                            class="win-value"
+                            id="winPreview"
+                        >
+                            Rp 33,000,000
+                        </div>
+
+                    </div>
+
+
+                    <div class="card event">
+
+                        <span class="event-label">
+                            JP PADA PERMAINAN :
+                        </span>
+
+                        <span
+                            class="event-value"
+                            id="gamePreview"
+                        >
+                            ACHIEVEMENT EVENT
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGE -->
+                <div class="proof">
+
+                    <div class="proof-inner">
+
+                        <img
+                            id="proofImage"
+                            alt="Uploaded image"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- BRAND -->
+                <div class="brand">
+
+    <div class="brand-logo">
+        <img src="" id="brandLogo" alt="Brand Logo">
     </div>
 
-  </div>
+    <div class="brand-text">
 
-</main>
+        <strong>ZIATOGEL</strong>
+
+        <span>Game Online Terpercaya</span>
+
+        <div class="brand-stars">
+            ★ ★ ★ ★ ★
+        </div>
+
+    </div>
 
 </div>
 
 
-<div
-  id="toast"
-  class="toast"
-></div>
+                <!-- FEATURES -->
+                <div class="features">
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            ◴
+                        </div>
+
+                        <div class="feature-text">
+
+                            <div class="feature-title">
+                                SERVICE
+                            </div>
+
+                            <div
+                                class="feature-sub"
+                                id="servicePreview"
+                            >
+                                24 JAM ONLINE
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            🔒
+                        </div>
+
+                        <div class="feature-text">
+
+                            <div class="feature-title">
+                                RAHASIA
+                            </div>
+
+                            <div
+                                class="feature-sub"
+                                id="securityPreview"
+                            >
+                                TERJAMIN AMAN
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            ⚙
+                        </div>
+
+                        <div class="feature-text">
+
+                            <div class="feature-title">
+                                ENGINE
+                            </div>
+
+                            <div
+                                class="feature-sub"
+                                id="enginePreview"
+                            >
+                                PREMIUM QUALITY
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            ★
+                        </div>
+
+                        <div class="feature-text">
+
+                            <div class="feature-title">
+                                JP BERAPAPUN
+                            </div>
+
+                            <div
+                                class="feature-sub"
+                                id="agePreview"
+                            >
+                                PASTI DIBAYAR
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
 
 
 <script>
-
-(() => {
-
 "use strict";
 
+/* =========================================
+   HELPER
+========================================= */
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+const $ = id => document.getElementById(id);
 
-const $ = id =>
-  document.getElementById(id);
-
-
-const userIdInput =
-  $("userId");
-
-const gameInput =
-  $("gameName");
-
-const amountInput =
-  $("amount");
-
-const proofFile =
-  $("proofFile");
-
-const proofImg =
-  $("proofImg");
-
-const proofEmpty =
-  $("proofEmpty");
-
-const brandLogo =
-  $("brandLogo");
-
-const previewUserId =
-  $("previewUserId");
-
-const previewGame =
-  $("previewGame");
-
-const previewAmount =
-  $("previewAmount");
-
-const generateBtn =
-  $("generateBtn");
-
-const resetBtn =
-  $("resetBtn");
-
-const poster =
-  $("poster");
-
-const toast =
-  $("toast");
+const fields = [
+    "logoUrl",
+    "userId",
+    "totalWin",
+    "gameName",
+    "headline",
+    "subHeadline",
+    "service",
+    "security",
+    "engine",
+    "age"
+];
 
 
-/* =========================================================
-   FIXED LOGO
-========================================================= */
+/* =========================================
+   FORMAT NOMINAL
+========================================= */
 
-const FIXED_LOGO =
-  "https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png";
+function formatNominal(input){
 
+    const digits = input.value.replace(/\D/g,"");
 
-/* =========================================================
-   STORAGE
-========================================================= */
-
-const STORAGE_KEY =
-  "ziatogel_premium_poster_v4";
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-let toastTimer = null;
-
-function showToast(
-  message,
-  type = "success"
-){
-
-  clearTimeout(toastTimer);
-
-  toast.textContent =
-    message;
-
-  toast.className =
-    "toast show " + type;
-
-  toastTimer =
-    setTimeout(() => {
-
-      toast.className =
-        "toast";
-
-    },2400);
-
+    input.value = digits
+        ? Number(digits).toLocaleString("en-US")
+        : "";
 }
 
 
-/* =========================================================
-   NUMBER
-========================================================= */
+/* =========================================
+   UPDATE POSTER
+========================================= */
 
-function cleanNumber(value){
+function updatePoster(){
 
-  return String(value || "")
-    .replace(/[^\d]/g,"");
+    const logo = $("logoUrl").value.trim();
 
+    const map = {
+        logoPreview: logo,
+        brandLogo: logo,
+
+        userPreview:
+            $("userId").value.trim() ||
+            "M******05",
+
+        winPreview:
+            "Rp " +
+            ($("totalWin").value || "0"),
+
+        gamePreview:
+            $("gameName").value.trim() ||
+            "EVENT",
+
+        headlinePreview:
+            $("headline").value.trim() ||
+            "SELAMAT KEPADA",
+
+        subHeadlinePreview:
+            $("subHeadline").value.trim() ||
+            "MEMBER SETIA KAMI",
+
+        servicePreview:
+            $("service").value.trim() ||
+            "24 JAM ONLINE",
+
+        securityPreview:
+            $("security").value.trim() ||
+            "TERJAMIN AMAN",
+
+        enginePreview:
+            $("engine").value.trim() ||
+            "PREMIUM QUALITY",
+
+        agePreview:
+            $("age").value.trim() ||
+            "PASTI DIBAYAR"
+    };
+
+    Object.entries(map).forEach(([id,value]) => {
+
+        const el = $(id);
+
+        if(!el) return;
+
+        if(el.tagName === "IMG"){
+            el.src = value;
+        }else{
+            el.textContent = value;
+        }
+
+    });
 }
 
 
-function formatRupiah(value){
+/* =========================================
+   LOAD LOCAL IMAGE
+========================================= */
 
-  const number =
-    cleanNumber(value);
+function loadImage(event){
 
-  if(!number){
-    return "Rp 0";
-  }
+    const file = event.target.files?.[0];
 
-  return "Rp " +
-    Number(number)
-      .toLocaleString("id-ID");
+    if(!file) return;
 
-}
+    if(!file.type.startsWith("image/")){
 
+        alert("File harus berupa gambar.");
 
-/* =========================================================
-   UPDATE PREVIEW
-========================================================= */
+        event.target.value = "";
 
-function updatePreview(){
-
-  const uid =
-    userIdInput.value.trim();
-
-  const game =
-    gameInput.value.trim();
-
-  const amount =
-    amountInput.value.trim();
-
-
-  previewUserId.textContent =
-    uid || "USER ID";
-
-  previewGame.textContent =
-    game || "GAME NAME";
-
-  previewAmount.textContent =
-    formatRupiah(amount);
-
-
-  saveData();
-
-}
-
-
-/* =========================================================
-   FILE TO DATA URL
-========================================================= */
-
-function fileToDataURL(file){
-
-  return new Promise(
-    (resolve,reject) => {
-
-      if(!file){
-        resolve("");
         return;
-      }
-
-      const reader =
-        new FileReader();
-
-      reader.onload =
-        () => resolve(
-          reader.result
-        );
-
-      reader.onerror =
-        reject;
-
-      reader.readAsDataURL(file);
-
     }
-  );
 
-}
+    const reader = new FileReader();
 
+    reader.onload = e => {
 
-/* =========================================================
-   LOAD IMAGE
-========================================================= */
-
-function loadImage(src){
-
-  return new Promise(
-    (resolve,reject) => {
-
-      if(!src){
-        resolve(null);
-        return;
-      }
-
-      const img =
-        new Image();
-
-      img.onload =
-        () => resolve(img);
-
-      img.onerror =
-        () => reject(
-          new Error(
-            "Gambar gagal dimuat"
-          )
-        );
-
-      img.src =
-        src;
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   FIXED LOGO
-========================================================= */
-
-function ensureFixedLogo(){
-
-  brandLogo.src =
-    FIXED_LOGO;
-
-  brandLogo.style.display =
-    "block";
-
-  brandLogo.style.visibility =
-    "visible";
-
-  brandLogo.style.opacity =
-    "1";
-
-}
-
-
-/* =========================================================
-   CHECK LOGO
-========================================================= */
-
-function checkLogo(){
-
-  ensureFixedLogo();
-
-  if(
-    brandLogo.complete &&
-    brandLogo.naturalWidth > 0
-  ){
-
-    return;
-
-  }
-
-  brandLogo.onload =
-    () => {
-
-      brandLogo.style.display =
-        "block";
-
-      brandLogo.style.visibility =
-        "visible";
-
-      brandLogo.style.opacity =
-        "1";
+        $("proofImage").src =
+            e.target.result;
 
     };
 
-
-  brandLogo.onerror =
-    () => {
-
-      console.error(
-        "Logo gagal dimuat:",
-        FIXED_LOGO
-      );
-
-    };
-
+    reader.readAsDataURL(file);
 }
 
 
-/* =========================================================
-   PROOF UPLOAD
-========================================================= */
+/* =========================================
+   DOWNLOAD
+========================================= */
 
-proofFile.addEventListener(
-  "change",
-  async event => {
+async function downloadPoster(){
 
-    const file =
-      event.target.files?.[0];
+    const button =
+        document.querySelector(".download");
 
-    if(!file){
-      return;
-    }
+    const poster =
+        $("poster");
 
+    button.disabled = true;
+
+    button.textContent =
+        "⏳ GENERATING...";
 
     try{
 
-      const dataURL =
-        await fileToDataURL(file);
+        await document.fonts.ready;
 
-      await loadImage(
-        dataURL
-      );
+        const canvas =
+            await html2canvas(
+                poster,
+                {
+                    scale:2,
+                    useCORS:true,
+                    allowTaint:false,
+                    backgroundColor:"#031442",
+                    imageTimeout:15000,
+                    logging:false,
+                    removeContainer:true
+                }
+            );
 
+        const user =
+            $("userId")
+            .value
+            .replace(/[^a-zA-Z0-9]/g,"") ||
+            "WINNER";
 
-      proofImg.src =
-        dataURL;
+        const link =
+            document.createElement("a");
 
-      proofImg.style.display =
-        "block";
+        link.download =
+            `WINNER-POSTER-${user}.png`;
 
-      proofEmpty.style.display =
-        "none";
+        link.href =
+            canvas.toDataURL(
+                "image/png",
+                1
+            );
 
+        document.body.appendChild(link);
 
-      saveData();
+        link.click();
 
-
-      showToast(
-        "Bukti berhasil dimuat"
-      );
-
+        link.remove();
 
     }catch(error){
 
-      console.error(error);
+        console.error(error);
 
-      showToast(
-        "Gagal membaca gambar",
-        "error"
-      );
+        alert(
+            "Gagal membuat PNG. Pastikan gambar/logo dapat diakses atau gunakan gambar lokal."
+        );
 
-    }
+    }finally{
 
-  }
-);
+        button.disabled = false;
 
-
-/* =========================================================
-   INPUT EVENTS
-========================================================= */
-
-[
-  userIdInput,
-  gameInput,
-  amountInput
-
-].forEach(input => {
-
-  input.addEventListener(
-    "input",
-    updatePreview
-  );
-
-});
-
-
-/* =========================================================
-   AMOUNT
-========================================================= */
-
-amountInput.addEventListener(
-  "blur",
-  () => {
-
-    const value =
-      cleanNumber(
-        amountInput.value
-      );
-
-
-    if(value){
-
-      amountInput.value =
-        Number(value)
-          .toLocaleString(
-            "id-ID"
-          );
+        button.textContent =
+            "↓ DOWNLOAD PNG";
 
     }
+}
 
 
-    updatePreview();
+/* =========================================
+   RESET
+========================================= */
 
-  }
-);
+function resetForm(){
 
+    const defaults = {
 
-/* =========================================================
-   SAVE
-========================================================= */
-
-function saveData(){
-
-  try{
-
-    const data = {
-
-      userId:
-        userIdInput.value,
-
-      game:
-        gameInput.value,
-
-      amount:
-        amountInput.value,
-
-      proof:
-        proofImg.src || ""
+        logoUrl:"",
+        userId:"Isi Userid",
+        totalWin:"Total JP",
+        gameName:"Isi Nama Game",
+        headline:"SELAMAT KEPADA",
+        subHeadline:"MEMBER SETIA KAMI",
+        service:"24 JAM ONLINE",
+        security:"TERJAMIN AMAN",
+        engine:"PREMIUM QUALITY",
+        age:"PASTI DIBAYAR"
 
     };
 
+    Object.entries(defaults).forEach(
+        ([id,value]) => {
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(data)
+            $(id).value = value;
+
+        }
     );
 
+    $("proofUpload").value = "";
 
-  }catch(error){
+    $("proofImage")
+        .removeAttribute("src");
 
-    console.warn(
-      "Storage save failed:",
-      error
-    );
-
-  }
-
+    updatePoster();
 }
 
 
-/* =========================================================
-   LOAD DATA
-========================================================= */
-
-async function loadData(){
-
-  try{
-
-    const raw =
-      localStorage.getItem(
-        STORAGE_KEY
-      );
-
-
-    if(raw){
-
-      const data =
-        JSON.parse(raw);
-
-
-      userIdInput.value =
-        data.userId || "";
-
-      gameInput.value =
-        data.game || "";
-
-      amountInput.value =
-        data.amount || "";
-
-
-      if(data.proof){
-
-        try{
-
-          await loadImage(
-            data.proof
-          );
-
-
-          proofImg.src =
-            data.proof;
-
-          proofImg.style.display =
-            "block";
-
-          proofEmpty.style.display =
-            "none";
-
-
-        }catch(error){
-
-          console.warn(
-            "Stored proof invalid"
-          );
-
-        }
-
-      }
-
-    }
-
-
-    ensureFixedLogo();
-
-    updatePreview();
-
-
-  }catch(error){
-
-    console.warn(
-      "Storage load failed:",
-      error
-    );
-
-    ensureFixedLogo();
-
-  }
-
-}
-
-
-/* =========================================================
-   GENERATE
-========================================================= */
-
-generateBtn.addEventListener(
-  "click",
-  () => {
-
-    updatePreview();
-
-    ensureFixedLogo();
-
-
-    poster.animate(
-      [
-        {
-          transform:"scale(.995)"
-        },
-        {
-          transform:"scale(1)"
-        }
-
-      ],
-      {
-        duration:260,
-        easing:"ease-out"
-      }
-    );
-
-
-    showToast(
-      "Poster berhasil diperbarui"
-    );
-
-  }
-);
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-resetBtn.addEventListener(
-  "click",
-  () => {
-
-    const confirmed =
-      confirm(
-        "Reset semua data poster?"
-      );
-
-
-    if(!confirmed){
-      return;
-    }
-
-
-    userIdInput.value =
-      "";
-
-    gameInput.value =
-      "";
-
-    amountInput.value =
-      "";
-
-    proofFile.value =
-      "";
-
-
-    proofImg.removeAttribute(
-      "src"
-    );
-
-    proofImg.style.display =
-      "none";
-
-
-    proofEmpty.style.display =
-      "flex";
-
-
-    previewUserId.textContent =
-      "USER ID";
-
-    previewGame.textContent =
-      "GAME NAME";
-
-    previewAmount.textContent =
-      "Rp 0";
-
-
-    localStorage.removeItem(
-      STORAGE_KEY
-    );
-
-
-    ensureFixedLogo();
-
-
-    showToast(
-      "Data berhasil direset"
-    );
-
-  }
-);
-
-
-/* =========================================================
+/* =========================================
    INITIALIZE
-========================================================= */
+========================================= */
 
-ensureFixedLogo();
-
-checkLogo();
-
-loadData();
-
-
-})();
+updatePoster();
 
 </script>
 
