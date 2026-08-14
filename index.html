@@ -3,521 +3,1096 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Winner Poster Generator PRO v2</title>
+
+<title>Winner Poster Generator PRO v4</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
     box-sizing:border-box;
 }
 
 :root{
+
+    --navy:#020816;
+    --navy2:#031442;
+
     --blue:#0b3c7a;
-    --blue2:#0d6efd;
-    --blue3:#031942;
+    --blue2:#087cff;
+    --electric:#00b7ff;
+
     --yellow:#ffd400;
-    --cyan:#00b7ff;
+
     --white:#fff;
 }
 
 body{
+
     margin:0;
+
     min-height:100vh;
+
     background:
-        radial-gradient(circle at 15% 10%,rgba(0,123,255,.18),transparent 28%),
-        radial-gradient(circle at 90% 50%,rgba(0,183,255,.12),transparent 30%),
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0,123,255,.18),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 45%,
+            rgba(0,183,255,.12),
+            transparent 30%
+        ),
+
         #020816;
-    color:var(--white);
-    font-family:Montserrat,Arial,sans-serif;
+
+    color:#fff;
+
+    font-family:
+        Montserrat,
+        Arial,
+        sans-serif;
 }
 
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .container{
+
     width:min(1450px,100%);
+
     margin:auto;
+
     padding:25px;
 }
 
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 .header{
+
     text-align:center;
+
     margin-bottom:25px;
 }
 
 .header h1{
+
     margin:0;
-    font-family:"Archivo Black",sans-serif;
+
+    font-family:
+        "Archivo Black",
+        sans-serif;
+
     font-size:28px;
+
     letter-spacing:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #7edcff,
+            #fff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 }
 
 .header p{
+
     margin:7px 0 0;
+
     color:#76d5ff;
+
     font-size:11px;
-    letter-spacing:.5px;
+
+    letter-spacing:.7px;
 }
 
+
+/* =========================================================
+   MAIN
+========================================================= */
+
 .main{
+
     display:grid;
-    grid-template-columns:360px minmax(0,1fr);
+
+    grid-template-columns:
+        360px
+        minmax(0,1fr);
+
     gap:28px;
+
     align-items:start;
 }
 
+
+/* =========================================================
+   CONTROL PANEL
+========================================================= */
+
 .panel{
+
     padding:20px;
+
     border-radius:20px;
-    border:1px solid rgba(0,174,255,.4);
+
+    border:
+        1px solid
+        rgba(0,174,255,.4);
+
     background:
-        linear-gradient(145deg,rgba(8,36,86,.98),rgba(2,15,39,.98));
+        linear-gradient(
+            145deg,
+            rgba(8,36,86,.98),
+            rgba(2,15,39,.98)
+        );
+
     box-shadow:
         0 20px 60px rgba(0,0,0,.45),
         inset 0 0 35px rgba(0,120,255,.06);
 }
 
 .panel-title{
+
     margin-bottom:18px;
+
     font-size:14px;
+
     font-weight:900;
 }
 
 .group{
+
     margin-bottom:11px;
 }
 
 .group label{
+
     display:block;
+
     margin-bottom:5px;
+
     color:#83b9dc;
+
     font-size:9px;
+
     font-weight:900;
+
     text-transform:uppercase;
+
+    letter-spacing:.5px;
 }
 
 input{
+
     width:100%;
+
     height:35px;
+
     padding:0 11px;
-    border:1px solid #185694;
+
+    border:
+        1px solid
+        #185694;
+
     border-radius:8px;
+
     outline:none;
+
     background:#04142f;
+
     color:#fff;
-    font-family:Montserrat,sans-serif;
+
+    font-family:
+        Montserrat,
+        sans-serif;
+
     font-size:10px;
+
+    transition:.2s;
+}
+
+input:hover{
+
+    border-color:#287bc4;
 }
 
 input:focus{
-    border-color:var(--cyan);
-    box-shadow:0 0 12px rgba(0,174,255,.2);
+
+    border-color:
+        var(--electric);
+
+    box-shadow:
+        0 0 12px
+        rgba(0,174,255,.2);
 }
 
 input[type=file]{
+
     padding:5px;
 }
 
 input[type=file]::file-selector-button{
+
     margin-right:7px;
+
     padding:6px 9px;
+
     border:0;
+
     border-radius:6px;
-    background:var(--blue2);
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #0752ba
+        );
+
     color:#fff;
+
     cursor:pointer;
+
     font-size:9px;
+
     font-weight:800;
 }
 
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
 .btn{
+
     width:100%;
+
     height:39px;
+
     margin-top:5px;
+
     border:0;
+
     border-radius:9px;
+
     cursor:pointer;
-    font-family:Montserrat,sans-serif;
+
+    font-family:
+        Montserrat,
+        sans-serif;
+
     font-size:11px;
+
     font-weight:900;
+
     transition:.2s;
 }
 
 .btn:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-2px);
+}
+
+.btn:disabled{
+
+    opacity:.7;
+
+    cursor:wait;
+
+    transform:none;
 }
 
 .download{
-    background:linear-gradient(135deg,#ffe34d,#ffb800);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff06b,
+            #ffd400,
+            #ffb800
+        );
+
     color:#07162f;
-    box-shadow:0 8px 20px rgba(255,212,0,.2);
+
+    box-shadow:
+        0 8px 20px
+        rgba(255,212,0,.2);
 }
 
 .reset{
+
     margin-top:8px;
+
     background:#082450;
-    border:1px solid #185694;
+
+    border:
+        1px solid
+        #185694;
+
     color:#8ed8ff;
 }
 
+
+/* =========================================================
+   INFO
+========================================================= */
+
 .info{
+
     margin-top:13px;
+
     padding:10px;
-    border:1px solid rgba(0,174,255,.16);
+
+    border:
+        1px solid
+        rgba(0,174,255,.16);
+
     border-radius:9px;
-    background:rgba(0,130,255,.05);
+
+    background:
+        rgba(0,130,255,.05);
+
     color:#75a9c8;
+
     font-size:9px;
+
     line-height:1.5;
 }
 
-/* POSTER */
+
+/* =========================================================
+   PREVIEW
+========================================================= */
 
 .preview{
+
     display:flex;
+
     justify-content:center;
+
     overflow:auto;
 }
 
+
+/* =========================================================
+   POSTER
+========================================================= */
+
 #poster{
+
     position:relative;
+
     width:1000px;
+
     height:900px;
+
     min-width:900px;
+
     overflow:hidden;
 
     background:
-        radial-gradient(circle at 78% 15%,rgba(0,183,255,.34),transparent 25%),
-        radial-gradient(circle at 12% 80%,rgba(0,76,255,.25),transparent 32%),
-        linear-gradient(145deg,#031442 0%,#073582 48%,#02112f 100%);
 
-    box-shadow:0 25px 80px rgba(0,0,0,.55);
+        radial-gradient(
+            circle at 78% 12%,
+            rgba(0,183,255,.35),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 12% 80%,
+            rgba(0,76,255,.25),
+            transparent 31%
+        ),
+
+        radial-gradient(
+            circle at 48% 45%,
+            rgba(0,150,255,.08),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            145deg,
+            #031442,
+            #073582 48%,
+            #02112f
+        );
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.65);
 }
 
-/* BACKGROUND */
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
 
 .bg-lines{
+
     position:absolute;
+
     inset:-250px;
+
     pointer-events:none;
+
     background:
         repeating-linear-gradient(
             125deg,
             transparent 0 90px,
-            rgba(0,174,255,.08) 92px 95px,
+            rgba(0,174,255,.065)
+            92px 95px,
             transparent 97px 185px
         );
+
     transform:rotate(-2deg);
 }
 
 .bg-grid{
+
     position:absolute;
+
     inset:0;
-    opacity:.12;
+
+    opacity:.09;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);
+
+        linear-gradient(
+            rgba(255,255,255,.12)
+            1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.12)
+            1px,
+            transparent 1px
+        );
+
     background-size:45px 45px;
-    mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent);
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #000 20%,
+            #000 80%,
+            transparent
+        );
 }
+
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
 
 .glow{
+
     position:absolute;
-    width:500px;
-    height:500px;
-    right:-190px;
-    top:-180px;
+
+    width:540px;
+
+    height:540px;
+
+    right:-200px;
+
+    top:-190px;
+
     border-radius:50%;
-    background:radial-gradient(circle,rgba(0,183,255,.35),transparent 68%);
-    filter:blur(10px);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,183,255,.38),
+            transparent 68%
+        );
+
+    filter:blur(12px);
 }
+
+
+/* =========================================================
+   TOP ACCENT
+========================================================= */
 
 .accent{
+
     position:absolute;
+
     left:0;
+
     right:0;
+
     top:0;
+
     height:7px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #087cff 18%,
-        #00b7ff 40%,
-        #ffd400 60%,
-        #087cff 82%,
-        transparent
-    );
-    box-shadow:0 0 18px rgba(0,183,255,.8);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #087cff 18%,
+            #00b7ff 38%,
+            #ffd400 50%,
+            #00b7ff 62%,
+            #087cff 82%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(0,183,255,.8);
 }
 
+
+/* =========================================================
+   TOP TITLE
+========================================================= */
+
 .top-title{
+
     position:absolute;
+
     left:50px;
+
     top:28px;
+
     width:900px;
+
     height:60px;
+
     z-index:15;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:0 15px;
+    font-family:
+        "Archivo Black",
+        sans-serif;
 
-    font-family:"Archivo Black",sans-serif;
     font-size:40px;
+
     font-style:italic;
-    font-weight:900;
+
     letter-spacing:2px;
+
     white-space:nowrap;
 
     color:#ffd400;
 
-    /* premium header */
     background:
         linear-gradient(
             90deg,
-            rgba(3,25,67,.15),
+            transparent,
             rgba(9,82,166,.55),
-            rgba(3,25,67,.15)
+            transparent
         );
 
-    border-top:1px solid rgba(255,255,255,.35);
-    border-bottom:1px solid rgba(255,212,0,.8);
+    border-top:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-bottom:
+        1px solid
+        rgba(255,212,0,.75);
 
     box-shadow:
-        0 0 0 1px rgba(0,174,255,.25),
-        0 0 18px rgba(0,174,255,.28),
-        inset 0 1px 0 rgba(255,255,255,.12),
-        inset 0 -8px 18px rgba(0,0,0,.15);
+
+        0 0 0 1px
+        rgba(0,174,255,.2),
+
+        0 0 20px
+        rgba(0,174,255,.2),
+
+        inset 0 1px 0
+        rgba(255,255,255,.1);
 
     text-shadow:
+
         2px 3px 0 #714500,
-        0 0 8px rgba(255,212,0,.75),
-        0 0 18px rgba(255,212,0,.45),
-        0 0 30px rgba(0,183,255,.25);
+
+        0 0 10px
+        rgba(255,212,0,.55),
+
+        0 0 25px
+        rgba(255,212,0,.25);
 }
 
-.top-title-main{
-    font-family:"Archivo Black",sans-serif;
-    font-size:27px;
-    font-style:italic;
-    letter-spacing:1.5px;
-    color:#fff;
-    text-shadow:
-        2px 3px 0 #06245c,
-        0 0 10px rgba(255,255,255,.25),
-        0 0 20px rgba(0,174,255,.35);
-}
 
-.top-title-brand{
-    margin-top:5px;
-    font-family:"Archivo Black",sans-serif;
-    font-size:30px;
-    font-style:italic;
-    letter-spacing:3px;
+/* =========================================================
+   SMALL DECOR
+========================================================= */
+
+.star{
+
+    position:absolute;
+
+    z-index:4;
+
     color:#ffd400;
+
+    font-size:13px;
+
     text-shadow:
-        2px 3px 0 #714500,
-        0 0 10px rgba(255,212,0,.45),
-        0 0 22px rgba(255,212,0,.25);
+        0 0 10px #ffd400;
 }
 
-/* LOGO
-   Logo lama di atas disembunyikan.
-   Logo sekarang ditampilkan di samping brand.
-*/
-
-.logo{
-    display:none;
+.s1{
+    left:18px;
+    top:115px;
 }
 
-.logo img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    object-position:left center;
-    filter:
-        drop-shadow(0 5px 5px rgba(0,0,0,.65))
-        drop-shadow(0 0 10px rgba(0,174,255,.3));
+.s2{
+    right:325px;
+    top:470px;
 }
 
-/* CONTENT */
+.s3{
+    right:30px;
+    bottom:135px;
+}
+
+.s4{
+    left:610px;
+    top:105px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
 .content{
+
     position:absolute;
+
     left:30px;
+
     top:155px;
+
     width:510px;
+
     z-index:10;
 }
 
+
+/* =========================================================
+   CARDS
+========================================================= */
+
 .card{
+
     position:relative;
-    border:1px solid rgba(0,190,255,.85);
+
+    border:
+        1px solid
+        rgba(0,190,255,.85);
+
     background:
         linear-gradient(
             145deg,
             rgba(9,77,158,.94),
             rgba(2,31,76,.96)
         );
+
     box-shadow:
-        0 0 0 1px rgba(255,212,0,.85),
-        0 0 25px rgba(0,174,255,.25),
-        inset 0 0 25px rgba(255,255,255,.035);
-    backdrop-filter:blur(8px);
+
+        0 0 0 1px
+        rgba(255,212,0,.45),
+
+        0 15px 28px
+        rgba(0,0,0,.22),
+
+        0 0 25px
+        rgba(0,174,255,.2),
+
+        inset 0 1px 0
+        rgba(255,255,255,.13);
 }
 
-/* HEADLINE */
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    right:18px;
+
+    top:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+
+    opacity:.55;
+}
+
+
+/* =========================================================
+   HEADLINE
+========================================================= */
 
 .headline{
+
     min-height:112px;
+
     padding:16px 18px;
+
     border-radius:20px;
-    text-align:center;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
+
+    text-align:center;
 }
 
 .headline-main{
-    font-family:"Archivo Black",sans-serif;
+
+    font-family:
+        "Archivo Black",
+        sans-serif;
+
     font-size:38px;
+
     line-height:1;
+
     font-style:italic;
+
     white-space:nowrap;
-    text-shadow:
-        3px 4px 0 #06245c,
-        0 0 12px rgba(255,255,255,.2);
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #cceeff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    filter:
+        drop-shadow(
+            3px 4px 0 #06245c
+        );
 }
 
 .headline-sub{
+
     margin-top:7px;
-    font-family:"Archivo Black",sans-serif;
+
+    font-family:
+        "Archivo Black",
+        sans-serif;
+
     font-size:27px;
-    line-height:1;
-    color:var(--yellow);
+
+    color:#ffd400;
+
     font-style:italic;
+
     white-space:nowrap;
+
     text-shadow:
         3px 4px 0 #714500,
-        0 0 12px rgba(255,212,0,.3);
+        0 0 12px
+        rgba(255,212,0,.3);
 }
 
-/* USER */
+
+/* =========================================================
+   USER
+========================================================= */
 
 .user{
+
     height:67px;
+
     margin-top:15px;
-    padding:0 18px 0 50px;
+
+    padding:
+        0 18px
+        0 50px;
+
     border-radius:16px;
+
     display:flex;
+
     align-items:center;
 }
 
 .user-icon{
+
     width:40px;
+
     height:40px;
+
     flex:0 0 40px;
+
     margin-right:13px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:linear-gradient(145deg,#ffe866,#ffc000);
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff06b,
+            #ffc000
+        );
+
     color:#08245c;
-    font-size:px;
+
+    font-size:17px;
+
     font-weight:900;
-    box-shadow:0 0 13px rgba(255,212,0,.3);
+
+    border:
+        1px solid
+        rgba(255,255,255,.8);
+
+    box-shadow:
+        0 0 13px
+        rgba(255,212,0,.3);
 }
 
 .user-label{
+
     margin-left:8px;
+
     font-size:25px;
+
     font-weight:900;
+
     font-style:italic;
+
     white-space:nowrap;
 }
 
 .user-value{
+
     margin-left:8px;
-    color:var(--yellow);
+
+    color:#ffd400;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
-/* WIN */
+
+/* =========================================================
+   WIN CARD
+========================================================= */
 
 .win{
+
     height:145px;
+
     margin-top:15px;
-    border-radius:18px;
+
+    border-radius:20px;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
+    overflow:hidden;
+}
+
+.win::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:160px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,212,0,.10),
+            transparent 70%
+        );
+
+    pointer-events:none;
 }
 
 .win-label{
+
+    position:relative;
+
+    z-index:2;
+
     font-size:21px;
+
     font-weight:900;
+
     font-style:italic;
 }
 
 .win-value{
+
+    position:relative;
+
+    z-index:2;
+
     margin-top:7px;
-    font-family:"Archivo Black",sans-serif;
+
+    font-family:
+        "Archivo Black",
+        sans-serif;
+
     font-size:48px;
+
     line-height:1;
-    color:var(--yellow);
+
     white-space:nowrap;
-    text-shadow:
-        3px 5px 0 #714500,
-        0 0 15px rgba(255,212,0,.25);
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff36a,
+            #ffd400,
+            #ffb400
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    filter:
+        drop-shadow(
+            3px 5px 0 #714500
+        )
+        drop-shadow(
+            0 0 15px
+            rgba(255,212,0,.3)
+        );
 }
 
-/* EVENT */
+
+/* =========================================================
+   EVENT
+========================================================= */
 
 .event{
+
     height:78px;
+
     margin-top:14px;
+
     border-radius:15px;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
-    padding:8px 15px;
+
     text-align:center;
+
+    padding:8px 15px;
 }
 
 .event-label{
-    margin-right:0;
+
     color:#a4dcff;
+
     font-size:25px;
+
     font-weight:900;
-    line-height:1.2;
 }
 
 .event-value{
+
     margin-top:5px;
+
     max-width:100%;
-    color:var(--yellow);
+
+    color:#ffd400;
+
     font-size:20px;
+
     font-weight:900;
-    line-height:1.2;
+
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
-/* IMAGE */
+
+/* =========================================================
+   PROOF HERO
+========================================================= */
 
 .proof{
     position:absolute;
+
     right:55px;
     top:130px;
 
@@ -525,6 +1100,7 @@ input[type=file]::file-selector-button{
     height:600px;
 
     padding:7px;
+
     border-radius:27px;
 
     z-index:20;
@@ -532,22 +1108,26 @@ input[type=file]::file-selector-button{
     background:
         linear-gradient(
             145deg,
-            #ffd400 0%,
-            #fff29a 16%,
-            #087cff 42%,
+            #fff06b 0%,
+            #ffd400 9%,
+            #087cff 34%,
+            #00b7ff 58%,
             #00429d 100%
         );
 
     box-shadow:
-        0 0 0 2px rgba(255,255,255,.12),
-        0 0 35px rgba(0,174,255,.5),
-        0 25px 45px rgba(0,0,0,.5);
+        0 0 0 2px rgba(255,255,255,.10),
+        0 0 25px rgba(0,174,255,.45),
+        0 25px 50px rgba(0,0,0,.58);
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 }
 
+
+/* AREA BUKTI */
 
 .proof-inner{
     position:relative;
@@ -562,81 +1142,226 @@ input[type=file]::file-selector-button{
     background:#fff;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.12);
 }
 
 
-/* IMAGE AUTO RESIZE */
+/* GAMBAR BUKTI */
 
 #proofImage{
     display:block;
 
-    width:auto;
-    height:auto;
+    width:100%;
+    height:100%;
 
-    max-width:100%;
-    max-height:100%;
+    max-width:none;
+    max-height:none;
 
     object-fit:contain;
-    object-position:center center;
+    object-position:center;
 
-    margin:auto;
+    margin:0;
 
     background:#fff;
 
     flex-shrink:0;
 }
 
-/* BRAND */
+
+/* =========================================================
+   VERIFIED BADGE
+========================================================= */
+
+.verified{
+
+    position:absolute;
+
+    right:20px;
+
+    top:18px;
+
+    z-index:8;
+
+    padding:
+        7px 11px;
+
+    border-radius:20px;
+
+    background:
+        rgba(3,28,67,.88);
+
+    border:
+        1px solid
+        rgba(0,210,255,.8);
+
+    box-shadow:
+        0 0 15px
+        rgba(0,183,255,.35);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+    color:#dff9ff;
+}
+
+.verified-dot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:#00d9ff;
+
+    box-shadow:
+        0 0 8px
+        #00d9ff;
+}
+
+
+/* =========================================================
+   PROOF LABEL
+========================================================= */
+
+.proof-label{
+
+    position:absolute;
+
+    left:20px;
+
+    bottom:18px;
+
+    z-index:8;
+
+    padding:
+        6px 10px;
+
+    border-radius:7px;
+
+    background:
+        rgba(3,28,67,.82);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    color:#bfeeff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    backdrop-filter:blur(8px);
+}
+
+/* ================================
+   BRAND PREMIUM - LOGO LEBIH BESAR
+================================ */
 
 .brand{
     position:absolute;
     left:30px;
-    top:650px;
+    top:640px;
     width:510px;
-    height:70px;
+    height:90px;
     z-index:10;
 
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:14px;
+    gap:18px;
 
     text-align:left;
 }
 
+/* LOGO BRAND */
 .brand-logo{
-    width:72px;
-    height:72px;
-    flex:0 0 72px;
+    width:90px;
+    height:90px;
+    flex:0 0 90px;
+
     border-radius:50%;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:linear-gradient(
-        145deg,
-        #ffe866,
-        #ffc000
-    );
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff8bd 0%,
+            #ffe866 25%,
+            #ffc000 65%,
+            #d99a00 100%
+        );
 
-    border:2px solid rgba(255,255,255,.8);
+    border:2px solid rgba(255,255,255,.9);
 
     box-shadow:
-        0 0 15px rgba(255,212,0,.45),
-        0 0 30px rgba(0,174,255,.25);
+        0 0 0 2px rgba(255,212,0,.18),
+        0 0 18px rgba(255,212,0,.5),
+        0 0 35px rgba(0,174,255,.3),
+        0 10px 20px rgba(0,0,0,.4);
 
     overflow:hidden;
+
+    position:relative;
 }
 
+/* highlight kaca pada logo */
+.brand-logo::before{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.45),
+            transparent 35%
+        );
+
+    pointer-events:none;
+    z-index:2;
+}
+
+/* gambar logo */
 .brand-logo img{
     width:100%;
     height:100%;
+
     object-fit:contain;
+
+    position:relative;
+    z-index:1;
+
+    filter:
+        drop-shadow(0 4px 5px rgba(0,0,0,.6))
+        drop-shadow(0 0 8px rgba(255,255,255,.2));
 }
 
+
+/* TEXT BRAND */
 .brand-text{
     display:flex;
     flex-direction:column;
@@ -644,167 +1369,130 @@ input[type=file]::file-selector-button{
     align-items:flex-start;
 }
 
+/* ZIATOGEL */
 .brand-text strong{
     font-family:"Archivo Black",sans-serif;
-    font-size:30px;
+
+    font-size:34px;
     line-height:1;
+
     letter-spacing:4px;
+
     color:#fff;
 
     text-shadow:
+        2px 3px 0 #06245c,
         0 0 10px rgba(0,174,255,.8),
         0 0 22px rgba(0,174,255,.45);
 }
 
+/* SUBTITLE */
 .brand-text span{
     display:block;
-    margin-top:6px;
+
+    margin-top:7px;
+
     color:#79d5ff;
+
     font-size:15px;
     font-weight:800;
+
     letter-spacing:1.5px;
 }
 
+/* STARS */
 .brand-stars{
-    margin-top:5px;
+    margin-top:6px;
+
     color:#ffd400;
-    font-size:20px;
+
+    font-size:21px;
     line-height:1;
+
     letter-spacing:3px;
+
     text-shadow:
         0 0 7px rgba(255,212,0,.8),
         0 0 14px rgba(255,212,0,.4);
 }
-/* FEATURES */
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
 
 .features{
+
     position:absolute;
+
     left:25px;
+
     right:25px;
+
     bottom:24px;
+
     height:88px;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:10px;
+
     z-index:10;
 }
 
 .feature{
+
     position:relative;
+
     overflow:hidden;
 
-    border-radius:17px;
-    padding:8px 11px;
+    border-radius:16px;
+
+    padding:
+        8px 11px;
 
     display:flex;
+
     align-items:center;
-    justify-content:flex-start;
-    gap:10px;
+
+    gap:9px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(11,91,181,.96),
+            rgba(11,91,181,.94),
             rgba(3,38,91,.98)
         );
 
-    border:1px solid rgba(83,210,255,.85);
+    border:
+        1px solid
+        rgba(83,210,255,.75);
 
     box-shadow:
-        0 0 0 1px rgba(255,212,0,.55),
-        0 8px 20px rgba(0,0,0,.35),
-        0 0 18px rgba(0,174,255,.22),
-        inset 0 1px 0 rgba(255,255,255,.18),
-        inset 0 -12px 20px rgba(0,0,0,.15);
 
-    backdrop-filter:blur(10px);
+        0 0 0 1px
+        rgba(255,212,0,.28),
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        0 8px 20px
+        rgba(0,0,0,.35),
+
+        inset 0 1px 0
+        rgba(255,255,255,.16);
 }
 
 .feature::before{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    top:0;
-    height:1px;
-    background:linear-gradient(90deg,transparent,#fff,transparent);
-    opacity:.45;
-}
 
-.feature-icon{
-    width:42px;
-    height:42px;
-    flex:0 0 42px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:12px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,220,70,.95),
-            rgba(255,176,0,.9)
-        );
-
-    border:1px solid rgba(255,255,255,.7);
-
-    color:#06245c;
-
-    font-size:21px;
-    font-weight:900;
-
-    box-shadow:
-        0 0 10px rgba(255,212,0,.35),
-        inset 0 1px 2px rgba(255,255,255,.55);
-
-    text-shadow:none;
-}
-
-.feature-text{
-    text-align:left;
-}
-
-.feature-title{
-    color:#ffd400;
-
-    font-size:17px;
-    font-weight:900;
-
-    letter-spacing:.7px;
-
-    text-shadow:
-        0 0 7px rgba(255,212,0,.35);
-}
-
-.feature-sub{
-    margin-top:4px;
-
-    color:#eaf8ff;
-
-    font-size:12px;
-    font-weight:800;
-
-    letter-spacing:.3px;
-
-    white-space:nowrap;
-
-    text-shadow:
-        0 0 5px rgba(255,255,255,.15);
-}
-
-.feature::before{
     content:"";
 
     position:absolute;
+
     left:12px;
+
     right:12px;
+
     top:0;
 
     height:2px;
@@ -813,334 +1501,521 @@ input[type=file]::file-selector-button{
         linear-gradient(
             90deg,
             transparent,
-            #ffffff,
+            #00b7ff,
             #ffd400,
-            #ffffff,
+            #00b7ff,
             transparent
         );
 
     opacity:.65;
-
-    filter:blur(.2px);
 }
 
-/* DECOR */
+.feature-icon{
 
-.star{
-    position:absolute;
-    z-index:4;
-    color:var(--yellow);
-    font-size:13px;
-    text-shadow:0 0 10px var(--yellow);
+    width:40px;
+
+    height:40px;
+
+    flex:0 0 40px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff06b,
+            #ffb800
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.7);
+
+    color:#06245c;
+
+    font-size:19px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 0 10px
+        rgba(255,212,0,.3);
 }
 
-.s1{left:18px;top:115px}
-.s2{right:325px;top:470px}
-.s3{right:30px;bottom:135px}
-.s4{left:610px;top:105px}
+.feature-text{
 
-/* RESPONSIVE */
+    min-width:0;
+
+    text-align:left;
+}
+
+.feature-title{
+
+    color:#ffd400;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    letter-spacing:.6px;
+}
+
+.feature-sub{
+
+    margin-top:4px;
+
+    color:#eaf8ff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:1000px){
+
     .main{
+
         grid-template-columns:1fr;
     }
 
     .panel{
+
         max-width:500px;
+
         margin:auto;
     }
 
     .preview{
+
         justify-content:flex-start;
     }
 }
 
 @media(max-width:600px){
+
     .container{
+
         padding:12px;
     }
 
     .header h1{
+
         font-size:21px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-    <header class="header">
-        <h1>WINNER POSTER GENERATOR PRO</h1>
-        <p>Premium Achievement Poster • Royal Blue Edition</p>
-    </header>
 
-    <main class="main">
+<header class="header">
 
-        <!-- CONTROL PANEL -->
-        <section class="panel">
+    <h1>
+        GENERATOR POSTER POST WA
+    </h1>
 
-            <div class="panel-title">⚙ DATA POSTER</div>
+    <p>
+        Generator Postingan WA
+    </p>
 
-            <div class="group">
-                <label>Logo</label>
-                <input
-                    id="logoUrl"
-                    type="text"
-                    placeholder="URL logo atau kosongkan"
-                    value=""
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>User ID</label>
-                <input
-                    id="userId"
-                    type="text"
-                    value="M******05"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Total Hadiah</label>
-                <input
-                    id="totalWin"
-                    type="text"
-                    value="33,000,000"
-                    oninput="formatNominal(this);updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Nama Event / Game</label>
-                <input
-                    id="gameName"
-                    type="text"
-                    value="ACHIEVEMENT EVENT"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Judul Atas</label>
-                <input
-                    id="headline"
-                    type="text"
-                    value="SELAMAT KEPADA"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Sub Judul</label>
-                <input
-                    id="subHeadline"
-                    type="text"
-                    value="MEMBER SETIA KAMI"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Upload Gambar</label>
-                <input
-                    id="proofUpload"
-                    type="file"
-                    accept="image/*"
-                    onchange="loadImage(event)"
-                >
-            </div>
-
-            <div class="group">
-                <label>Service</label>
-                <input
-                    id="service"
-                    type="text"
-                    value="24 JAM ONLINE"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Keamanan</label>
-                <input
-                    id="security"
-                    type="text"
-                    value="TERJAMIN AMAN"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Quality</label>
-                <input
-                    id="engine"
-                    type="text"
-                    value="TERBAIK"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <div class="group">
-                <label>Usia</label>
-                <input
-                    id="age"
-                    type="text"
-                    value="PASTI DIBAYAR"
-                    oninput="updatePoster()"
-                >
-            </div>
-
-            <button class="btn download" onclick="downloadPoster()">
-                ↓ DOWNLOAD PNG
-            </button>
-
-            <button class="btn reset" onclick="resetForm()">
-                ↻ RESET
-            </button>
-
-            <div class="info">
-                <b>PRO v2</b><br>
-                Layout premium dengan hierarchy lebih jelas,
-                frame gambar metallic, glass-style cards,
-                dan struktur JavaScript yang lebih ringan.
-            </div>
-
-        </section>
+</header>
 
 
-        <!-- PREVIEW -->
-        <section class="preview">
 
-            <div id="poster">
+<main class="main">
 
-                <div class="bg-lines"></div>
-                <div class="bg-grid"></div>
-                <div class="glow"></div>
-                <div class="accent"></div>
 
-                <div class="top-title">
+<!-- =====================================================
+     CONTROL
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-title">
+        ⚙ DATA POSTER
+    </div>
+
+
+    <div class="group">
+
+        <label>Logo</label>
+
+        <input
+            id="logoUrl"
+            type="text"
+            placeholder="URL logo atau kosongkan"
+            value=""
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>User ID</label>
+
+        <input
+            id="userId"
+            type="text"
+            value="M******05"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Total Hadiah</label>
+
+        <input
+            id="totalWin"
+            type="text"
+            value="33,000,000"
+            oninput="formatNominal(this);updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Nama Event / Game</label>
+
+        <input
+            id="gameName"
+            type="text"
+            value="ACHIEVEMENT EVENT"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Judul Atas</label>
+
+        <input
+            id="headline"
+            type="text"
+            value="SELAMAT KEPADA"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Sub Judul</label>
+
+        <input
+            id="subHeadline"
+            type="text"
+            value="MEMBER SETIA KAMI"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Upload Gambar</label>
+
+        <input
+            id="proofUpload"
+            type="file"
+            accept="image/*"
+            onchange="loadImage(event)"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Service</label>
+
+        <input
+            id="service"
+            type="text"
+            value="24 JAM ONLINE"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Keamanan</label>
+
+        <input
+            id="security"
+            type="text"
+            value="TERJAMIN AMAN"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Quality</label>
+
+        <input
+            id="engine"
+            type="text"
+            value="PREMIUM QUALITY"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <div class="group">
+
+        <label>Usia</label>
+
+        <input
+            id="age"
+            type="text"
+            value="PASTI DIBAYAR"
+            oninput="updatePoster()"
+        >
+
+    </div>
+
+
+    <button
+        class="btn download"
+        onclick="downloadPoster()"
+    >
+        ↓ DOWNLOAD PNG
+    </button>
+
+
+    <button
+        class="btn reset"
+        onclick="resetForm()"
+    >
+        ↻ RESET
+    </button>
+
+
+    <div class="info">
+
+        <b>PRO v4 PREMIUM</b><br>
+
+        Verification-style poster dengan
+        hero proof frame, verified badge,
+        premium typography, depth background,
+        dan auto-fit image system.
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PREVIEW
+===================================================== -->
+
+<section class="preview">
+
+
+<div id="poster">
+
+
+<div class="bg-lines"></div>
+
+<div class="bg-grid"></div>
+
+<div class="glow"></div>
+
+<div class="accent"></div>
+
+
+
+<div class="top-title">
     BUKTI JACKPOT ZIATOGEL
 </div>
 
-                <div class="star s1">✦</div>
-                <div class="star s2">✦</div>
-                <div class="star s3">✦</div>
-                <div class="star s4">✦</div>
 
 
-                <!-- LOGO LAMA
-                     Disembunyikan lewat CSS.
-                     Logo sekarang tampil di brand.
-                -->
-                <div class="logo">
-                    <img id="logoPreview" alt="Logo">
-                </div>
+<div class="star s1">✦</div>
+<div class="star s2">✦</div>
+<div class="star s3">✦</div>
+<div class="star s4">✦</div>
 
 
-                <!-- MAIN CONTENT -->
-                <div class="content">
 
-                    <div class="card headline">
-                        <div
-                            class="headline-main"
-                            id="headlinePreview"
-                        >
-                            SELAMAT KEPADA
-                        </div>
+<!-- =====================================================
+     CONTENT
+===================================================== -->
 
-                        <div
-                            class="headline-sub"
-                            id="subHeadlinePreview"
-                        >
-                            MEMBER SETIA KAMI
-                        </div>
-                    </div>
+<div class="content">
 
 
-                    <div class="card user">
+<div class="card headline">
 
-                        <div class="user-icon">●</div>
-
-                        <div class="user-label">
-                            USER ID :
-                        </div>
-
-                        <div
-                            class="user-label user-value"
-                            id="userPreview"
-                        >
-                            M******05
-                        </div>
-
-                    </div>
+    <div
+        class="headline-main"
+        id="headlinePreview"
+    >
+        SELAMAT KEPADA
+    </div>
 
 
-                    <div class="card win">
+    <div
+        class="headline-sub"
+        id="subHeadlinePreview"
+    >
+        MEMBER SETIA KAMI
+    </div>
 
-                        <div class="win-label">
-                            TOTAL HADIAH
-                        </div>
-
-                        <div
-                            class="win-value"
-                            id="winPreview"
-                        >
-                            Rp 33,000,000
-                        </div>
-
-                    </div>
+</div>
 
 
-                    <div class="card event">
 
-                        <span class="event-label">
-                            JP PADA PERMAINAN :
-                        </span>
+<div class="card user">
 
-                        <span
-                            class="event-value"
-                            id="gamePreview"
-                        >
-                            ACHIEVEMENT EVENT
-                        </span>
-
-                    </div>
-
-                </div>
+    <div class="user-icon">
+        ●
+    </div>
 
 
-                <!-- IMAGE -->
-                <div class="proof">
-
-                    <div class="proof-inner">
-
-                        <img
-                            id="proofImage"
-                            alt="Uploaded image"
-                        >
-
-                    </div>
-
-                </div>
+    <div class="user-label">
+        USER ID :
+    </div>
 
 
-                <!-- BRAND -->
-                <div class="brand">
+    <div
+        class="user-label user-value"
+        id="userPreview"
+    >
+        M******05
+    </div>
+
+</div>
+
+
+
+<div class="card win">
+
+    <div class="win-label">
+        TOTAL HADIAH
+    </div>
+
+
+    <div
+        class="win-value"
+        id="winPreview"
+    >
+        Rp 33,000,000
+    </div>
+
+</div>
+
+
+
+<div class="card event">
+
+    <span class="event-label">
+        JP PADA PERMAINAN :
+    </span>
+
+
+    <span
+        class="event-value"
+        id="gamePreview"
+    >
+        ACHIEVEMENT EVENT
+    </span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PROOF
+===================================================== -->
+
+<div class="proof">
+
+    <div class="proof-inner">
+
+        <img
+            id="proofImage"
+            alt="Bukti"
+        >
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BRAND
+===================================================== -->
+
+<div class="brand">
+
 
     <div class="brand-logo">
-        <img src="" id="brandLogo" alt="Brand Logo">
+
+        <img
+            src=""
+            id="brandLogo"
+            alt="Brand Logo"
+        >
+
     </div>
+
 
     <div class="brand-text">
 
-        <strong>ZIATOGEL</strong>
+        <strong>
+            ZIATOGEL
+        </strong>
 
-        <span>Game Online Terpercaya</span>
+
+        <span>
+            Game Online Terpercaya
+        </span>
+
 
         <div class="brand-stars">
             ★ ★ ★ ★ ★
@@ -1148,374 +2023,542 @@ input[type=file]::file-selector-button{
 
     </div>
 
+
+</div>
+
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<div class="features">
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        ◴
+    </div>
+
+
+    <div class="feature-text">
+
+        <div class="feature-title">
+            SERVICE
+        </div>
+
+
+        <div
+            class="feature-sub"
+            id="servicePreview"
+        >
+            24 JAM ONLINE
+        </div>
+
+    </div>
+
 </div>
 
 
-                <!-- FEATURES -->
-                <div class="features">
 
-                    <div class="feature">
+<div class="feature">
 
-                        <div class="feature-icon">
-                            ◴
-                        </div>
-
-                        <div class="feature-text">
-
-                            <div class="feature-title">
-                                SERVICE
-                            </div>
-
-                            <div
-                                class="feature-sub"
-                                id="servicePreview"
-                            >
-                                24 JAM ONLINE
-                            </div>
-
-                        </div>
-
-                    </div>
+    <div class="feature-icon">
+        🔒
+    </div>
 
 
-                    <div class="feature">
+    <div class="feature-text">
 
-                        <div class="feature-icon">
-                            🔒
-                        </div>
-
-                        <div class="feature-text">
-
-                            <div class="feature-title">
-                                RAHASIA
-                            </div>
-
-                            <div
-                                class="feature-sub"
-                                id="securityPreview"
-                            >
-                                TERJAMIN AMAN
-                            </div>
-
-                        </div>
-
-                    </div>
+        <div class="feature-title">
+            RAHASIA
+        </div>
 
 
-                    <div class="feature">
+        <div
+            class="feature-sub"
+            id="securityPreview"
+        >
+            TERJAMIN AMAN
+        </div>
 
-                        <div class="feature-icon">
-                            ⚙
-                        </div>
-
-                        <div class="feature-text">
-
-                            <div class="feature-title">
-                                ENGINE
-                            </div>
-
-                            <div
-                                class="feature-sub"
-                                id="enginePreview"
-                            >
-                                TERBA
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="feature">
-
-                        <div class="feature-icon">
-                            ★
-                        </div>
-
-                        <div class="feature-text">
-
-                            <div class="feature-title">
-                                JP BERAPAPUN
-                            </div>
-
-                            <div
-                                class="feature-sub"
-                                id="agePreview"
-                            >
-                                PASTI DIBAYAR
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
+    </div>
 
 </div>
+
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        ⚙
+    </div>
+
+
+    <div class="feature-text">
+
+        <div class="feature-title">
+            ENGINE
+        </div>
+
+
+        <div
+            class="feature-sub"
+            id="enginePreview"
+        >
+            TERBAIK
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        ★
+    </div>
+
+
+    <div class="feature-text">
+
+        <div class="feature-title">
+            JP BERAPAPUN
+        </div>
+
+
+        <div
+            class="feature-sub"
+            id="agePreview"
+        >
+            PASTI DIBAYAR
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
 
 
 <script>
+
+/* =========================================================
+   HELPER
+========================================================= */
+
 "use strict";
 
-/* =========================================
-   HELPER
-========================================= */
-
-const $ = id => document.getElementById(id);
-
-const fields = [
-    "logoUrl",
-    "userId",
-    "totalWin",
-    "gameName",
-    "headline",
-    "subHeadline",
-    "service",
-    "security",
-    "engine",
-    "age"
-];
+const $ =
+    id => document.getElementById(id);
 
 
-/* =========================================
+
+/* =========================================================
    FORMAT NOMINAL
-========================================= */
+========================================================= */
 
 function formatNominal(input){
 
-    const digits = input.value.replace(/\D/g,"");
+    const digits =
+        input.value.replace(
+            /\D/g,
+            ""
+        );
 
-    input.value = digits
-        ? Number(digits).toLocaleString("en-US")
-        : "";
+    input.value =
+        digits
+            ? Number(digits)
+                .toLocaleString("en-US")
+            : "";
 }
 
 
-/* =========================================
-   UPDATE POSTER
-========================================= */
+
+/* =========================================================
+   UPDATE
+========================================================= */
 
 function updatePoster(){
 
-    const logo = $("logoUrl").value.trim();
+    const logo =
+        $("logoUrl")
+        .value
+        .trim();
+
 
     const map = {
-        logoPreview: logo,
-        brandLogo: logo,
+
+        brandLogo:logo,
 
         userPreview:
-            $("userId").value.trim() ||
+            $("userId")
+            .value
+            .trim()
+            ||
             "M******05",
+
 
         winPreview:
             "Rp " +
-            ($("totalWin").value || "0"),
+            (
+                $("totalWin")
+                .value
+                ||
+                "0"
+            ),
+
 
         gamePreview:
-            $("gameName").value.trim() ||
+            $("gameName")
+            .value
+            .trim()
+            ||
             "EVENT",
 
+
         headlinePreview:
-            $("headline").value.trim() ||
+            $("headline")
+            .value
+            .trim()
+            ||
             "SELAMAT KEPADA",
 
+
         subHeadlinePreview:
-            $("subHeadline").value.trim() ||
+            $("subHeadline")
+            .value
+            .trim()
+            ||
             "MEMBER SETIA KAMI",
 
+
         servicePreview:
-            $("service").value.trim() ||
+            $("service")
+            .value
+            .trim()
+            ||
             "24 JAM ONLINE",
 
+
         securityPreview:
-            $("security").value.trim() ||
+            $("security")
+            .value
+            .trim()
+            ||
             "TERJAMIN AMAN",
 
+
         enginePreview:
-            $("engine").value.trim() ||
-            "TERBAIK",
+            $("engine")
+            .value
+            .trim()
+            ||
+            "PREMIUM QUALITY",
+
 
         agePreview:
-            $("age").value.trim() ||
+            $("age")
+            .value
+            .trim()
+            ||
             "PASTI DIBAYAR"
+
     };
 
-    Object.entries(map).forEach(([id,value]) => {
 
-        const el = $(id);
+    Object.entries(map)
+        .forEach(
+            ([id,value]) => {
 
-        if(!el) return;
+                const el =
+                    $(id);
 
-        if(el.tagName === "IMG"){
-            el.src = value;
-        }else{
-            el.textContent = value;
-        }
+                if(!el) return;
 
-    });
+
+                if(
+                    el.tagName ===
+                    "IMG"
+                ){
+
+                    el.src =
+                        value;
+
+                }else{
+
+                    el.textContent =
+                        value;
+
+                }
+
+            }
+        );
 }
 
 
-/* =========================================
-   LOAD IMAGE - AUTO FIT
-========================================= */
+
+/* =========================================================
+   LOAD PROOF IMAGE
+========================================================= */
 
 function loadImage(event){
 
-    const file = event.target.files?.[0];
+    const file =
+        event.target
+        .files?.[0];
+
 
     if(!file) return;
 
-    if(!file.type.startsWith("image/")){
 
-        alert("File harus berupa gambar.");
+    if(
+        !file.type
+        .startsWith("image/")
+    ){
 
-        event.target.value = "";
+        alert(
+            "File harus berupa gambar."
+        );
+
+        event.target.value =
+            "";
 
         return;
     }
 
-    const reader = new FileReader();
 
-    reader.onload = e => {
+    const reader =
+        new FileReader();
 
-        const img = $("proofImage");
 
-        img.onload = () => {
+    reader.onload =
+        e => {
 
-            autoFitProofImage();
+            const img =
+                $("proofImage");
+
+
+            img.onload =
+                () => {
+
+                    autoFitProofImage();
+
+                };
+
+
+            img.src =
+                e.target.result;
 
         };
 
-        img.src = e.target.result;
-
-    };
 
     reader.readAsDataURL(file);
 }
 
-/* =========================================
-   AUTO FIT PROOF IMAGE
-========================================= */
+
+
+/* =========================================================
+   AUTO FIT
+========================================================= */
 
 function autoFitProofImage(){
 
-    const img = $("proofImage");
-    const frame = document.querySelector(".proof-inner");
+    const img =
+        $("proofImage");
 
-    if(!img || !frame || !img.naturalWidth) return;
 
-    const frameWidth = frame.clientWidth;
-    const frameHeight = frame.clientHeight;
+    const frame =
+        document.querySelector(
+            ".proof-inner"
+        );
 
-    const imageWidth = img.naturalWidth;
-    const imageHeight = img.naturalHeight;
+
+    if(
+        !img ||
+        !frame ||
+        !img.naturalWidth
+    ){
+
+        return;
+
+    }
+
+
+    const frameWidth =
+        frame.clientWidth;
+
+
+    const frameHeight =
+        frame.clientHeight;
+
+
+    const imageWidth =
+        img.naturalWidth;
+
+
+    const imageHeight =
+        img.naturalHeight;
+
 
     const imageRatio =
-        imageWidth / imageHeight;
+        imageWidth /
+        imageHeight;
+
 
     const frameRatio =
-        frameWidth / frameHeight;
+        frameWidth /
+        frameHeight;
 
-    /*
-        LANDSCAPE / WIDE IMAGE
-    */
 
-    if(imageRatio > frameRatio){
+    if(
+        imageRatio >
+        frameRatio
+    ){
 
-        img.style.width = "100%";
-        img.style.height = "auto";
+        img.style.width =
+            "100%";
 
-    }
-
-    /*
-        PORTRAIT / TALL IMAGE
-    */
-
-    else if(imageRatio < frameRatio){
-
-        img.style.width = "auto";
-        img.style.height = "100%";
+        img.style.height =
+            "auto";
 
     }
 
-    /*
-        RATIO SAMA
-    */
+    else if(
+        imageRatio <
+        frameRatio
+    ){
+
+        img.style.width =
+            "auto";
+
+        img.style.height =
+            "100%";
+
+    }
 
     else{
 
-        img.style.width = "100%";
-        img.style.height = "100%";
+        img.style.width =
+            "100%";
+
+        img.style.height =
+            "100%";
 
     }
 
-    img.style.objectFit = "contain";
-    img.style.objectPosition = "center center";
+
+    img.style.objectFit =
+        "contain";
+
+    img.style.objectPosition =
+        "center";
 }
 
-/* =========================================
-   RESPONSIVE AUTO FIT
-========================================= */
 
-window.addEventListener("resize", () => {
 
-    autoFitProofImage();
+/* =========================================================
+   WINDOW RESIZE
+========================================================= */
 
-});
+window.addEventListener(
+    "resize",
+    autoFitProofImage
+);
 
-/* =========================================
+
+
+/* =========================================================
    DOWNLOAD
-========================================= */
+========================================================= */
 
 async function downloadPoster(){
 
     const button =
-        document.querySelector(".download");
+        document.querySelector(
+            ".download"
+        );
+
 
     const poster =
         $("poster");
 
-    button.disabled = true;
+
+    button.disabled =
+        true;
+
 
     button.textContent =
         "⏳ GENERATING...";
+
 
     try{
 
         await document.fonts.ready;
 
+
+        autoFitProofImage();
+
+
         const canvas =
             await html2canvas(
                 poster,
                 {
+
                     scale:2,
+
                     useCORS:true,
+
                     allowTaint:false,
-                    backgroundColor:"#031442",
-                    imageTimeout:15000,
+
+                    backgroundColor:
+                        "#031442",
+
+                    imageTimeout:
+                        15000,
+
                     logging:false,
+
                     removeContainer:true
+
                 }
             );
+
 
         const user =
             $("userId")
             .value
-            .replace(/[^a-zA-Z0-9]/g,"") ||
+            .replace(
+                /[^a-zA-Z0-9]/g,
+                ""
+            )
+            ||
             "WINNER";
 
+
         const link =
-            document.createElement("a");
+            document.createElement(
+                "a"
+            );
+
 
         link.download =
             `WINNER-POSTER-${user}.png`;
+
 
         link.href =
             canvas.toDataURL(
@@ -1523,72 +2566,113 @@ async function downloadPoster(){
                 1
             );
 
-        document.body.appendChild(link);
+
+        document.body.appendChild(
+            link
+        );
+
 
         link.click();
 
+
         link.remove();
 
-    }catch(error){
+
+    }
+
+    catch(error){
 
         console.error(error);
+
 
         alert(
             "Gagal membuat PNG. Pastikan gambar/logo dapat diakses atau gunakan gambar lokal."
         );
 
-    }finally{
+    }
 
-        button.disabled = false;
+    finally{
+
+        button.disabled =
+            false;
 
         button.textContent =
             "↓ DOWNLOAD PNG";
 
     }
+
 }
 
 
-/* =========================================
+
+/* =========================================================
    RESET
-========================================= */
+========================================================= */
 
 function resetForm(){
 
     const defaults = {
 
         logoUrl:"",
+
         userId:"Isi Userid",
+
         totalWin:"Total JP",
-        gameName:"Isi Nama Game",
-        headline:"SELAMAT KEPADA",
-        subHeadline:"MEMBER SETIA KAMI",
-        service:"24 JAM ONLINE",
-        security:"TERJAMIN AMAN",
-        engine:"TERBAIK",
-        age:"PASTI DIBAYAR"
+
+        gameName:
+            "Isi Nama Game",
+
+        headline:
+            "SELAMAT KEPADA",
+
+        subHeadline:
+            "MEMBER SETIA KAMI",
+
+        service:
+            "24 JAM ONLINE",
+
+        security:
+            "TERJAMIN AMAN",
+
+        engine:
+            "PREMIUM QUALITY",
+
+        age:
+            "PASTI DIBAYAR"
 
     };
 
-    Object.entries(defaults).forEach(
-        ([id,value]) => {
 
-            $(id).value = value;
+    Object.entries(defaults)
+        .forEach(
+            ([id,value]) => {
 
-        }
-    );
+                $(id).value =
+                    value;
 
-    $("proofUpload").value = "";
+            }
+        );
+
+
+    $("proofUpload").value =
+        "";
+
 
     $("proofImage")
-        .removeAttribute("src");
+        .removeAttribute(
+            "src"
+        );
+
 
     updatePoster();
+
 }
 
 
-/* =========================================
+
+/* =========================================================
    INITIALIZE
-========================================= */
+========================================================= */
 
 updatePoster();
 
