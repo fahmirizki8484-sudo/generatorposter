@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Winner Poster Generator PRO v4</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<title>ZIATOGEL Winner Poster Generator</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 
 <style>
 
@@ -25,42 +22,43 @@
 }
 
 :root{
-
-    --navy:#020816;
-    --navy2:#031442;
-
-    --blue:#0b3c7a;
+    --navy:#020b20;
+    --navy2:#041b46;
+    --blue:#063b86;
     --blue2:#087cff;
-    --electric:#00b7ff;
-
+    --cyan:#00d9ff;
     --yellow:#ffd400;
+    --yellow2:#ffb800;
+    --white:#ffffff;
+}
 
-    --white:#fff;
+html,
+body{
+    margin:0;
+    padding:0;
 }
 
 body{
-
-    margin:0;
-
     min-height:100vh;
-
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(0,123,255,.18),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 45%,
-            rgba(0,183,255,.12),
+            circle at 15% 10%,
+            rgba(0,126,255,.20),
             transparent 30%
         ),
-
-        #020816;
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(0,217,255,.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #010817,
+            #031638 50%,
+            #010b1e
+        );
 
     color:#fff;
-
     font-family:
         Montserrat,
         Arial,
@@ -73,11 +71,8 @@ body{
 ========================================================= */
 
 .container{
-
     width:min(1450px,100%);
-
     margin:auto;
-
     padding:25px;
 }
 
@@ -87,46 +82,123 @@ body{
 ========================================================= */
 
 .header{
-
+    position:relative;
+    margin-bottom:28px;
+    padding:18px 20px 20px;
     text-align:center;
 
-    margin-bottom:25px;
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(5,39,91,.72),
+            rgba(2,15,38,.82)
+        );
+
+    border:
+        1px solid
+        rgba(0,217,255,.35);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.28),
+
+        0 0 25px
+        rgba(0,174,255,.08),
+
+        inset 0 1px 0
+        rgba(255,255,255,.08);
+}
+
+.header::before{
+    content:"";
+
+    position:absolute;
+
+    left:18%;
+    right:18%;
+    top:0;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #087cff,
+            #00d9ff,
+            #ffd400,
+            #00d9ff,
+            #087cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(0,217,255,.65);
+}
+
+.header::after{
+    content:"";
+
+    position:absolute;
+
+    left:28%;
+    right:28%;
+    bottom:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,217,255,.7),
+            rgba(255,212,0,.7),
+            rgba(0,217,255,.7),
+            transparent
+        );
 }
 
 .header h1{
-
     margin:0;
 
     font-family:
         "Archivo Black",
         sans-serif;
 
-    font-size:28px;
+    font-size:30px;
+    font-style:italic;
+    letter-spacing:1.8px;
+    line-height:1.1;
 
-    letter-spacing:1px;
+    color:#fff;
 
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #7edcff,
-            #fff
-        );
+    text-shadow:
+        2px 3px 0 #06245c,
+        0 0 8px rgba(255,255,255,.25),
+        0 0 20px rgba(0,217,255,.35);
+}
 
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
+.header h1::first-letter{
+    color:#ffd400;
 }
 
 .header p{
+    margin:8px 0 0;
 
-    margin:7px 0 0;
+    color:#78dfff;
 
-    color:#76d5ff;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.8px;
 
-    font-size:11px;
+    text-transform:uppercase;
 
-    letter-spacing:.7px;
+    text-shadow:
+        0 0 8px
+        rgba(0,217,255,.22);
 }
 
 
@@ -135,14 +207,13 @@ body{
 ========================================================= */
 
 .main{
-
     display:grid;
 
     grid-template-columns:
         360px
         minmax(0,1fr);
 
-    gap:28px;
+    gap:26px;
 
     align-items:start;
 }
@@ -153,75 +224,83 @@ body{
 ========================================================= */
 
 .panel{
-
     padding:20px;
 
-    border-radius:20px;
+    border-radius:12px;
 
     border:
         1px solid
-        rgba(0,174,255,.4);
+        rgba(0,217,255,.65);
 
     background:
         linear-gradient(
             145deg,
-            rgba(8,36,86,.98),
-            rgba(2,15,39,.98)
+            rgba(4,31,76,.98),
+            rgba(2,12,31,.98)
         );
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.45),
-        inset 0 0 35px rgba(0,120,255,.06);
+        0 0 0 1px
+        rgba(0,80,180,.2),
+
+        0 20px 60px
+        rgba(0,0,0,.45),
+
+        inset 0 0 30px
+        rgba(0,140,255,.06);
 }
 
 .panel-title{
-
     margin-bottom:18px;
 
-    font-size:14px;
+    color:#ffd400;
 
+    font-size:14px;
     font-weight:900;
+    letter-spacing:.8px;
+
+    text-shadow:
+        0 0 8px
+        rgba(255,212,0,.35);
 }
 
 .group{
-
-    margin-bottom:11px;
+    margin-bottom:12px;
 }
 
 .group label{
-
     display:block;
 
     margin-bottom:5px;
 
-    color:#83b9dc;
+    color:#69d8ff;
 
     font-size:9px;
-
     font-weight:900;
-
     text-transform:uppercase;
-
-    letter-spacing:.5px;
+    letter-spacing:.7px;
 }
 
 input{
-
     width:100%;
-
-    height:35px;
+    height:36px;
 
     padding:0 11px;
 
     border:
         1px solid
-        #185694;
+        #145b94;
 
-    border-radius:8px;
+    border-radius:6px;
 
     outline:none;
 
-    background:#04142f;
+    background:
+        linear-gradient(
+            180deg,
+            #051b3c,
+            #03132c
+        );
 
     color:#fff;
 
@@ -235,40 +314,36 @@ input{
 }
 
 input:hover{
-
-    border-color:#287bc4;
+    border-color:#168bd0;
 }
 
 input:focus{
-
     border-color:
-        var(--electric);
+        var(--cyan);
 
     box-shadow:
         0 0 12px
-        rgba(0,174,255,.2);
+        rgba(0,217,255,.22);
 }
 
 input[type=file]{
-
     padding:5px;
 }
 
 input[type=file]::file-selector-button{
-
     margin-right:7px;
 
-    padding:6px 9px;
+    padding:6px 10px;
 
     border:0;
 
-    border-radius:6px;
+    border-radius:5px;
 
     background:
         linear-gradient(
             135deg,
             #087cff,
-            #0752ba
+            #0750b5
         );
 
     color:#fff;
@@ -276,26 +351,22 @@ input[type=file]::file-selector-button{
     cursor:pointer;
 
     font-size:9px;
-
     font-weight:800;
 }
 
 
 /* =========================================================
-   BUTTON
+   RESET BUTTON
 ========================================================= */
 
 .btn{
-
     width:100%;
-
-    height:39px;
+    height:40px;
 
     margin-top:5px;
 
     border:0;
-
-    border-radius:9px;
+    border-radius:6px;
 
     cursor:pointer;
 
@@ -303,56 +374,26 @@ input[type=file]::file-selector-button{
         Montserrat,
         sans-serif;
 
-    font-size:11px;
-
+    font-size:13px;
     font-weight:900;
 
     transition:.2s;
 }
 
 .btn:hover{
-
-    transform:
-        translateY(-2px);
-}
-
-.btn:disabled{
-
-    opacity:.7;
-
-    cursor:wait;
-
-    transform:none;
-}
-
-.download{
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff06b,
-            #ffd400,
-            #ffb800
-        );
-
-    color:#07162f;
-
-    box-shadow:
-        0 8px 20px
-        rgba(255,212,0,.2);
+    transform:translateY(-2px);
 }
 
 .reset{
-
     margin-top:8px;
 
-    background:#082450;
+    background:#062b5c;
 
     border:
         1px solid
-        #185694;
+        #176aa5;
 
-    color:#8ed8ff;
+    color:#8de4ff;
 }
 
 
@@ -361,24 +402,22 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .info{
-
     margin-top:13px;
 
     padding:10px;
 
     border:
         1px solid
-        rgba(0,174,255,.16);
+        rgba(0,217,255,.20);
 
-    border-radius:9px;
+    border-radius:6px;
 
     background:
-        rgba(0,130,255,.05);
+        rgba(0,126,255,.05);
 
-    color:#75a9c8;
+    color:#6fa8ca;
 
-    font-size:9px;
-
+    font-size:12px;
     line-height:1.5;
 }
 
@@ -388,12 +427,13 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .preview{
-
     display:flex;
 
     justify-content:center;
 
     overflow:auto;
+
+    padding-bottom:20px;
 }
 
 
@@ -402,170 +442,192 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 #poster{
-
     position:relative;
 
     width:1000px;
-
     height:900px;
 
-    min-width:900px;
+    min-width:1000px;
 
     overflow:hidden;
 
     background:
-
         radial-gradient(
             circle at 78% 12%,
-            rgba(0,183,255,.35),
-            transparent 24%
+            rgba(0,217,255,.18),
+            transparent 25%
         ),
 
         radial-gradient(
-            circle at 12% 80%,
-            rgba(0,76,255,.25),
-            transparent 31%
-        ),
-
-        radial-gradient(
-            circle at 48% 45%,
-            rgba(0,150,255,.08),
-            transparent 40%
+            circle at 15% 80%,
+            rgba(0,86,255,.20),
+            transparent 32%
         ),
 
         linear-gradient(
             145deg,
-            #031442,
-            #073582 48%,
-            #02112f
+            #02102e 0%,
+            #042b68 48%,
+            #020e27 100%
         );
 
     box-shadow:
         0 30px 90px
         rgba(0,0,0,.65);
+
+    border:
+        1px solid
+        rgba(0,190,255,.75);
+}
+
+#poster::before{
+    content:"";
+
+    position:absolute;
+
+    inset:9px;
+
+    border:
+        1px solid
+        rgba(0,174,255,.45);
+
+    pointer-events:none;
+
+    z-index:100;
 }
 
 
 /* =========================================================
-   BACKGROUND GRID
+   BACKGROUND EFFECT
 ========================================================= */
 
-.bg-lines{
+.bg-grid{
+    position:absolute;
+    inset:0;
 
+    opacity:.10;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.10) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.10) 1px,
+            transparent 1px
+        );
+
+    background-size:42px 42px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #000 15%,
+            #000 85%,
+            transparent
+        );
+
+    pointer-events:none;
+}
+
+.bg-lines{
     position:absolute;
 
     inset:-250px;
 
     pointer-events:none;
 
+    opacity:.45;
+
     background:
         repeating-linear-gradient(
             125deg,
-            transparent 0 90px,
-            rgba(0,174,255,.065)
-            92px 95px,
-            transparent 97px 185px
+            transparent 0 100px,
+            rgba(0,217,255,.055) 103px 106px,
+            transparent 109px 205px
         );
 
     transform:rotate(-2deg);
 }
 
-.bg-grid{
-
+.tech-lines{
     position:absolute;
 
-    inset:0;
+    left:20px;
+    right:20px;
+    top:108px;
 
-    opacity:.09;
+    height:1px;
 
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.12)
-            1px,
-            transparent 1px
-        ),
-
+    background:
         linear-gradient(
             90deg,
-            rgba(255,255,255,.12)
-            1px,
-            transparent 1px
-        );
-
-    background-size:45px 45px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
             transparent,
-            #000 20%,
-            #000 80%,
+            rgba(0,217,255,.9),
+            rgba(255,212,0,.7),
+            rgba(0,217,255,.9),
             transparent
         );
+
+    box-shadow:
+        0 0 12px
+        rgba(0,217,255,.45);
+
+    z-index:4;
 }
 
-
-/* =========================================================
-   AMBIENT GLOW
-========================================================= */
-
 .glow{
-
     position:absolute;
 
-    width:540px;
+    width:560px;
+    height:560px;
 
-    height:540px;
-
-    right:-200px;
-
-    top:-190px;
+    right:-240px;
+    top:-200px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(0,183,255,.38),
+            rgba(0,183,255,.32),
             transparent 68%
         );
 
-    filter:blur(12px);
+    filter:blur(15px);
+
+    pointer-events:none;
 }
 
-
-/* =========================================================
-   TOP ACCENT
-========================================================= */
-
 .accent{
-
     position:absolute;
 
     left:0;
-
     right:0;
-
     top:0;
 
-    height:7px;
+    height:5px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            #087cff 18%,
-            #00b7ff 38%,
+            #087cff 15%,
+            #00d9ff 35%,
             #ffd400 50%,
-            #00b7ff 62%,
-            #087cff 82%,
+            #00d9ff 65%,
+            #087cff 85%,
             transparent
         );
 
     box-shadow:
         0 0 18px
-        rgba(0,183,255,.8);
+        rgba(0,217,255,.85);
+
+    z-index:20;
 }
 
 
@@ -574,34 +636,29 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .top-title{
-
     position:absolute;
 
-    left:50px;
+    left:30px;
+    top:22px;
 
-    top:28px;
-
-    width:900px;
-
-    height:60px;
+    width:940px;
+    height:72px;
 
     z-index:15;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     font-family:
         "Archivo Black",
         sans-serif;
 
-    font-size:40px;
-
+    font-size:38px;
     font-style:italic;
 
-    letter-spacing:2px;
+    letter-spacing:2.5px;
 
     white-space:nowrap;
 
@@ -611,47 +668,97 @@ input[type=file]::file-selector-button{
         linear-gradient(
             90deg,
             transparent,
-            rgba(9,82,166,.55),
+            rgba(3,48,105,.35) 15%,
+            rgba(5,76,150,.75) 50%,
+            rgba(3,48,105,.35) 85%,
             transparent
         );
 
     border-top:
         1px solid
-        rgba(255,255,255,.25);
+        rgba(0,217,255,.55);
 
     border-bottom:
         1px solid
-        rgba(255,212,0,.75);
+        rgba(255,212,0,.65);
 
     box-shadow:
-
-        0 0 0 1px
-        rgba(0,174,255,.2),
-
-        0 0 20px
-        rgba(0,174,255,.2),
+        0 0 18px
+        rgba(0,174,255,.10),
 
         inset 0 1px 0
-        rgba(255,255,255,.1);
+        rgba(255,255,255,.08),
+
+        inset 0 -1px 0
+        rgba(255,212,0,.12);
 
     text-shadow:
+        2px 3px 0 #684400,
+        0 0 8px rgba(255,212,0,.65),
+        0 0 18px rgba(255,212,0,.38),
+        0 0 32px rgba(255,212,0,.18);
+}
 
-        2px 3px 0 #714500,
+.top-title::before{
+    content:"";
 
+    position:absolute;
+
+    left:120px;
+    right:120px;
+    top:0;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #087cff,
+            #00d9ff,
+            #ffd400,
+            #00d9ff,
+            #087cff,
+            transparent
+        );
+
+    box-shadow:
         0 0 10px
-        rgba(255,212,0,.55),
+        rgba(0,217,255,.7);
+}
 
-        0 0 25px
-        rgba(255,212,0,.25);
+.top-title::after{
+    content:"";
+
+    position:absolute;
+
+    left:190px;
+    right:190px;
+    bottom:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,217,255,.8),
+            rgba(255,212,0,.9),
+            rgba(0,217,255,.8),
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(0,217,255,.5);
 }
 
 
 /* =========================================================
-   SMALL DECOR
+   TECH SYMBOL
 ========================================================= */
 
 .star{
-
     position:absolute;
 
     z-index:4;
@@ -665,12 +772,12 @@ input[type=file]::file-selector-button{
 }
 
 .s1{
-    left:18px;
-    top:115px;
+    left:20px;
+    top:120px;
 }
 
 .s2{
-    right:325px;
+    right:330px;
     top:470px;
 }
 
@@ -680,8 +787,8 @@ input[type=file]::file-selector-button{
 }
 
 .s4{
-    left:610px;
-    top:105px;
+    left:620px;
+    top:110px;
 }
 
 
@@ -690,12 +797,10 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .content{
-
     position:absolute;
 
     left:30px;
-
-    top:155px;
+    top:130px;
 
     width:510px;
 
@@ -708,91 +813,137 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .card{
-
     position:relative;
+
+    overflow:hidden;
+
+    border-radius:11px;
 
     border:
         1px solid
-        rgba(0,190,255,.85);
+        rgba(0,217,255,.72);
 
     background:
         linear-gradient(
             145deg,
-            rgba(9,77,158,.94),
-            rgba(2,31,76,.96)
+            rgba(10,76,153,.96),
+            rgba(3,29,70,.98) 55%,
+            rgba(2,18,46,.99)
         );
 
     box-shadow:
-
         0 0 0 1px
-        rgba(255,212,0,.45),
+        rgba(255,212,0,.07),
 
-        0 15px 28px
-        rgba(0,0,0,.22),
+        0 12px 28px
+        rgba(0,0,0,.38),
 
-        0 0 25px
-        rgba(0,174,255,.2),
+        0 0 20px
+        rgba(0,174,255,.12),
 
         inset 0 1px 0
-        rgba(255,255,255,.13);
+        rgba(255,255,255,.14),
+
+        inset 0 -18px 30px
+        rgba(0,0,0,.12);
 }
 
 .card::before{
-
     content:"";
 
     position:absolute;
 
-    left:18px;
-
-    right:18px;
-
+    left:12px;
+    right:12px;
     top:0;
 
-    height:1px;
+    height:2px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.8),
+            #00d9ff 20%,
+            #ffd400 50%,
+            #00d9ff 80%,
             transparent
         );
 
-    opacity:.55;
+    box-shadow:
+        0 0 9px
+        rgba(0,217,255,.65);
+
+    opacity:.9;
+
+    z-index:5;
+}
+
+.card::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-90px;
+    top:-100px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,217,255,.16),
+            transparent 70%
+        );
+
+    pointer-events:none;
 }
 
 
 /* =========================================================
-   HEADLINE
+   HEADLINE — PERMANENT
 ========================================================= */
 
 .headline{
+    height:112px;
 
-    min-height:112px;
-
-    padding:16px 18px;
-
-    border-radius:20px;
+    padding:15px 18px;
 
     display:flex;
 
     flex-direction:column;
 
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,82,165,.98),
+            rgba(3,31,74,.98)
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(0,174,255,.15),
+
+        inset 0 1px 0
+        rgba(255,255,255,.16),
+
+        inset 0 -20px 35px
+        rgba(0,0,0,.14);
 }
 
 .headline-main{
-
     font-family:
         "Archivo Black",
         sans-serif;
 
-    font-size:38px;
+    font-size:36px;
 
     line-height:1;
 
@@ -800,32 +951,22 @@ input[type=file]::file-selector-button{
 
     white-space:nowrap;
 
-    background:
-        linear-gradient(
-            180deg,
-            #fff,
-            #cceeff
-        );
+    color:#fff;
 
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    filter:
-        drop-shadow(
-            3px 4px 0 #06245c
-        );
+    text-shadow:
+        2px 3px 0 #06245c,
+        0 0 8px rgba(255,255,255,.35),
+        0 0 18px rgba(0,217,255,.18);
 }
 
 .headline-sub{
-
-    margin-top:7px;
+    margin-top:8px;
 
     font-family:
         "Archivo Black",
         sans-serif;
 
-    font-size:27px;
+    font-size:26px;
 
     color:#ffd400;
 
@@ -834,9 +975,8 @@ input[type=file]::file-selector-button{
     white-space:nowrap;
 
     text-shadow:
-        3px 4px 0 #714500,
-        0 0 12px
-        rgba(255,212,0,.3);
+        2px 3px 0 #684400,
+        0 0 12px rgba(255,212,0,.4);
 }
 
 
@@ -845,79 +985,84 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .user{
+    height:65px;
 
-    height:67px;
-
-    margin-top:15px;
+    margin-top:14px;
 
     padding:
         0 18px
-        0 50px;
-
-    border-radius:16px;
+        0 24px;
 
     display:flex;
 
     align-items:center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,57,119,.98),
+            rgba(3,30,72,.98)
+        );
 }
 
 .user-icon{
+    width:42px;
+    height:42px;
 
-    width:40px;
+    flex:0 0 42px;
 
-    height:40px;
-
-    flex:0 0 40px;
-
-    margin-right:13px;
-
-    border-radius:50%;
+    margin-left:30px;
+    margin-right:12px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
+
+    border-radius:10px;
 
     background:
         linear-gradient(
             145deg,
-            #fff06b,
-            #ffc000
+            #fff36b,
+            #ffd400,
+            #e7a900
         );
 
-    color:#08245c;
+    color:#06245c;
 
     font-size:17px;
-
     font-weight:900;
 
     border:
         1px solid
-        rgba(255,255,255,.8);
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 0 13px
-        rgba(255,212,0,.3);
+        0 0 0 2px
+        rgba(0,217,255,.12),
+
+        0 0 14px
+        rgba(255,212,0,.28),
+
+        0 5px 10px
+        rgba(0,0,0,.35),
+
+        inset 0 2px 3px
+        rgba(255,255,255,.65);
 }
 
 .user-label{
+    margin-left:5px;
 
-    margin-left:8px;
-
-    font-size:25px;
-
+    font-size:23px;
     font-weight:900;
-
     font-style:italic;
 
     white-space:nowrap;
 }
 
 .user-value{
-
-    margin-left:8px;
-
     color:#ffd400;
 
     overflow:hidden;
@@ -931,38 +1076,60 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .win{
-
     height:145px;
 
-    margin-top:15px;
-
-    border-radius:20px;
+    margin-top:14px;
 
     display:flex;
 
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
     overflow:hidden;
+
+    border-color:
+        rgba(255,212,0,.65);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,212,0,.10),
+            transparent 55%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(8,72,145,.98),
+            rgba(3,27,66,.99)
+        );
+
+    box-shadow:
+        0 0 0 1px
+        rgba(255,212,0,.08),
+
+        0 0 28px
+        rgba(255,212,0,.10),
+
+        0 14px 30px
+        rgba(0,0,0,.42),
+
+        inset 0 1px 0
+        rgba(255,255,255,.15);
 }
 
 .win::after{
-
     content:"";
 
     position:absolute;
 
-    width:260px;
-
-    height:160px;
+    width:280px;
+    height:170px;
 
     left:50%;
-
     top:50%;
 
     transform:
@@ -971,7 +1138,7 @@ input[type=file]::file-selector-button{
     background:
         radial-gradient(
             circle,
-            rgba(255,212,0,.10),
+            rgba(255,212,0,.12),
             transparent 70%
         );
 
@@ -979,20 +1146,18 @@ input[type=file]::file-selector-button{
 }
 
 .win-label{
-
     position:relative;
 
     z-index:2;
 
-    font-size:21px;
-
+    font-size:19px;
     font-weight:900;
-
     font-style:italic;
+
+    color:#e7f8ff;
 }
 
 .win-value{
-
     position:relative;
 
     z-index:2;
@@ -1003,32 +1168,18 @@ input[type=file]::file-selector-button{
         "Archivo Black",
         sans-serif;
 
-    font-size:48px;
+    font-size:46px;
 
     line-height:1;
 
     white-space:nowrap;
 
-    background:
-        linear-gradient(
-            180deg,
-            #fff36a,
-            #ffd400,
-            #ffb400
-        );
+    color:#ffd400;
 
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    filter:
-        drop-shadow(
-            3px 5px 0 #714500
-        )
-        drop-shadow(
-            0 0 15px
-            rgba(255,212,0,.3)
-        );
+    text-shadow:
+        2px 3px 0 #684400,
+        0 0 8px rgba(255,212,0,.55),
+        0 0 20px rgba(255,212,0,.25);
 }
 
 
@@ -1037,45 +1188,44 @@ input[type=file]::file-selector-button{
 ========================================================= */
 
 .event{
+    height:76px;
 
-    height:78px;
-
-    margin-top:14px;
-
-    border-radius:15px;
+    margin-top:13px;
 
     display:flex;
 
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
     padding:8px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(6,68,138,.98),
+            rgba(2,26,62,.99)
+        );
 }
 
 .event-label{
+    color:#8edcff;
 
-    color:#a4dcff;
-
-    font-size:25px;
-
+    font-size:19px;
     font-weight:900;
 }
 
 .event-value{
-
     margin-top:5px;
 
     max-width:100%;
 
     color:#ffd400;
 
-    font-size:20px;
-
+    font-size:19px;
     font-weight:900;
 
     white-space:nowrap;
@@ -1083,15 +1233,21 @@ input[type=file]::file-selector-button{
     overflow:hidden;
 
     text-overflow:ellipsis;
+
+    text-shadow:
+        0 0 8px
+        rgba(255,212,0,.28);
 }
 
 
 /* =========================================================
-   PROOF HERO
+   PROOF FRAME
 ========================================================= */
 
 .proof{
     position:absolute;
+
+    isolation:isolate;
 
     right:55px;
     top:130px;
@@ -1099,26 +1255,56 @@ input[type=file]::file-selector-button{
     width:330px;
     height:600px;
 
-    padding:7px;
+    padding:6px;
 
-    border-radius:27px;
+    border-radius:16px;
 
     z-index:20;
 
     background:
         linear-gradient(
             145deg,
-            #fff06b 0%,
-            #ffd400 9%,
-            #087cff 34%,
-            #00b7ff 58%,
-            #00429d 100%
+            #dffaff 0%,
+            #00eaff 8%,
+            #087cff 25%,
+            #063d8d 48%,
+            #041d4c 65%,
+            #087cff 84%,
+            #00d9ff 94%,
+            #ffd400 100%
         );
 
+    border:
+        1px solid
+        rgba(255,255,255,.55);
+
     box-shadow:
-        0 0 0 2px rgba(255,255,255,.10),
-        0 0 25px rgba(0,174,255,.45),
-        0 25px 50px rgba(0,0,0,.58);
+        0 0 0 1px
+        rgba(0,217,255,.30),
+
+        0 0 0 3px
+        rgba(2,14,38,.85),
+
+        0 0 0 4px
+        rgba(0,174,255,.18),
+
+        0 0 14px
+        rgba(0,217,255,.38),
+
+        0 0 32px
+        rgba(0,126,255,.22),
+
+        0 0 55px
+        rgba(0,174,255,.12),
+
+        0 22px 50px
+        rgba(0,0,0,.62),
+
+        inset 0 1px 2px
+        rgba(255,255,255,.85),
+
+        inset 0 -2px 4px
+        rgba(0,0,0,.45);
 
     display:flex;
 
@@ -1126,8 +1312,55 @@ input[type=file]::file-selector-button{
     justify-content:center;
 }
 
+.proof::before{
+    content:"";
 
-/* AREA BUKTI */
+    position:absolute;
+
+    inset:-5px;
+
+    border-radius:19px;
+
+    border:
+        1px solid
+        rgba(0,217,255,.42);
+
+    box-shadow:
+        0 0 10px
+        rgba(0,217,255,.28),
+
+        0 0 22px
+        rgba(0,126,255,.12);
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+.proof::after{
+    content:"";
+
+    position:absolute;
+
+    inset:4px;
+
+    border-radius:13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(0,217,255,.16),
+
+        inset 0 0 18px
+        rgba(0,174,255,.10);
+
+    pointer-events:none;
+
+    z-index:3;
+}
 
 .proof-inner{
     position:relative;
@@ -1137,7 +1370,7 @@ input[type=file]::file-selector-button{
 
     overflow:hidden;
 
-    border-radius:20px;
+    border-radius:11px;
 
     background:#fff;
 
@@ -1146,192 +1379,172 @@ input[type=file]::file-selector-button{
     align-items:center;
     justify-content:center;
 
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
     box-shadow:
-        inset 0 0 0 1px rgba(0,0,0,.12);
+        inset 0 0 0 1px
+        rgba(255,255,255,.65),
+
+        inset 0 0 0 2px
+        rgba(0,126,255,.16),
+
+        inset 0 0 18px
+        rgba(0,0,0,.12),
+
+        inset 0 0 35px
+        rgba(0,126,255,.05);
 }
 
-
-/* GAMBAR BUKTI */
-
-#proofImage{
-    display:block;
-
-    width:100%;
-    height:100%;
-
-    max-width:none;
-    max-height:none;
-
-    object-fit:contain;
-    object-position:center;
-
-    margin:0;
-
-    background:#fff;
-
-    flex-shrink:0;
-}
-
-
-/* =========================================================
-   VERIFIED BADGE
-========================================================= */
-
-.verified{
+.proof-inner::before{
+    content:"";
 
     position:absolute;
 
-    right:20px;
+    inset:8px;
 
-    top:18px;
-
-    z-index:8;
-
-    padding:
-        7px 11px;
-
-    border-radius:20px;
-
-    background:
-        rgba(3,28,67,.88);
+    border-radius:8px;
 
     border:
         1px solid
-        rgba(0,210,255,.8);
+        rgba(0,174,255,.42);
 
     box-shadow:
-        0 0 15px
-        rgba(0,183,255,.35);
+        0 0 7px
+        rgba(0,174,255,.18),
 
-    backdrop-filter:blur(8px);
+        inset 0 0 8px
+        rgba(0,174,255,.08);
 
-    display:flex;
+    pointer-events:none;
 
-    align-items:center;
-
-    gap:6px;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:.7px;
-
-    color:#dff9ff;
+    z-index:5;
 }
 
-.verified-dot{
+.proof-inner::after{
+    content:"";
 
-    width:7px;
+    position:absolute;
 
-    height:7px;
+    left:12px;
+    right:12px;
+    top:0;
 
-    border-radius:50%;
+    height:2px;
 
-    background:#00d9ff;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,217,255,.75),
+            rgba(255,255,255,.98),
+            rgba(0,217,255,.75),
+            transparent
+        );
 
     box-shadow:
         0 0 8px
-        #00d9ff;
+        rgba(0,217,255,.70),
+
+        0 0 16px
+        rgba(0,174,255,.22);
+
+    pointer-events:none;
+
+    z-index:6;
+}
+
+#proofImage{
+    max-width:100%;
+    max-height:100%;
+
+    display:block;
+
+    object-fit:contain;
+    object-position:center;
 }
 
 
 /* =========================================================
-   PROOF LABEL
+   BRAND
 ========================================================= */
-
-.proof-label{
-
-    position:absolute;
-
-    left:20px;
-
-    bottom:18px;
-
-    z-index:8;
-
-    padding:
-        6px 10px;
-
-    border-radius:7px;
-
-    background:
-        rgba(3,28,67,.82);
-
-    border:
-        1px solid
-        rgba(255,255,255,.18);
-
-    color:#bfeeff;
-
-    font-size:8px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    backdrop-filter:blur(8px);
-}
-
-/* ================================
-   BRAND PREMIUM - LOGO LEBIH BESAR
-================================ */
 
 .brand{
     position:absolute;
+
     left:30px;
-    top:640px;
+    top:620px;
+
     width:510px;
-    height:90px;
+    height:105px;
+
     z-index:10;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     gap:18px;
 
     text-align:left;
 }
 
-/* LOGO BRAND */
 .brand-logo{
-    width:90px;
-    height:90px;
-    flex:0 0 90px;
+    width:88px;
+    height:88px;
+
+    flex:0 0 88px;
 
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fff8bd 0%,
-            #ffe866 25%,
-            #ffc000 65%,
-            #d99a00 100%
-        );
-
-    border:2px solid rgba(255,255,255,.9);
-
-    box-shadow:
-        0 0 0 2px rgba(255,212,0,.18),
-        0 0 18px rgba(255,212,0,.5),
-        0 0 35px rgba(0,174,255,.3),
-        0 10px 20px rgba(0,0,0,.4);
+    position:relative;
 
     overflow:hidden;
 
-    position:relative;
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #fffbd0 0%,
+            #fff06b 20%,
+            #ffd400 55%,
+            #d99a00 100%
+        );
+
+    border:
+        2px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0,217,255,.16),
+
+        0 0 18px
+        rgba(255,212,0,.40),
+
+        0 0 30px
+        rgba(0,174,255,.18),
+
+        0 8px 18px
+        rgba(0,0,0,.45),
+
+        inset 0 2px 5px
+        rgba(255,255,255,.65);
 }
 
-/* highlight kaca pada logo */
 .brand-logo::before{
     content:"";
+
     position:absolute;
+
     inset:5px;
+
     border-radius:50%;
 
     background:
@@ -1342,10 +1555,30 @@ input[type=file]::file-selector-button{
         );
 
     pointer-events:none;
+
     z-index:2;
 }
 
-/* gambar logo */
+.brand-logo::after{
+    content:"";
+
+    position:absolute;
+
+    inset:3px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.55);
+
+    box-shadow:
+        inset 0 0 8px
+        rgba(255,255,255,.35);
+
+    pointer-events:none;
+}
+
 .brand-logo img{
     width:100%;
     height:100%;
@@ -1353,85 +1586,86 @@ input[type=file]::file-selector-button{
     object-fit:contain;
 
     position:relative;
+
     z-index:1;
 
     filter:
-        drop-shadow(0 4px 5px rgba(0,0,0,.6))
-        drop-shadow(0 0 8px rgba(255,255,255,.2));
+        drop-shadow(
+            0 4px 5px
+            rgba(0,0,0,.6)
+        );
 }
 
-
-/* TEXT BRAND */
 .brand-text{
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
     align-items:flex-start;
 }
 
-/* ZIATOGEL */
 .brand-text strong{
-    font-family:"Archivo Black",sans-serif;
+    font-family:
+        "Archivo Black",
+        sans-serif;
 
-    font-size:34px;
+    font-size:32px;
+
     line-height:1;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
     color:#fff;
 
     text-shadow:
         2px 3px 0 #06245c,
-        0 0 10px rgba(0,174,255,.8),
-        0 0 22px rgba(0,174,255,.45);
+        0 0 10px rgba(0,174,255,.75),
+        0 0 20px rgba(0,174,255,.35);
 }
 
-/* SUBTITLE */
 .brand-text span{
     display:block;
 
-    margin-top:7px;
+    margin-top:6px;
 
-    color:#79d5ff;
+    color:#78d9ff;
 
-    font-size:15px;
+    font-size:13px;
     font-weight:800;
 
-    letter-spacing:1.5px;
+    letter-spacing:1.3px;
 }
 
-/* STARS */
 .brand-stars{
-    margin-top:6px;
+    margin-top:5px;
 
     color:#ffd400;
 
-    font-size:21px;
+    font-size:19px;
+
     line-height:1;
 
     letter-spacing:3px;
 
     text-shadow:
-        0 0 7px rgba(255,212,0,.8),
-        0 0 14px rgba(255,212,0,.4);
+        0 0 7px
+        rgba(255,212,0,.8);
 }
 
 
 /* =========================================================
-   FEATURES
+   FEATURES — PERMANENT
 ========================================================= */
 
 .features{
-
     position:absolute;
 
     left:25px;
-
     right:25px;
+    bottom:22px;
 
-    bottom:24px;
-
-    height:88px;
+    height:92px;
 
     display:grid;
 
@@ -1444,55 +1678,59 @@ input[type=file]::file-selector-button{
 }
 
 .feature{
-
     position:relative;
 
     overflow:hidden;
 
-    border-radius:16px;
+    border-radius:10px;
 
-    padding:
-        8px 11px;
+    padding:10px 11px;
 
     display:flex;
 
     align-items:center;
 
-    gap:9px;
+    gap:10px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(11,91,181,.94),
-            rgba(3,38,91,.98)
+            rgba(8,74,150,.98),
+            rgba(3,25,61,.99)
         );
 
     border:
         1px solid
-        rgba(83,210,255,.75);
+        rgba(0,217,255,.65);
+
+    border-bottom:
+        2px solid
+        rgba(0,174,255,.45);
 
     box-shadow:
-
         0 0 0 1px
-        rgba(255,212,0,.28),
+        rgba(255,212,0,.08),
 
-        0 8px 20px
-        rgba(0,0,0,.35),
+        0 10px 24px
+        rgba(0,0,0,.45),
+
+        0 0 18px
+        rgba(0,174,255,.10),
 
         inset 0 1px 0
-        rgba(255,255,255,.16);
+        rgba(255,255,255,.14),
+
+        inset 0 -12px 25px
+        rgba(0,0,0,.16);
 }
 
 .feature::before{
-
     content:"";
 
     position:absolute;
 
-    left:12px;
-
-    right:12px;
-
+    left:14px;
+    right:14px;
     top:0;
 
     height:2px;
@@ -1501,27 +1739,58 @@ input[type=file]::file-selector-button{
         linear-gradient(
             90deg,
             transparent,
-            #00b7ff,
+            #00d9ff,
             #ffd400,
-            #00b7ff,
+            #00d9ff,
             transparent
         );
 
-    opacity:.65;
+    box-shadow:
+        0 0 8px
+        rgba(0,217,255,.65);
+
+    opacity:.85;
 }
 
+.feature::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    left:-50px;
+    top:-45px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,217,255,.14),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   FEATURE ICON
+========================================================= */
+
 .feature-icon{
+    position:relative;
 
-    width:40px;
+    width:55px;
+    height:55px;
 
-    height:40px;
-
-    flex:0 0 40px;
+    flex:0 0 48px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     border-radius:12px;
@@ -1529,58 +1798,157 @@ input[type=file]::file-selector-button{
     background:
         linear-gradient(
             145deg,
-            #fff06b,
-            #ffb800
+            #fff36b 0%,
+            #ffd400 42%,
+            #f2ae00 100%
         );
 
     border:
         1px solid
-        rgba(255,255,255,.7);
+        rgba(255,255,255,.95);
 
     color:#06245c;
 
-    font-size:19px;
-
+    font-size:30px;
     font-weight:900;
 
     box-shadow:
-        0 0 10px
-        rgba(255,212,0,.3);
+        0 0 0 2px
+        rgba(0,217,255,.18),
+
+        0 0 0 4px
+        rgba(255,212,0,.08),
+
+        0 0 18px
+        rgba(255,212,0,.35),
+
+        0 7px 14px
+        rgba(0,0,0,.45),
+
+        inset 0 2px 3px
+        rgba(255,255,255,.75),
+
+        inset 0 -5px 8px
+        rgba(120,70,0,.16);
+
+    z-index:2;
+
+    transform:
+        perspective(100px)
+        rotateX(2deg);
 }
 
-.feature-text{
+.feature-icon::after{
+    content:"";
 
+    position:absolute;
+
+    inset:5px;
+
+    border-radius:8px;
+
+    border:
+        1px solid
+        rgba(6,36,92,.35);
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.25);
+
+    pointer-events:none;
+}
+
+.feature-icon::before{
+    content:"";
+
+    position:absolute;
+
+    left:5px;
+    top:4px;
+
+    width:18px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.45);
+
+    filter:blur(2px);
+
+    transform:rotate(-25deg);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   FEATURE TEXT
+========================================================= */
+
+.feature-text{
     min-width:0;
+
+    position:relative;
+
+    z-index:2;
 
     text-align:left;
 }
 
 .feature-title{
-
     color:#ffd400;
 
     font-size:16px;
-
     font-weight:900;
 
-    letter-spacing:.6px;
+    letter-spacing:.8px;
+
+    line-height:1.1;
+
+    text-shadow:
+        0 0 7px
+        rgba(255,212,0,.20);
 }
 
 .feature-sub{
-
-    margin-top:4px;
+    margin-top:5px;
 
     color:#eaf8ff;
 
-    font-size:11px;
+    font-size:10px;
+    font-weight:700;
 
-    font-weight:800;
+    letter-spacing:.2px;
 
     white-space:nowrap;
 
     overflow:hidden;
 
     text-overflow:ellipsis;
+
+    opacity:.92;
+}
+
+.feature .feature-text::after{
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+    height:1px;
+
+    right:-4px;
+    bottom:-8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00d9ff
+        );
+
+    opacity:.7;
 }
 
 
@@ -1591,19 +1959,15 @@ input[type=file]::file-selector-button{
 @media(max-width:1000px){
 
     .main{
-
         grid-template-columns:1fr;
     }
 
     .panel{
-
         max-width:500px;
-
         margin:auto;
     }
 
     .preview{
-
         justify-content:flex-start;
     }
 }
@@ -1611,12 +1975,10 @@ input[type=file]::file-selector-button{
 @media(max-width:600px){
 
     .container{
-
         padding:12px;
     }
 
     .header h1{
-
         font-size:21px;
     }
 }
@@ -1627,9 +1989,12 @@ input[type=file]::file-selector-button{
 
 <body>
 
-
 <div class="container">
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -1638,18 +2003,21 @@ input[type=file]::file-selector-button{
     </h1>
 
     <p>
-        Generator Postingan WA
+        GENERATOR POSTINGAN WA • TEMA PREDIKSI ZIATOGEL
     </p>
 
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="main">
 
 
 <!-- =====================================================
-     CONTROL
+     CONTROL PANEL
 ===================================================== -->
 
 <section class="panel">
@@ -1659,9 +2027,13 @@ input[type=file]::file-selector-button{
     </div>
 
 
+    <!-- LOGO -->
+
     <div class="group">
 
-        <label>Logo</label>
+        <label>
+            Logo
+        </label>
 
         <input
             id="logoUrl"
@@ -1674,9 +2046,13 @@ input[type=file]::file-selector-button{
     </div>
 
 
+    <!-- USER ID -->
+
     <div class="group">
 
-        <label>User ID</label>
+        <label>
+            User ID
+        </label>
 
         <input
             id="userId"
@@ -1688,9 +2064,13 @@ input[type=file]::file-selector-button{
     </div>
 
 
+    <!-- TOTAL HADIAH -->
+
     <div class="group">
 
-        <label>Total Hadiah</label>
+        <label>
+            Total Hadiah
+        </label>
 
         <input
             id="totalWin"
@@ -1702,9 +2082,13 @@ input[type=file]::file-selector-button{
     </div>
 
 
+    <!-- NAMA EVENT -->
+
     <div class="group">
 
-        <label>Nama Event / Game</label>
+        <label>
+            Nama Event / Game
+        </label>
 
         <input
             id="gameName"
@@ -1716,37 +2100,13 @@ input[type=file]::file-selector-button{
     </div>
 
 
-    <div class="group">
-
-        <label>Judul Atas</label>
-
-        <input
-            id="headline"
-            type="text"
-            value="SELAMAT KEPADA"
-            oninput="updatePoster()"
-        >
-
-    </div>
-
+    <!-- UPLOAD BUKTI -->
 
     <div class="group">
 
-        <label>Sub Judul</label>
-
-        <input
-            id="subHeadline"
-            type="text"
-            value="MEMBER SETIA KAMI"
-            oninput="updatePoster()"
-        >
-
-    </div>
-
-
-    <div class="group">
-
-        <label>Upload Gambar</label>
+        <label>
+            Upload Gambar Bukti
+        </label>
 
         <input
             id="proofUpload"
@@ -1758,69 +2118,7 @@ input[type=file]::file-selector-button{
     </div>
 
 
-    <div class="group">
-
-        <label>Service</label>
-
-        <input
-            id="service"
-            type="text"
-            value="24 JAM ONLINE"
-            oninput="updatePoster()"
-        >
-
-    </div>
-
-
-    <div class="group">
-
-        <label>Keamanan</label>
-
-        <input
-            id="security"
-            type="text"
-            value="TERJAMIN AMAN"
-            oninput="updatePoster()"
-        >
-
-    </div>
-
-
-    <div class="group">
-
-        <label>Quality</label>
-
-        <input
-            id="engine"
-            type="text"
-            value="PREMIUM QUALITY"
-            oninput="updatePoster()"
-        >
-
-    </div>
-
-
-    <div class="group">
-
-        <label>JP</label>
-
-        <input
-            id="age"
-            type="text"
-            value="PASTI DIBAYAR"
-            oninput="updatePoster()"
-        >
-
-    </div>
-
-
-    <button
-        class="btn download"
-        onclick="downloadPoster()"
-    >
-        ↓ DOWNLOAD PNG
-    </button>
-
+    <!-- RESET -->
 
     <button
         class="btn reset"
@@ -1832,17 +2130,22 @@ input[type=file]::file-selector-button{
 
     <div class="info">
 
-        <b>PRO v4 PREMIUM</b><br>
+        <b>ZIATOGEL BLUE • YELLOW THEME</b>
 
-        Verification-style poster dengan
-        hero proof frame, verified badge,
-        premium typography, depth background,
-        dan auto-fit image system.
+        <br>
+
+        Tema poster:
+        navy blue,
+        electric blue,
+        cyan glow,
+        yellow accent,
+        technical grid,
+        clean rectangular panels
+        dan premium depth.
 
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1851,298 +2154,276 @@ input[type=file]::file-selector-button{
 
 <section class="preview">
 
-
 <div id="poster">
 
 
-<div class="bg-lines"></div>
+    <div class="bg-lines"></div>
 
-<div class="bg-grid"></div>
+    <div class="bg-grid"></div>
 
-<div class="glow"></div>
+    <div class="glow"></div>
 
-<div class="accent"></div>
+    <div class="accent"></div>
 
-
-
-<div class="top-title">
-    BUKTI JACKPOT ZIATOGEL
-</div>
+    <div class="tech-lines"></div>
 
 
+    <!-- =================================================
+         TOP TITLE
+    ================================================= -->
 
-<div class="star s1">✦</div>
-<div class="star s2">✦</div>
-<div class="star s3">✦</div>
-<div class="star s4">✦</div>
-
-
-
-<!-- =====================================================
-     CONTENT
-===================================================== -->
-
-<div class="content">
-
-
-<div class="card headline">
-
-    <div
-        class="headline-main"
-        id="headlinePreview"
-    >
-        SELAMAT KEPADA
+    <div class="top-title">
+        BUKTI JACKPOT ZIATOGEL
     </div>
 
 
-    <div
-        class="headline-sub"
-        id="subHeadlinePreview"
-    >
-        MEMBER SETIA KAMI
-    </div>
+    <!-- TECH SYMBOL -->
 
-</div>
+    <div class="star s1">✦</div>
 
+    <div class="star s2">✦</div>
 
+    <div class="star s3">✦</div>
 
-<div class="card user">
-
-    <div class="user-icon">
-        ●
-    </div>
+    <div class="star s4">✦</div>
 
 
-    <div class="user-label">
-        USER ID :
-    </div>
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================= -->
+
+    <div class="content">
 
 
-    <div
-        class="user-label user-value"
-        id="userPreview"
-    >
-        M******05
-    </div>
+        <!-- HEADLINE PERMANENT -->
 
-</div>
+        <div class="card headline">
 
+            <div class="headline-main">
+                SELAMAT KEPADA
+            </div>
 
+            <div class="headline-sub">
+                MEMBER SETIA KAMI
+            </div>
 
-<div class="card win">
-
-    <div class="win-label">
-        TOTAL HADIAH
-    </div>
+        </div>
 
 
-    <div
-        class="win-value"
-        id="winPreview"
-    >
-        Rp 33,000,000
-    </div>
+        <!-- USER -->
 
-</div>
+        <div class="card user">
 
+            <div class="user-icon">
+                ●
+            </div>
 
+            <div class="user-label">
+                USER ID :
+            </div>
 
-<div class="card event">
+            <div
+                class="user-label user-value"
+                id="userPreview"
+            >
+                M******05
+            </div>
 
-    <span class="event-label">
-        JP PADA PERMAINAN :
-    </span>
-
-
-    <span
-        class="event-value"
-        id="gamePreview"
-    >
-        ACHIEVEMENT EVENT
-    </span>
-
-</div>
+        </div>
 
 
-</div>
+        <!-- WIN -->
+
+        <div class="card win">
+
+            <div class="win-label">
+                TOTAL KEMENANGAN
+            </div>
+
+            <div
+                class="win-value"
+                id="winPreview"
+            >
+                Rp 33,000,000
+            </div>
+
+        </div>
 
 
+        <!-- EVENT -->
 
-<!-- =====================================================
-     PROOF
-===================================================== -->
+        <div class="card event">
 
-<div class="proof">
+            <span class="event-label">
+                JP PADA PERMAINAN :
+            </span>
 
-    <div class="proof-inner">
+            <span
+                class="event-value"
+                id="gamePreview"
+            >
+                ACHIEVEMENT EVENT
+            </span>
 
-        <img
-            id="proofImage"
-            alt="Bukti"
-        >
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     BRAND
-===================================================== -->
-
-<div class="brand">
-
-
-    <div class="brand-logo">
-
-        <img
-            src=""
-            id="brandLogo"
-            alt="Brand Logo"
-        >
-
-    </div>
-
-
-    <div class="brand-text">
-
-        <strong>
-            ZIATOGEL
-        </strong>
-
-
-        <span>
-            Game Online Terpercaya
-        </span>
-
-
-        <div class="brand-stars">
-            ★ ★ ★ ★ ★
         </div>
 
     </div>
 
 
-</div>
+    <!-- =================================================
+         PROOF
+    ================================================= -->
 
+    <div class="proof">
 
+        <div class="proof-inner">
 
-<!-- =====================================================
-     FEATURES
-===================================================== -->
+            <img
+                id="proofImage"
+                alt="Bukti"
+            >
 
-<div class="features">
-
-
-<div class="feature">
-
-    <div class="feature-icon">
-        ◴
-    </div>
-
-
-    <div class="feature-text">
-
-        <div class="feature-title">
-            SERVICE
-        </div>
-
-
-        <div
-            class="feature-sub"
-            id="servicePreview"
-        >
-            24 JAM ONLINE
         </div>
 
     </div>
 
-</div>
 
+    <!-- =================================================
+         BRAND
+    ================================================= -->
 
+    <div class="brand">
 
-<div class="feature">
+        <div class="brand-logo">
 
-    <div class="feature-icon">
-        🔒
-    </div>
+            <img
+                src=""
+                id="brandLogo"
+                alt="Brand Logo"
+            >
 
-
-    <div class="feature-text">
-
-        <div class="feature-title">
-            RAHASIA
         </div>
 
 
-        <div
-            class="feature-sub"
-            id="securityPreview"
-        >
-            TERJAMIN AMAN
-        </div>
+        <div class="brand-text">
 
-    </div>
+            <strong>
+                ZIATOGEL
+            </strong>
 
-</div>
+            <span>
+                GAME ONLINE TERPERCAYA
+            </span>
 
+            <div class="brand-stars">
+                ★ ★ ★ ★ ★
+            </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        ⚙
-    </div>
-
-
-    <div class="feature-text">
-
-        <div class="feature-title">
-            ENGINE
-        </div>
-
-
-        <div
-            class="feature-sub"
-            id="enginePreview"
-        >
-            TERBAIK
         </div>
 
     </div>
 
-</div>
+
+    <!-- =================================================
+         PERMANENT FEATURES
+    ================================================= -->
+
+    <div class="features">
 
 
+        <!-- SERVICE -->
 
-<div class="feature">
+        <div class="feature">
 
-    <div class="feature-icon">
-        ★
-    </div>
+            <div class="feature-icon">
+                ◴
+            </div>
 
+            <div class="feature-text">
 
-    <div class="feature-text">
+                <div class="feature-title">
+                    SERVICE
+                </div>
 
-        <div class="feature-title">
-            JP BERAPAPUN
+                <div class="feature-sub">
+                    24 JAM ONLINE
+                </div>
+
+            </div>
+
         </div>
 
 
-        <div
-            class="feature-sub"
-            id="agePreview"
-        >
-            PASTI DIBAYAR
+        <!-- RAHASIA -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🔒
+            </div>
+
+            <div class="feature-text">
+
+                <div class="feature-title">
+                    RAHASIA
+                </div>
+
+                <div class="feature-sub">
+                    TERJAMIN AMAN
+                </div>
+
+            </div>
+
         </div>
 
+
+        <!-- ENGINE -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⚙
+            </div>
+
+            <div class="feature-text">
+
+                <div class="feature-title">
+                    ENGINE
+                </div>
+
+                <div class="feature-sub">
+                    PREMIUM QUALITY
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- JP -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ★
+            </div>
+
+            <div class="feature-text">
+
+                <div class="feature-title">
+                    JP BERAPAPUN
+                </div>
+
+                <div class="feature-sub">
+                    PASTI DIBAYAR
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
-
-</div>
-
-
-</div>
 
 
 </div>
@@ -2154,18 +2435,21 @@ input[type=file]::file-selector-button{
 </div>
 
 
-
 <script>
+
+/* =========================================================
+   STRICT MODE
+========================================================= */
+
+"use strict";
+
 
 /* =========================================================
    HELPER
 ========================================================= */
 
-"use strict";
-
-const $ =
-    id => document.getElementById(id);
-
+const $ = id =>
+    document.getElementById(id);
 
 
 /* =========================================================
@@ -2182,15 +2466,13 @@ function formatNominal(input){
 
     input.value =
         digits
-            ? Number(digits)
-                .toLocaleString("en-US")
+            ? Number(digits).toLocaleString("en-US")
             : "";
 }
 
 
-
 /* =========================================================
-   UPDATE
+   UPDATE POSTER
 ========================================================= */
 
 function updatePoster(){
@@ -2201,115 +2483,70 @@ function updatePoster(){
         .trim();
 
 
-    const map = {
-
-        brandLogo:logo,
-
-        userPreview:
-            $("userId")
-            .value
-            .trim()
-            ||
-            "M******05",
+    const user =
+        $("userId")
+        .value
+        .trim();
 
 
-        winPreview:
-            "Rp " +
-            (
-                $("totalWin")
-                .value
-                ||
-                "0"
-            ),
+    const total =
+        $("totalWin")
+        .value
+        .trim();
 
 
-        gamePreview:
-            $("gameName")
-            .value
-            .trim()
-            ||
-            "EVENT",
+    const game =
+        $("gameName")
+        .value
+        .trim();
 
 
-        headlinePreview:
-            $("headline")
-            .value
-            .trim()
-            ||
-            "SELAMAT KEPADA",
+    /* USER */
+
+    $("userPreview").textContent =
+        user ||
+        "M******05";
 
 
-        subHeadlinePreview:
-            $("subHeadline")
-            .value
-            .trim()
-            ||
-            "MEMBER SETIA KAMI",
+    /* TOTAL WIN */
 
-
-        servicePreview:
-            $("service")
-            .value
-            .trim()
-            ||
-            "24 JAM ONLINE",
-
-
-        securityPreview:
-            $("security")
-            .value
-            .trim()
-            ||
-            "TERJAMIN AMAN",
-
-
-        enginePreview:
-            $("engine")
-            .value
-            .trim()
-            ||
-            "PREMIUM QUALITY",
-
-
-        agePreview:
-            $("age")
-            .value
-            .trim()
-            ||
-            "PASTI DIBAYAR"
-
-    };
-
-
-    Object.entries(map)
-        .forEach(
-            ([id,value]) => {
-
-                const el =
-                    $(id);
-
-                if(!el) return;
-
-
-                if(
-                    el.tagName ===
-                    "IMG"
-                ){
-
-                    el.src =
-                        value;
-
-                }else{
-
-                    el.textContent =
-                        value;
-
-                }
-
-            }
+    $("winPreview").textContent =
+        "Rp " +
+        (
+            total ||
+            "0"
         );
-}
 
+
+    /* GAME */
+
+    $("gamePreview").textContent =
+        game ||
+        "EVENT";
+
+
+    /* LOGO */
+
+    const brandLogo =
+        $("brandLogo");
+
+
+    if(logo){
+
+        brandLogo.src =
+            logo;
+
+    }
+
+    else{
+
+        brandLogo.removeAttribute(
+            "src"
+        );
+
+    }
+
+}
 
 
 /* =========================================================
@@ -2323,12 +2560,17 @@ function loadImage(event){
         .files?.[0];
 
 
-    if(!file) return;
+    if(!file){
+
+        return;
+
+    }
 
 
     if(
-        !file.type
-        .startsWith("image/")
+        !file.type.startsWith(
+            "image/"
+        )
     ){
 
         alert(
@@ -2339,6 +2581,7 @@ function loadImage(event){
             "";
 
         return;
+
     }
 
 
@@ -2347,18 +2590,10 @@ function loadImage(event){
 
 
     reader.onload =
-        e => {
+        function(e){
 
             const img =
                 $("proofImage");
-
-
-            img.onload =
-                () => {
-
-                    autoFitProofImage();
-
-                };
 
 
             img.src =
@@ -2367,242 +2602,11 @@ function loadImage(event){
         };
 
 
-    reader.readAsDataURL(file);
-}
-
-
-
-/* =========================================================
-   AUTO FIT
-========================================================= */
-
-function autoFitProofImage(){
-
-    const img =
-        $("proofImage");
-
-
-    const frame =
-        document.querySelector(
-            ".proof-inner"
-        );
-
-
-    if(
-        !img ||
-        !frame ||
-        !img.naturalWidth
-    ){
-
-        return;
-
-    }
-
-
-    const frameWidth =
-        frame.clientWidth;
-
-
-    const frameHeight =
-        frame.clientHeight;
-
-
-    const imageWidth =
-        img.naturalWidth;
-
-
-    const imageHeight =
-        img.naturalHeight;
-
-
-    const imageRatio =
-        imageWidth /
-        imageHeight;
-
-
-    const frameRatio =
-        frameWidth /
-        frameHeight;
-
-
-    if(
-        imageRatio >
-        frameRatio
-    ){
-
-        img.style.width =
-            "100%";
-
-        img.style.height =
-            "auto";
-
-    }
-
-    else if(
-        imageRatio <
-        frameRatio
-    ){
-
-        img.style.width =
-            "auto";
-
-        img.style.height =
-            "100%";
-
-    }
-
-    else{
-
-        img.style.width =
-            "100%";
-
-        img.style.height =
-            "100%";
-
-    }
-
-
-    img.style.objectFit =
-        "contain";
-
-    img.style.objectPosition =
-        "center";
-}
-
-
-
-/* =========================================================
-   WINDOW RESIZE
-========================================================= */
-
-window.addEventListener(
-    "resize",
-    autoFitProofImage
-);
-
-
-
-/* =========================================================
-   DOWNLOAD
-========================================================= */
-
-async function downloadPoster(){
-
-    const button =
-        document.querySelector(
-            ".download"
-        );
-
-
-    const poster =
-        $("poster");
-
-
-    button.disabled =
-        true;
-
-
-    button.textContent =
-        "⏳ GENERATING...";
-
-
-    try{
-
-        await document.fonts.ready;
-
-
-        autoFitProofImage();
-
-
-        const canvas =
-            await html2canvas(
-                poster,
-                {
-
-                    scale:2,
-
-                    useCORS:true,
-
-                    allowTaint:false,
-
-                    backgroundColor:
-                        "#031442",
-
-                    imageTimeout:
-                        15000,
-
-                    logging:false,
-
-                    removeContainer:true
-
-                }
-            );
-
-
-        const user =
-            $("userId")
-            .value
-            .replace(
-                /[^a-zA-Z0-9]/g,
-                ""
-            )
-            ||
-            "WINNER";
-
-
-        const link =
-            document.createElement(
-                "a"
-            );
-
-
-        link.download =
-            `WINNER-POSTER-${user}.png`;
-
-
-        link.href =
-            canvas.toDataURL(
-                "image/png",
-                1
-            );
-
-
-        document.body.appendChild(
-            link
-        );
-
-
-        link.click();
-
-
-        link.remove();
-
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-
-        alert(
-            "Gagal membuat PNG. Pastikan gambar/logo dapat diakses atau gunakan gambar lokal."
-        );
-
-    }
-
-    finally{
-
-        button.disabled =
-            false;
-
-        button.textContent =
-            "↓ DOWNLOAD PNG";
-
-    }
+    reader.readAsDataURL(
+        file
+    );
 
 }
-
 
 
 /* =========================================================
@@ -2613,45 +2617,31 @@ function resetForm(){
 
     const defaults = {
 
-        logoUrl:"",
+        logoUrl:
+            "",
 
-        userId:"Isi Userid",
+        userId:
+            "M******05",
 
-        totalWin:"Total JP",
+        totalWin:
+            "33,000,000",
 
         gameName:
-            "Isi Nama Game",
-
-        headline:
-            "SELAMAT KEPADA",
-
-        subHeadline:
-            "MEMBER SETIA KAMI",
-
-        service:
-            "24 JAM ONLINE",
-
-        security:
-            "TERJAMIN AMAN",
-
-        engine:
-            "PREMIUM QUALITY",
-
-        age:
-            "PASTI DIBAYAR"
+            "ACHIEVEMENT EVENT"
 
     };
 
 
-    Object.entries(defaults)
-        .forEach(
-            ([id,value]) => {
+    Object.entries(
+        defaults
+    ).forEach(
+        ([id,value]) => {
 
-                $(id).value =
-                    value;
+            $(id).value =
+                value;
 
-            }
-        );
+        }
+    );
 
 
     $("proofUpload").value =
@@ -2667,7 +2657,6 @@ function resetForm(){
     updatePoster();
 
 }
-
 
 
 /* =========================================================
